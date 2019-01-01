@@ -1,5 +1,6 @@
 package com.zhisheng.common.utils;
 
+import com.zhisheng.common.constant.PropertiesConstants;
 import org.apache.flink.api.common.restartstrategy.RestartStrategies;
 import org.apache.flink.api.java.utils.ParameterTool;
 import org.apache.flink.streaming.api.TimeCharacteristic;
@@ -12,7 +13,7 @@ import java.util.Map;
 public class ExecutionEnvUtil {
     public static ParameterTool createParameterTool(final String[] args) throws Exception {
         return ParameterTool
-                .fromPropertiesFile(ExecutionEnvUtil.class.getResourceAsStream("/application.properties"))
+                .fromPropertiesFile(ExecutionEnvUtil.class.getResourceAsStream(PropertiesConstants.PROPERTIES_FILE_NAME))
                 .mergeWith(ParameterTool.fromArgs(args))
                 .mergeWith(ParameterTool.fromSystemProperties())
                 .mergeWith(ParameterTool.fromMap(getenv()));
@@ -23,7 +24,7 @@ public class ExecutionEnvUtil {
     private static ParameterTool createParameterTool() {
         try {
             return ParameterTool
-                    .fromPropertiesFile(ExecutionEnvUtil.class.getResourceAsStream("/application.properties"))
+                    .fromPropertiesFile(ExecutionEnvUtil.class.getResourceAsStream(PropertiesConstants.PROPERTIES_FILE_NAME))
                     .mergeWith(ParameterTool.fromSystemProperties())
                     .mergeWith(ParameterTool.fromMap(getenv()));
         } catch (IOException e) {
@@ -34,11 +35,11 @@ public class ExecutionEnvUtil {
 
     public static StreamExecutionEnvironment prepare(ParameterTool parameterTool) throws Exception {
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
-        env.setParallelism(parameterTool.getInt("stream.parallelism", 5));
+        env.setParallelism(parameterTool.getInt(PropertiesConstants.STREAM_PARALLELISM, 5));
         env.getConfig().disableSysoutLogging();
         env.getConfig().setRestartStrategy(RestartStrategies.fixedDelayRestart(4, 10000));
-        if (parameterTool.getBoolean("stream.checkpoint.enable", true)) {
-            env.enableCheckpointing(parameterTool.getInt("stream.checkpoint.interval", 1000)); // create a checkpoint every 5 seconds
+        if (parameterTool.getBoolean(PropertiesConstants.STREAM_CHECKPOINT_ENABLE, true)) {
+            env.enableCheckpointing(parameterTool.getInt(PropertiesConstants.STREAM_CHECKPOINT_INTERVAL, 1000)); // create a checkpoint every 5 seconds
         }
         env.getConfig().setGlobalJobParameters(parameterTool); // make parameters available in the web interface
         env.setStreamTimeCharacteristic(TimeCharacteristic.EventTime);

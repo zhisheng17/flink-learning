@@ -1,6 +1,7 @@
 package com.zhisheng.common.utils;
 
 
+import com.zhisheng.common.constant.PropertiesConstants;
 import com.zhisheng.common.model.Metrics;
 import com.zhisheng.common.schemas.MetricSchema;
 import com.zhisheng.common.watermarks.MetricWatermark;
@@ -29,9 +30,9 @@ public class KafkaConfigUtil {
      */
     public static Properties buildKafkaProps(ParameterTool parameterTool) {
         Properties props = parameterTool.getProperties();
-        props.put("bootstrap.servers", parameterTool.get("kafka.brokers"));
-        props.put("zookeeper.connect", parameterTool.get("kafka.zookeeper.connect"));
-        props.put("group.id", parameterTool.get("kafka.group.id"));
+        props.put("bootstrap.servers", parameterTool.get(PropertiesConstants.KAFKA_BROKERS));
+        props.put("zookeeper.connect", parameterTool.get(PropertiesConstants.KAFKA_ZOOKEEPER_CONNECT));
+        props.put("group.id", parameterTool.get(PropertiesConstants.KAFKA_GROUP_ID));
         props.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
         props.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
         props.put("auto.offset.reset", "latest");
@@ -41,8 +42,8 @@ public class KafkaConfigUtil {
 
     public static DataStreamSource<Metrics> buildSource(StreamExecutionEnvironment env) throws IllegalAccessException {
         ParameterTool parameter = (ParameterTool) env.getConfig().getGlobalJobParameters();
-        String topic = parameter.getRequired("metrics.topic");
-        Long time = parameter.getLong("consumer.from.time", 0L);
+        String topic = parameter.getRequired(PropertiesConstants.METRICS_TOPIC);
+        Long time = parameter.getLong(PropertiesConstants.CONSUMER_FROM_TIME, 0L);
         return buildSource(env, topic, time);
     }
 
@@ -71,14 +72,14 @@ public class KafkaConfigUtil {
     private static Map<KafkaTopicPartition, Long> buildOffsetByTime(Properties props, ParameterTool parameterTool, Long time) {
         props.setProperty("group.id", "query_time_" + time);
         KafkaConsumer consumer = new KafkaConsumer(props);
-        List<PartitionInfo> partitionsFor = consumer.partitionsFor(parameterTool.getRequired("metrics.topic"));
+        List<PartitionInfo> partitionsFor = consumer.partitionsFor(parameterTool.getRequired(PropertiesConstants.METRICS_TOPIC));
         Map<TopicPartition, Long> partitionInfoLongMap = new HashMap<>();
         for (PartitionInfo partitionInfo : partitionsFor) {
             partitionInfoLongMap.put(new TopicPartition(partitionInfo.topic(), partitionInfo.partition()), time);
         }
         Map<TopicPartition, OffsetAndTimestamp> offsetResult = consumer.offsetsForTimes(partitionInfoLongMap);
         Map<KafkaTopicPartition, Long> partitionOffset = new HashMap<>();
-        offsetResult.entrySet().forEach(entry -> partitionOffset.put(new KafkaTopicPartition(entry.getKey().topic(), entry.getKey().partition()), entry.getValue().offset()));
+        offsetResult.forEach((key, value) -> partitionOffset.put(new KafkaTopicPartition(key.topic(), key.partition()), value.offset()));
 
         consumer.close();
         return partitionOffset;
