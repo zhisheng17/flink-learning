@@ -12,7 +12,7 @@ import org.apache.http.util.EntityUtils;
 
 import java.io.IOException;
 
-public class HttpUtils {
+public class HttpUtil {
     /**
      * 通过GET方式发起http请求
      */
