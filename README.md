@@ -33,7 +33,12 @@
 
 10、[《从0到1学习Flink》—— Flink 中几种 Time 详解](http://www.54tianzhisheng.cn/2018/12/11/Flink-time/)
 
-11、[《从0到1学习Flink》—— Flink 写入数据到 ElasticSearch]()
+11、[《从0到1学习Flink》—— Flink 写入数据到 ElasticSearch6](http://www.54tianzhisheng.cn/2018/12/30/Flink-ElasticSearch-Sink/)
+
+12、[《从0到1学习Flink》—— Flink 写入数据到 Kafka]()
+
+13、[《从0到1学习Flink》—— Flink 写入数据到 Cassandra]()
+
 
 ## 学习资料
 
