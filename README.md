@@ -35,9 +35,11 @@
 
 11、[《从0到1学习Flink》—— Flink 写入数据到 ElasticSearch6](http://www.54tianzhisheng.cn/2018/12/30/Flink-ElasticSearch-Sink/)
 
-12、[《从0到1学习Flink》—— Flink 写入数据到 Kafka]()
+12、[《从0到1学习Flink》—— Flink 项目如何运行？](http://www.54tianzhisheng.cn/2019/01/05/Flink-run/)
 
-13、[《从0到1学习Flink》—— Flink 写入数据到 Cassandra]()
+13、[《从0到1学习Flink》—— Flink 写入数据到 Kafka]()
+
+14、[《从0到1学习Flink》—— Flink 写入数据到 Cassandra]()
 
 
 ## 学习资料
