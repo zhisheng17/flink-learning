@@ -9,6 +9,9 @@ import org.apache.flink.api.common.typeinfo.TypeInformation;
 import java.io.IOException;
 import java.nio.charset.Charset;
 
+/**
+ * Metric Schema ，支持序列化和反序列化
+ */
 public class MetricSchema implements DeserializationSchema<Metrics>, SerializationSchema<Metrics> {
 
     private static final Gson gson = new Gson();
