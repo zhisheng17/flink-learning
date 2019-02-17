@@ -45,7 +45,7 @@
 
                                 <transformer
                                         implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>com.zhisheng.data.sources.Main</mainClass>
+                                    <mainClass>com.zhisheng.data.sources.Main</mainClass> //如果要打包的话，这里要换成对应的 main class
                                 </transformer>
                                 <transformer
                                         implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
