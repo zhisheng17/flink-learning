@@ -31,21 +31,23 @@
 
 9、[《从0到1学习Flink》—— 介绍Flink中的Stream Windows](http://www.54tianzhisheng.cn/2018/12/08/Flink-Stream-Windows/)
 
-10、[《从0到1学习Flink》—— Flink 中几种 Time 详解](http://www.54tianzhisheng.cn/2018/12/11/Flink-time/)
+10、[《从0到1学习Flink》—— Flink 中的几种 Time 详解](http://www.54tianzhisheng.cn/2018/12/11/Flink-time/)
 
-11、[《从0到1学习Flink》—— Flink 写入数据到 ElasticSearch6](http://www.54tianzhisheng.cn/2018/12/30/Flink-ElasticSearch-Sink/)
+11、[《从0到1学习Flink》—— Flink 写入数据到 ElasticSearch](http://www.54tianzhisheng.cn/2018/12/30/Flink-ElasticSearch-Sink/)
 
 12、[《从0到1学习Flink》—— Flink 项目如何运行？](http://www.54tianzhisheng.cn/2019/01/05/Flink-run/)
 
-13、[《从0到1学习Flink》—— Flink 写入数据到 Kafka]()
+13、[《从0到1学习Flink》—— Flink 写入数据到 Kafka](http://www.54tianzhisheng.cn/2019/01/06/Flink-Kafka-sink/)
 
-14、[《从0到1学习Flink》—— Flink 写入数据到 Cassandra]()
+14、[《从0到1学习Flink》—— Flink JobManager 高可用性配置](http://www.54tianzhisheng.cn/2019/01/13/Flink-JobManager-High-availability/)
+
+15、[《从0到1学习Flink》—— Flink parallelism 和 Slot 介绍](http://www.54tianzhisheng.cn/2019/01/14/Flink-parallelism-slot/)
 
 
 ## 学习资料
 
 另外我自己整理了些 Flink 的学习资料，目前已经全部放到微信公众号了。
-你可以加我的微信：**zhisheng_tian**，然后回复关键字：**Flink** 即可无条件获取到，转载请注明出处，违者必究。
+你可以加我的微信：**zhisheng_tian**，然后回复关键字：**Flink** 即可无条件获取到，转载请联系本人获取授权，违者必究。
 
 ![](https://ws2.sinaimg.cn/large/006tNbRwly1fyh07imy15j30bq0bwq43.jpg)
 
