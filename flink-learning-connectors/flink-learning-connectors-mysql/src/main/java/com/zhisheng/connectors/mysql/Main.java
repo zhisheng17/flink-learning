@@ -2,11 +2,13 @@ package com.zhisheng.connectors.mysql;
 
 
 import com.google.common.collect.Lists;
+import com.zhisheng.common.utils.ExecutionEnvUtil;
 import com.zhisheng.common.utils.GsonUtil;
 import com.zhisheng.connectors.mysql.model.Student;
 import com.zhisheng.connectors.mysql.sinks.SinkToMySQL;
-import org.apache.flink.api.common.functions.ReduceFunction;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.flink.api.common.serialization.SimpleStringSchema;
+import org.apache.flink.api.java.utils.ParameterTool;
 import org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.streaming.api.functions.windowing.AllWindowFunction;
@@ -19,37 +21,42 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
+import static com.zhisheng.common.constant.PropertiesConstants.*;
+
 /**
  * Created by zhisheng on 2019-02-17
  * Blog: http://www.54tianzhisheng.cn/2019/01/09/Flink-MySQL-sink/
  */
+@Slf4j
 public class Main {
     public static void main(String[] args) throws Exception{
         final StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
+        ParameterTool parameterTool = ExecutionEnvUtil.PARAMETER_TOOL;
         Properties props = new Properties();
-        props.put("bootstrap.servers", "localhost:9092");
-        props.put("zookeeper.connect", "localhost:2181");
-        props.put("group.id", "metric-group");
+        props.put("bootstrap.servers", parameterTool.get(KAFKA_BROKERS, DEFAULT_KAFKA_BROKERS));
+        props.put("zookeeper.connect", parameterTool.get(KAFKA_ZOOKEEPER_CONNECT, DEFAULT_KAFKA_ZOOKEEPER_CONNECT));
+        props.put("group.id", parameterTool.get(KAFKA_GROUP_ID));
         props.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
         props.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
         props.put("auto.offset.reset", "latest");
 
         SingleOutputStreamOperator<Student> student = env.addSource(new FlinkKafkaConsumer011<>(
-                "student",   //这个 kafka topic 需要和上面的工具类的 topic 一致
+                parameterTool.get(METRICS_TOPIC),   //这个 kafka topic 需要和上面的工具类的 topic 一致
                 new SimpleStringSchema(),
-                props)).setParallelism(1)
-                .map(string -> GsonUtil.fromJson(string, Student.class)); //解析字符串成 student 对象
+                props)).setParallelism(parameterTool.getInt(STREAM_PARALLELISM, 1))
+                .map(string -> GsonUtil.fromJson(string, Student.class)).setParallelism(4); //解析字符串成 student 对象
 
+        //timeWindowAll 只能为 1
         student.timeWindowAll(Time.minutes(1)).apply(new AllWindowFunction<Student, List<Student>, TimeWindow>() {
             @Override
             public void apply(TimeWindow window, Iterable<Student> values, Collector<List<Student>> out) throws Exception {
                 ArrayList<Student> students = Lists.newArrayList(values);
                 if (students.size() > 0) {
-                    System.out.println("1 分钟内收集到 student 的数据条数是：" + students.size());
+                    log.info("1 分钟内收集到 student 的数据条数是：" + students.size());
                     out.collect(students);
                 }
             }
-        }).addSink(new SinkToMySQL()).setParallelism(1);
+        }).addSink(new SinkToMySQL()).setParallelism(parameterTool.getInt(STREAM_SINK_PARALLELISM, 1));
 
         env.execute("flink learning connectors kafka");
     }
