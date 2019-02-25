@@ -8,6 +8,7 @@
     + flink-learning-connectors-cassandra
     + flink-learning-connectors-es6
     + flink-learning-connectors-kafka
+    + flink-learning-connectors-mysql
 + flink-learning-data-sinks
 + flink-learning-data-sources
 
@@ -29,20 +30,21 @@
 
 8、[《从0到1学习Flink》—— Flink Data transformation(转换)](http://www.54tianzhisheng.cn/2018/11/04/Flink-Data-transformation/)
 
-9、[《从0到1学习Flink》—— 介绍Flink中的Stream Windows](http://www.54tianzhisheng.cn/2018/12/08/Flink-Stream-Windows/)
+9、[《从0到1学习Flink》—— 介绍 Flink 中的 Stream Windows](http://www.54tianzhisheng.cn/2018/12/08/Flink-Stream-Windows/)
 
 10、[《从0到1学习Flink》—— Flink 中的几种 Time 详解](http://www.54tianzhisheng.cn/2018/12/11/Flink-time/)
 
-11、[《从0到1学习Flink》—— Flink 写入数据到 ElasticSearch](http://www.54tianzhisheng.cn/2018/12/30/Flink-ElasticSearch-Sink/)
+11、[《从0到1学习Flink》—— Flink 读取 Kafka 数据写入到 ElasticSearch](http://www.54tianzhisheng.cn/2018/12/30/Flink-ElasticSearch-Sink/)
 
 12、[《从0到1学习Flink》—— Flink 项目如何运行？](http://www.54tianzhisheng.cn/2019/01/05/Flink-run/)
 
-13、[《从0到1学习Flink》—— Flink 写入数据到 Kafka](http://www.54tianzhisheng.cn/2019/01/06/Flink-Kafka-sink/)
+13、[《从0到1学习Flink》—— Flink 读取 Kafka 数据写入到 Kafka](http://www.54tianzhisheng.cn/2019/01/06/Flink-Kafka-sink/)
 
 14、[《从0到1学习Flink》—— Flink JobManager 高可用性配置](http://www.54tianzhisheng.cn/2019/01/13/Flink-JobManager-High-availability/)
 
 15、[《从0到1学习Flink》—— Flink parallelism 和 Slot 介绍](http://www.54tianzhisheng.cn/2019/01/14/Flink-parallelism-slot/)
 
+16、[《从0到1学习Flink》—— Flink 读取 Kafka 数据批量写入到 MySQL](http://www.54tianzhisheng.cn/2019/01/15/Flink-MySQL-sink/)
 
 ## 学习资料
 

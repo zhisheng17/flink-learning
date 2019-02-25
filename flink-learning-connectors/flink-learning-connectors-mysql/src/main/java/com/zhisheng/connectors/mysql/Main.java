@@ -46,7 +46,7 @@ public class Main {
                 props)).setParallelism(parameterTool.getInt(STREAM_PARALLELISM, 1))
                 .map(string -> GsonUtil.fromJson(string, Student.class)).setParallelism(4); //解析字符串成 student 对象
 
-        //timeWindowAll 只能为 1
+        //timeWindowAll 并行度只能为 1
         student.timeWindowAll(Time.minutes(1)).apply(new AllWindowFunction<Student, List<Student>, TimeWindow>() {
             @Override
             public void apply(TimeWindow window, Iterable<Student> values, Collector<List<Student>> out) throws Exception {
