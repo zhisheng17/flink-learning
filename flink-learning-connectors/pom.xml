@@ -16,6 +16,7 @@
         <module>flink-learning-connectors-kafka</module>
         <module>flink-learning-connectors-cassandra</module>
         <module>flink-learning-connectors-mysql</module>
+        <module>flink-learning-connectors-rabbitmq</module>
     </modules>
 
     <dependencies>
