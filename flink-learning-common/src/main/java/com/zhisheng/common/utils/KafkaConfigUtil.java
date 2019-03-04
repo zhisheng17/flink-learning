@@ -21,6 +21,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
+import static com.zhisheng.common.constant.PropertiesConstants.*;
+
 public class KafkaConfigUtil {
     /**
      * 设置 kafka 配置
@@ -30,9 +32,9 @@ public class KafkaConfigUtil {
      */
     public static Properties buildKafkaProps(ParameterTool parameterTool) {
         Properties props = parameterTool.getProperties();
-        props.put("bootstrap.servers", parameterTool.get(PropertiesConstants.KAFKA_BROKERS));
-        props.put("zookeeper.connect", parameterTool.get(PropertiesConstants.KAFKA_ZOOKEEPER_CONNECT));
-        props.put("group.id", parameterTool.get(PropertiesConstants.KAFKA_GROUP_ID));
+        props.put("bootstrap.servers", parameterTool.get(PropertiesConstants.KAFKA_BROKERS, DEFAULT_KAFKA_BROKERS));
+        props.put("zookeeper.connect", parameterTool.get(PropertiesConstants.KAFKA_ZOOKEEPER_CONNECT, DEFAULT_KAFKA_ZOOKEEPER_CONNECT));
+        props.put("group.id", parameterTool.get(PropertiesConstants.KAFKA_GROUP_ID, DEFAULT_KAFKA_GROUP_ID));
         props.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
         props.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
         props.put("auto.offset.reset", "latest");

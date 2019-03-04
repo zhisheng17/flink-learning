@@ -8,6 +8,7 @@ public class PropertiesConstants {
     public static final String KAFKA_ZOOKEEPER_CONNECT = "kafka.zookeeper.connect";
     public static final String DEFAULT_KAFKA_ZOOKEEPER_CONNECT = "localhost:2181";
     public static final String KAFKA_GROUP_ID = "kafka.group.id";
+    public static final String DEFAULT_KAFKA_GROUP_ID = "zhisheng";
     public static final String METRICS_TOPIC = "metrics.topic";
     public static final String CONSUMER_FROM_TIME = "consumer.from.time";
     public static final String STREAM_PARALLELISM = "stream.parallelism";

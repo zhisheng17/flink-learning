@@ -4,6 +4,7 @@ package com.zhisheng.connectors.mysql;
 import com.google.common.collect.Lists;
 import com.zhisheng.common.utils.ExecutionEnvUtil;
 import com.zhisheng.common.utils.GsonUtil;
+import com.zhisheng.common.utils.KafkaConfigUtil;
 import com.zhisheng.connectors.mysql.model.Student;
 import com.zhisheng.connectors.mysql.sinks.SinkToMySQL;
 import lombok.extern.slf4j.Slf4j;
@@ -32,13 +33,7 @@ public class Main {
     public static void main(String[] args) throws Exception{
         final StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
         ParameterTool parameterTool = ExecutionEnvUtil.PARAMETER_TOOL;
-        Properties props = new Properties();
-        props.put("bootstrap.servers", parameterTool.get(KAFKA_BROKERS, DEFAULT_KAFKA_BROKERS));
-        props.put("zookeeper.connect", parameterTool.get(KAFKA_ZOOKEEPER_CONNECT, DEFAULT_KAFKA_ZOOKEEPER_CONNECT));
-        props.put("group.id", parameterTool.get(KAFKA_GROUP_ID));
-        props.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
-        props.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
-        props.put("auto.offset.reset", "latest");
+        Properties props = KafkaConfigUtil.buildKafkaProps(parameterTool);
 
         SingleOutputStreamOperator<Student> student = env.addSource(new FlinkKafkaConsumer011<>(
                 parameterTool.get(METRICS_TOPIC),   //这个 kafka topic 需要和上面的工具类的 topic 一致
