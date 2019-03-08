@@ -53,6 +53,6 @@ public class Main {
             }
         }).addSink(new SinkToMySQL()).setParallelism(parameterTool.getInt(STREAM_SINK_PARALLELISM, 1));
 
-        env.execute("flink learning connectors kafka");
+        env.execute("flink learning connectors mysql");
     }
 }
