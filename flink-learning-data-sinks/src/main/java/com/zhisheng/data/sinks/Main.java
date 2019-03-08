@@ -11,6 +11,10 @@ import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer011;
 
 import java.util.Properties;
 
+/**
+ * blog：http://www.54tianzhisheng.cn/
+ * 微信公众号：zhisheng
+ */
 public class Main {
     public static void main(String[] args) throws Exception{
         final StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();

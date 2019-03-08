@@ -11,6 +11,14 @@
 
     <artifactId>flink-learning-connectors-cassandra</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-connector-cassandra_${scala.binary.version}</artifactId>
+            <version>${flink.version}</version>
+        </dependency>
+    </dependencies>
+
     <build>
         <plugins>
             <plugin>

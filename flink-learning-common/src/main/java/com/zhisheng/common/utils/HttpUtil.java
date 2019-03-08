@@ -12,6 +12,10 @@ import org.apache.http.util.EntityUtils;
 
 import java.io.IOException;
 
+/**
+ * blog：http://www.54tianzhisheng.cn/
+ * 微信公众号：zhisheng
+ */
 public class HttpUtil {
     /**
      * 通过GET方式发起http请求

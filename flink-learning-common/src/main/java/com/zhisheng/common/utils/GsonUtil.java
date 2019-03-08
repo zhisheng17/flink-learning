@@ -4,6 +4,10 @@ import com.google.gson.Gson;
 
 import java.nio.charset.Charset;
 
+/**
+ * blog：http://www.54tianzhisheng.cn/
+ * 微信公众号：zhisheng
+ */
 public class GsonUtil {
     private final static Gson gson = new Gson();
 

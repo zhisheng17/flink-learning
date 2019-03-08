@@ -1,6 +1,10 @@
 package com.zhisheng.common.constant;
 
 
+/**
+ * blog：http://www.54tianzhisheng.cn/
+ * 微信公众号：zhisheng
+ */
 public class PropertiesConstants {
     public static final String ZHISHENG = "zhisheng";
     public static final String KAFKA_BROKERS = "kafka.brokers";

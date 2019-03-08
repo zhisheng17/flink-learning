@@ -10,6 +10,10 @@ import org.apache.flink.streaming.api.datastream.DataStreamSource;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.streaming.connectors.kafka.FlinkKafkaProducer011;
 
+/**
+ * blog：http://www.54tianzhisheng.cn/
+ * 微信公众号：zhisheng
+ */
 public class Main {
     public static void main(String[] args) throws Exception {
         final ParameterTool parameterTool = ExecutionEnvUtil.createParameterTool(args);

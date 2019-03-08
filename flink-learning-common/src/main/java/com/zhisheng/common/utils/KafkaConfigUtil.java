@@ -23,6 +23,10 @@ import java.util.Properties;
 
 import static com.zhisheng.common.constant.PropertiesConstants.*;
 
+/**
+ * blog：http://www.54tianzhisheng.cn/
+ * 微信公众号：zhisheng
+ */
 public class KafkaConfigUtil {
     /**
      * 设置 kafka 配置
