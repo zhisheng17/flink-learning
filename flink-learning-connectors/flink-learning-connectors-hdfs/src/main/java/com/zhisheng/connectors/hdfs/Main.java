@@ -21,6 +21,6 @@ public class Main {
         DataStreamSource<Metrics> data = KafkaConfigUtil.buildSource(env);
 
 
-        env.execute("flink learning connectors es6");
+        env.execute("flink learning connectors hdfs");
     }
 }
