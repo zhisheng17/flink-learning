@@ -32,7 +32,8 @@ public class Main1 {
                 .setPort(5672).setUserName("admin").setPassword("admin")
                 .build();
 
-        data.addSink(new RMQSink<>(connectionConfig, "zhisheng", new MetricSchema()));
+        //注意，换一个新的 queue，否则也会报错
+        data.addSink(new RMQSink<>(connectionConfig, "zhisheng001", new MetricSchema()));
         env.execute("flink learning connectors rabbitmq");
     }
 }
