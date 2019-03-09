@@ -19,6 +19,7 @@
         <module>flink-learning-connectors-rabbitmq</module>
         <module>flink-learning-connectors-hdfs</module>
         <module>flink-learning-connectors-hbase</module>
+        <module>flink-learning-connectors-rocketmq</module>
     </modules>
 
     <dependencies>
