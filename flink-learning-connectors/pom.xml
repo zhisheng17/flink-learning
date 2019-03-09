@@ -23,6 +23,7 @@
         <module>flink-learning-connectors-redis</module>
         <module>flink-learning-connectors-flume</module>
         <module>flink-learning-connectors-influxdb</module>
+        <module>flink-learning-connectors-activemq</module>
     </modules>
 
     <dependencies>
