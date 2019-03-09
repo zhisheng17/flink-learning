@@ -23,6 +23,7 @@ import java.io.IOException;
 import java.util.Date;
 import java.util.Properties;
 
+import static com.zhisheng.common.constant.PropertiesConstants.METRICS_TOPIC;
 import static com.zhisheng.connectors.hbase.constant.HBaseConstant.*;
 
 /**
@@ -40,7 +41,7 @@ public class Main {
         Properties props = KafkaConfigUtil.buildKafkaProps(parameterTool);
 
         DataStreamSource<String> data = env.addSource(new FlinkKafkaConsumer011<>(
-                "zhisheng",   //这个 kafka topic 需要和上面的工具类的 topic 一致
+                parameterTool.get(METRICS_TOPIC),   //这个 kafka topic 需要和上面的工具类的 topic 一致
                 new SimpleStringSchema(),
                 props));
 
