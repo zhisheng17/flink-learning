@@ -59,6 +59,12 @@
 
 17、[《从0到1学习Flink》—— Flink 读取 Kafka 数据写入到 RabbitMQ](http://www.54tianzhisheng.cn/2019/01/20/Flink-RabbitMQ-sink/)
 
+18、[《从0到1学习Flink》—— Flink 读取 Kafka 数据写入到 HBase]()
+
+19、[《从0到1学习Flink》—— Flink 读取 Kafka 数据写入到 HDFS]()
+
+20、[《从0到1学习Flink》—— Flink 读取 Kafka 数据写入到 Redis]()
+
 ## 学习资料
 
 另外我自己整理了些 Flink 的学习资料，目前已经全部放到微信公众号了。
@@ -70,3 +76,29 @@
 
 ![](https://ws1.sinaimg.cn/large/006tKfTcly1g0c5a3l1cyj30u00gewg6.jpg)
 
+有人要问知识星球里面更新什么内容？值得加入吗？
+
+目前知识星球内已更新的系列文章：
+
+1、[从1到100深入学习Flink》—— 源码编译](http://www.54tianzhisheng.cn/)
+
+2、[《从1到100深入学习Flink》—— 项目结构一览](http://www.54tianzhisheng.cn/)
+
+3、[《从1到100深入学习Flink》—— local 模式启动流程](http://www.54tianzhisheng.cn/)
+
+4、[《从1到100深入学习Flink》—— standalonesession 模式启动流程](http://www.54tianzhisheng.cn/)
+
+5、[《从1到100深入学习Flink》—— Standalone Session Cluster 启动流程深度分析之 Job Manager 启动](http://www.54tianzhisheng.cn/)
+
+6、[《从1到100深入学习Flink》—— Standalone Session Cluster 启动流程深度分析之 Task Manager 启动](http://www.54tianzhisheng.cn/)
+
+除了《从1到100深入学习Flink》源码学习这个系列文章，《从0到1学习Flink》的案例文章也会优先在知识星球更新，让大家先通过一些 demo 学习 Flink，再去深入源码学习！
+
+如果学习 Flink 的过程中，遇到什么问题，可以在里面提问，我会优先解答，这里做个抱歉，自己平时工作也挺忙，微信的问题不能做全部做一些解答，
+但肯定会优先回复给知识星球的付费用户的，庆幸的是现在星球里的活跃氛围还是可以的，有不少问题通过提问和解答的方式沉淀了下来。
+
+另外里面还会及时分享 Flink 的一些最新的资料（包括数据、视频、PPT、优秀博客，持续更新，保证全网最全，因为我知道 Flink 目前的资料还不多）
+
+再就是星球用户给我提的一点要求：不定期分享一些自己遇到的 Flink 项目的实战，生产项目遇到的问题，是如何解决的等经验之谈！
+
+当然，除了更新 Flink 相关的东西外，我还会更新一些大数据相关的东西，因为我个人之前不是大数据开发，所以现在也要狂补些知识！总之，希望进来的童鞋们一起共同进步！
