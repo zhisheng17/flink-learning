@@ -2,15 +2,26 @@
 
 ## 项目结构
 
-+ flink-learning-cep
-+ flink-learning-common
-+ flink-learning-connectors
-    + flink-learning-connectors-cassandra
-    + flink-learning-connectors-es6
-    + flink-learning-connectors-kafka
-    + flink-learning-connectors-mysql
-+ flink-learning-data-sinks
-+ flink-learning-data-sources
+```
+├── README.md
+├── flink-learning-cep
+├── flink-learning-common
+├── flink-learning-connectors
+│   ├── flink-learning-connectors-cassandra
+│   ├── flink-learning-connectors-es6
+│   ├── flink-learning-connectors-flume
+│   ├── flink-learning-connectors-hbase
+│   ├── flink-learning-connectors-hdfs
+│   ├── flink-learning-connectors-influxdb
+│   ├── flink-learning-connectors-kafka
+│   ├── flink-learning-connectors-mysql
+│   ├── flink-learning-connectors-rabbitmq
+│   ├── flink-learning-connectors-redis
+│   ├── flink-learning-connectors-rocketmq
+├── flink-learning-data-sinks
+├── flink-learning-data-sources
+├── flink-learning-template
+```
 
 ## 博客
 
@@ -46,10 +57,16 @@
 
 16、[《从0到1学习Flink》—— Flink 读取 Kafka 数据批量写入到 MySQL](http://www.54tianzhisheng.cn/2019/01/15/Flink-MySQL-sink/)
 
+17、[《从0到1学习Flink》—— Flink 读取 Kafka 数据写入到 RabbitMQ](http://www.54tianzhisheng.cn/2019/01/20/Flink-RabbitMQ-sink/)
+
 ## 学习资料
 
 另外我自己整理了些 Flink 的学习资料，目前已经全部放到微信公众号了。
 你可以加我的微信：**zhisheng_tian**，然后回复关键字：**Flink** 即可无条件获取到，转载请联系本人获取授权，违者必究。
 
 ![](https://ws2.sinaimg.cn/large/006tNbRwly1fyh07imy15j30bq0bwq43.jpg)
+
+更多私密资料请加入知识星球！
+
+![](https://ws1.sinaimg.cn/large/006tKfTcly1g0c5a3l1cyj30u00gewg6.jpg)
 
