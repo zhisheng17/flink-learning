@@ -14,6 +14,7 @@
         <module>flink-learning-data-sources</module>
         <module>flink-learning-data-sinks</module>
         <module>flink-learning-cep</module>
+        <module>flink-learning-template</module>
     </modules>
 
     <properties>
