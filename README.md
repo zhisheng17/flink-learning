@@ -80,7 +80,7 @@
 
 目前知识星球内已更新的系列文章：
 
-1、[从1到100深入学习Flink》—— 源码编译](http://www.54tianzhisheng.cn/)
+1、[《从1到100深入学习Flink》—— 源码编译](http://www.54tianzhisheng.cn/)
 
 2、[《从1到100深入学习Flink》—— 项目结构一览](http://www.54tianzhisheng.cn/)
 
