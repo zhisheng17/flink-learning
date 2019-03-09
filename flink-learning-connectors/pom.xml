@@ -22,6 +22,7 @@
         <module>flink-learning-connectors-rocketmq</module>
         <module>flink-learning-connectors-redis</module>
         <module>flink-learning-connectors-flume</module>
+        <module>flink-learning-connectors-influxdb</module>
     </modules>
 
     <dependencies>
