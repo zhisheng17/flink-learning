@@ -57,13 +57,25 @@
 
 16、[《从0到1学习Flink》—— Flink 读取 Kafka 数据批量写入到 MySQL](http://www.54tianzhisheng.cn/2019/01/15/Flink-MySQL-sink/)
 
-17、[《从0到1学习Flink》—— Flink 读取 Kafka 数据写入到 RabbitMQ](http://www.54tianzhisheng.cn/2019/01/20/Flink-RabbitMQ-sink/)
+17、[《从0到1学习Flink》—— Flink 读取 Kafka 数据写入到 RabbitMQ](https://t.zsxq.com/uVbi2nq)
 
-18、[《从0到1学习Flink》—— Flink 读取 Kafka 数据写入到 HBase]()
+18、[《从0到1学习Flink》—— Flink 读取 Kafka 数据写入到 HBase](https://t.zsxq.com/zV7MnuJ)
 
-19、[《从0到1学习Flink》—— Flink 读取 Kafka 数据写入到 HDFS]()
+19、[《从0到1学习Flink》—— Flink 读取 Kafka 数据写入到 HDFS](https://t.zsxq.com/zV7MnuJ)
 
-20、[《从0到1学习Flink》—— Flink 读取 Kafka 数据写入到 Redis]()
+20、[《从0到1学习Flink》—— Flink 读取 Kafka 数据写入到 Redis](https://t.zsxq.com/zV7MnuJ)
+
+21、[《从0到1学习Flink》—— Flink 读取 Kafka 数据写入到 Cassandra](https://t.zsxq.com/uVbi2nq)
+
+22、[《从0到1学习Flink》—— Flink 读取 Kafka 数据写入到 Flume](https://t.zsxq.com/zV7MnuJ)
+
+23、[《从0到1学习Flink》—— Flink 读取 Kafka 数据写入到 InfluxDB](https://t.zsxq.com/zV7MnuJ)
+
+24、[《从0到1学习Flink》—— Flink 读取 Kafka 数据写入到 RocketMQ](https://t.zsxq.com/zV7MnuJ)
+
+25、[《从0到1学习Flink》—— 你上传的 jar 包藏到哪里去了](https://t.zsxq.com/uniY7mm)
+
+26、[《从0到1学习Flink》—— 你的 Flink job 日志跑到哪里去了](https://t.zsxq.com/zV7MnuJ)
 
 ## 学习资料
 
@@ -80,25 +92,61 @@
 
 目前知识星球内已更新的系列文章：
 
-1、[《从1到100深入学习Flink》—— 源码编译](http://www.54tianzhisheng.cn/)
+1、[《从1到100深入学习Flink》—— 源码编译](https://t.zsxq.com/UZfaYfE)
 
-2、[《从1到100深入学习Flink》—— 项目结构一览](http://www.54tianzhisheng.cn/)
+2、[《从1到100深入学习Flink》—— 项目结构一览](https://t.zsxq.com/zZZjaYf)
 
-3、[《从1到100深入学习Flink》—— local 模式启动流程](http://www.54tianzhisheng.cn/)
+3、[《从1到100深入学习Flink》—— local 模式启动流程](https://t.zsxq.com/zV7MnuJ)
 
-4、[《从1到100深入学习Flink》—— standalonesession 模式启动流程](http://www.54tianzhisheng.cn/)
+4、[《从1到100深入学习Flink》—— standalonesession 模式启动流程](https://t.zsxq.com/QZVRZJA)
 
-5、[《从1到100深入学习Flink》—— Standalone Session Cluster 启动流程深度分析之 Job Manager 启动](http://www.54tianzhisheng.cn/)
+5、[《从1到100深入学习Flink》—— Standalone Session Cluster 启动流程深度分析之 Job Manager 启动](https://t.zsxq.com/u3fayvf)
 
-6、[《从1到100深入学习Flink》—— Standalone Session Cluster 启动流程深度分析之 Task Manager 启动](http://www.54tianzhisheng.cn/)
+6、[《从1到100深入学习Flink》—— Standalone Session Cluster 启动流程深度分析之 Task Manager 启动](https://t.zsxq.com/MnQRByb)
 
 除了《从1到100深入学习Flink》源码学习这个系列文章，《从0到1学习Flink》的案例文章也会优先在知识星球更新，让大家先通过一些 demo 学习 Flink，再去深入源码学习！
 
 如果学习 Flink 的过程中，遇到什么问题，可以在里面提问，我会优先解答，这里做个抱歉，自己平时工作也挺忙，微信的问题不能做全部做一些解答，
 但肯定会优先回复给知识星球的付费用户的，庆幸的是现在星球里的活跃氛围还是可以的，有不少问题通过提问和解答的方式沉淀了下来。
 
+1、[为何我使用 ValueState 保存状态 Job 恢复是状态没恢复？](https://t.zsxq.com/62rZV7q)
+
+2、[flink中watermark究竟是如何生成的，生成的规则是什么，怎么用来处理乱序数据](https://t.zsxq.com/yF2rjmY)
+
+3、[消费kafka数据的时候，如果遇到了脏数据，或者是不符合规则的数据等等怎么处理呢？](https://t.zsxq.com/uzFIeiq)
+
+4、[在Kafka 集群中怎么指定读取/写入数据到指定broker或从指定broker的offset开始消费？](https://t.zsxq.com/Nz7QZBY)
+
+5、[Flink能通过oozie或者azkaban提交吗？](https://t.zsxq.com/7UVBeMj)
+
+6、[jobmanager挂掉后，提交的job怎么不经过手动重新提交执行？](https://t.zsxq.com/mUzRbY7)
+
+7、[使用flink-web-ui提交作业并执行 但是/opt/flink/log目录下没有日志文件 请问关于flink的日志（包括jobmanager、taskmanager、每个job自己的日志默认分别存在哪个目录 ）需要怎么配置？](https://t.zsxq.com/Nju7EuV)
+
+8、[通过flink 仪表盘提交的jar 是存储在哪个目录下？](https://t.zsxq.com/6muRz3j)
+
+9、[从Kafka消费数据进行etl清洗，把结果写入hdfs映射成hive表，压缩格式、hive直接能够读取flink写出的文件、按照文件大小或者时间滚动生成文件](https://t.zsxq.com/uvFQvFu)
+
+10、[flink jar包上传至集群上运行，挂掉后，挂掉期间kafka中未被消费的数据，在重新启动程序后，是自动从checkpoint获取挂掉之前的kafka offset位置，自动消费之前的数据进行处理，还是需要某些手动的操作呢？](https://t.zsxq.com/ubIY33f)
+
+等等等，还有很多，复制粘贴的我手累啊 😂
+
 另外里面还会及时分享 Flink 的一些最新的资料（包括数据、视频、PPT、优秀博客，持续更新，保证全网最全，因为我知道 Flink 目前的资料还不多）
+
+[关于自己对 Flink 学习的一些想法和建议](https://t.zsxq.com/AybAimM)
+
+[Flink 全网最全资料获取，持续更新，点击可以获取](https://t.zsxq.com/iaEiyB2)
 
 再就是星球用户给我提的一点要求：不定期分享一些自己遇到的 Flink 项目的实战，生产项目遇到的问题，是如何解决的等经验之谈！
 
+1、[如何查看自己的 Job 执行计划并获取执行计划图](https://t.zsxq.com/Zz3ny3V)
+
+2、[当实时告警遇到 Kafka 千万数据量堆积该咋办？](https://t.zsxq.com/AIAQrnq)
+
 当然，除了更新 Flink 相关的东西外，我还会更新一些大数据相关的东西，因为我个人之前不是大数据开发，所以现在也要狂补些知识！总之，希望进来的童鞋们一起共同进步！
+
+1、[Java 核心知识点整理.pdf](https://t.zsxq.com/7I6Iyrf)
+
+2、[假如我是面试官，我会问你这些问题](https://t.zsxq.com/myJYZRF)
+
+3、[Kafka 系列文章和学习视频](https://t.zsxq.com/iUZnamE)
