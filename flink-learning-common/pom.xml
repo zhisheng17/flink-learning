@@ -33,17 +33,6 @@
             <artifactId>lombok</artifactId>
             <version>1.18.4</version>
         </dependency>
-        <!--加入下面两个依赖才会出现 Flink 的日志出来-->
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>1.7.25</version>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-simple</artifactId>
-            <version>1.7.25</version>
-        </dependency>
     </dependencies>
 
     <build>
