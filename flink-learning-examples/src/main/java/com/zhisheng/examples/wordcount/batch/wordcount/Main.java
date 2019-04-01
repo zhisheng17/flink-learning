@@ -1,4 +1,4 @@
-package com.zhisheng.examples.wordcount;
+package com.zhisheng.examples.wordcount.batch.wordcount;
 
 
 import org.apache.flink.api.common.functions.FlatMapFunction;
@@ -8,6 +8,9 @@ import org.apache.flink.api.java.tuple.Tuple2;
 import org.apache.flink.api.java.utils.ParameterTool;
 import org.apache.flink.util.Collector;
 
+/**
+ * batch
+ */
 public class Main {
 
     public static void main(String[] args) throws Exception {
