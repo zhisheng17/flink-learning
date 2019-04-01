@@ -17,6 +17,7 @@
         <module>flink-learning-template</module>
         <module>flink-learning-sql</module>
         <module>flink-learning-examples</module>
+        <module>flink-learning-monitor</module>
     </modules>
 
     <properties>
