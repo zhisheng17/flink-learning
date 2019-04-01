@@ -17,34 +17,29 @@ import java.io.IOException;
  * 微信公众号：zhisheng
  */
 public class HttpUtil {
+    private static final CloseableHttpClient httpClient = HttpClients.createDefault();
+
     /**
      * 通过GET方式发起http请求
      */
     public static String doGet(String url) {
-        CloseableHttpClient httpClient = HttpClients.createDefault();
+        HttpGet get = new HttpGet(url);
+        get.setHeader("content-type", "application/json");
+        CloseableHttpResponse httpResponse = null;
         try {
-            HttpGet get = new HttpGet(url);
-//            get.setHeader("Internal-Client", "alert");
-            get.setHeader("content-type", "application/json");
-            CloseableHttpResponse httpResponse = null;
             httpResponse = httpClient.execute(get);
-            try {
-                if (httpResponse.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
-                    HttpEntity entity = httpResponse.getEntity();
-                    if (null != entity) {
-                        return EntityUtils.toString(httpResponse.getEntity());
-                    }
+            if (httpResponse.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
+                HttpEntity entity = httpResponse.getEntity();
+                if (null != entity) {
+                    return EntityUtils.toString(httpResponse.getEntity());
                 }
-            } finally {
-                httpResponse.close();
             }
-        } catch (Exception e) {
+        } catch (IOException e) {
             e.printStackTrace();
         } finally {
             try {
-                if (httpClient != null) {
-                    httpClient.close();
-                }
+                if (httpResponse != null)
+                    httpResponse.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -62,7 +57,6 @@ public class HttpUtil {
      * @throws Exception
      */
     public static CloseableHttpResponse doPostResponse(String url, String jsonParams) throws Exception {
-        CloseableHttpClient httpClient = HttpClients.createDefault();
         CloseableHttpResponse response = null;
         HttpPost httpPost = new HttpPost(url);
 
@@ -84,7 +78,6 @@ public class HttpUtil {
 
 
     public static String doPostString(String url, String jsonParams) throws Exception {
-        CloseableHttpClient httpClient = HttpClients.createDefault();
         CloseableHttpResponse response = null;
         HttpPost httpPost = new HttpPost(url);
 
@@ -96,16 +89,15 @@ public class HttpUtil {
 
             httpPost.setEntity(entity);
             httpPost.setHeader("content-type", "application/json");
-//            httpPost.setHeader("Internal-Client", "alert");
             response = httpClient.execute(httpPost);
             httpStr = EntityUtils.toString(response.getEntity(), "UTF-8");
 
         } finally {
             if (response != null) {
                 EntityUtils.consume(response.getEntity());
+                response.close();
             }
         }
         return httpStr;
     }
-
 }
