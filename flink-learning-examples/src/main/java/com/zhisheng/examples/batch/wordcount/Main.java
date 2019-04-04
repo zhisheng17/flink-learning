@@ -1,21 +1,22 @@
-package com.zhisheng.examples.wordcount.streaming.wordcount;
+package com.zhisheng.examples.batch.wordcount;
 
 
 import org.apache.flink.api.common.functions.FlatMapFunction;
 import org.apache.flink.api.common.functions.ReduceFunction;
+import org.apache.flink.api.java.ExecutionEnvironment;
 import org.apache.flink.api.java.tuple.Tuple2;
 import org.apache.flink.api.java.utils.ParameterTool;
-import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.util.Collector;
 
 /**
- * Streaming
+ * batch
  */
 public class Main {
+
     public static void main(String[] args) throws Exception {
-        //创建流运行环境
-        StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
-        env.getConfig().setGlobalJobParameters(ParameterTool.fromArgs(args));
+        final ParameterTool params = ParameterTool.fromArgs(args);
+        final ExecutionEnvironment env = ExecutionEnvironment.getExecutionEnvironment();
+        env.getConfig().setGlobalJobParameters(params);
 
         env.fromElements(WORDS)
                 .flatMap(new FlatMapFunction<String, Tuple2<String, Integer>>() {
@@ -30,7 +31,7 @@ public class Main {
                         }
                     }
                 })
-                .keyBy(0)
+                .groupBy(0)
                 .reduce(new ReduceFunction<Tuple2<String, Integer>>() {
                     @Override
                     public Tuple2<String, Integer> reduce(Tuple2<String, Integer> value1, Tuple2<String, Integer> value2) throws Exception {
@@ -38,9 +39,6 @@ public class Main {
                     }
                 })
                 .print();
-
-        //Streaming 程序必须加这个才能启动程序，否则不会有结果
-        env.execute("zhisheng —— word count streaming demo");
     }
 
     private static final String[] WORDS = new String[]{
