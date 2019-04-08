@@ -18,6 +18,8 @@
         <module>flink-learning-sql</module>
         <module>flink-learning-examples</module>
         <module>flink-learning-monitor</module>
+        <module>flink-learning-window</module>
+        <module>flink-learning-state</module>
     </modules>
 
     <properties>
