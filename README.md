@@ -115,13 +115,13 @@
 
 6、[《从1到100深入学习Flink》—— Standalone Session Cluster 启动流程深度分析之 Task Manager 启动](https://t.zsxq.com/MnQRByb)
 
-7、[《从1到100深入学习Flink》——分析 Batch WordCount 程序的执行过程](https://t.zsxq.com/zV7MnuJ)
+7、[《从1到100深入学习Flink》——分析 Batch WordCount 程序的执行过程](https://t.zsxq.com/YJ2Zrfi)
 
-8、[《从1到100深入学习Flink》——分析 Streaming WordCount 程序的执行过程](https://t.zsxq.com/zV7MnuJ)
+8、[《从1到100深入学习Flink》——分析 Streaming WordCount 程序的执行过程](https://t.zsxq.com/qnMFEUJ)
 
-9、[《从1到100深入学习Flink》——如何获取 StreamGraph？](https://t.zsxq.com/zV7MnuJ)
+9、[《从1到100深入学习Flink》——如何获取 StreamGraph？](https://t.zsxq.com/qRFIm6I)
 
-10、[《从1到100深入学习Flink》——如何获取 JobGraph？](https://t.zsxq.com/zV7MnuJ)
+10、[《从1到100深入学习Flink》——如何获取 JobGraph？](https://t.zsxq.com/naaMf6y)
 
 11、[《从1到100深入学习Flink》—— Flink JobManager 有什么作用？](https://t.zsxq.com/zV7MnuJ)
 
@@ -186,6 +186,15 @@
 
 25、[不采用yarm部署flink，还有其他的方案吗？ 主要想解决服务器重启后，flink服务怎么自动拉起？ jobmanager挂掉后，提交的job怎么不经过手动重新提交执行？](https://t.zsxq.com/mUzRbY7)
 
+26、[在一个 Job 里将同份数据昨晚清洗操作后，sink 到后端多个地方（看业务需求），如何保持一致性？（一个sink出错，另外的也保证不能插入）](https://t.zsxq.com/bYnimQv)
+
+27、[flink sql任务在某个特定阶段会发生tm和jm丢失心跳，是不是由于gc时间过长呢，](https://t.zsxq.com/YvBAyrV)
+
+28、[有这样一个需求，统计用户近两周进入产品详情页的来源（1首页大搜索，2产品频道搜索，3其他），为php后端提供数据支持，该信息在端上报事件中，php直接获取有点困难。 我现在的解决方案 通过flink滚动窗口（半小时），统计用户半小时内3个来源pv，然后按照日期序列化，直接写mysql。php从数据库中解析出来，再去统计近两周占比。 问题1，这个需求适合用flink去做吗？ 问题2，我的方案总感觉怪怪的，有没有好的方案？](https://t.zsxq.com/fayf2Vv)
+
+29、[一个task slot  只能同时运行一个任务还是多个任务呢？如果task  slot运行的任务比较大，会出现OOM的情况吗？](https://t.zsxq.com/ZFiY3VZ)
+
+30、[你们怎么对线上flink做监控的，如果整个程序失败了怎么自动重启等等](https://t.zsxq.com/Yn2JqB6)
 
 
 等等等，还有很多，复制粘贴的我手累啊 😂
