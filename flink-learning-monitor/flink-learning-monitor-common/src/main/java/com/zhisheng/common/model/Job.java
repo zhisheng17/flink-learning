@@ -42,5 +42,8 @@ public class Job {
      */
     private Long lastModification;
 
-
+    /**
+     * job tasks
+     */
+    private Task tasks;
 }
