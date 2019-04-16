@@ -196,6 +196,11 @@
 
 30、[你们怎么对线上flink做监控的，如果整个程序失败了怎么自动重启等等](https://t.zsxq.com/Yn2JqB6)
 
+31、[flink cep规则动态解析有接触吗？有没有成型的框架？](https://t.zsxq.com/YFMFeaA)
+
+32、[每一个Window都有一个watermark吗？window是怎么根据watermark进行触发或者销毁的？](https://t.zsxq.com/VZvRrjm)
+
+33、[ CheckPoint与SavePoint的区别是什么？](https://t.zsxq.com/R3ZZJUF)
 
 等等等，还有很多，复制粘贴的我手累啊 😂
 
@@ -217,6 +222,8 @@
 
 5、[Flink环境部署、应用配置及运行应用程序](https://t.zsxq.com/iiYfMBe)
 
+6、[监控平台该有架构是长这样子的](https://t.zsxq.com/yfYrvFA)
+
 
 当然，除了更新 Flink 相关的东西外，我还会更新一些大数据相关的东西，因为我个人之前不是大数据开发，所以现在也要狂补些知识！总之，希望进来的童鞋们一起共同进步！
 
@@ -225,3 +232,9 @@
 2、[假如我是面试官，我会问你这些问题](https://t.zsxq.com/myJYZRF)
 
 3、[Kafka 系列文章和学习视频](https://t.zsxq.com/iUZnamE)
+
+4、[重新定义 Flink 第二期 pdf](https://t.zsxq.com/r7eIeyJ)
+
+5、[GitChat Flink 文章答疑记录](https://t.zsxq.com/ZjiYrVr)
+
+6、[Java 并发课程要掌握的知识点](https://t.zsxq.com/QZVJyz7)
