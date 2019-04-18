@@ -2,7 +2,7 @@ package com.zhisheng.common.utils;
 
 
 import com.zhisheng.common.constant.PropertiesConstants;
-import com.zhisheng.common.model.Metrics;
+import com.zhisheng.common.model.MetricEvent;
 import com.zhisheng.common.schemas.MetricSchema;
 import com.zhisheng.common.watermarks.MetricWatermark;
 import org.apache.flink.api.java.utils.ParameterTool;
@@ -46,7 +46,7 @@ public class KafkaConfigUtil {
     }
 
 
-    public static DataStreamSource<Metrics> buildSource(StreamExecutionEnvironment env) throws IllegalAccessException {
+    public static DataStreamSource<MetricEvent> buildSource(StreamExecutionEnvironment env) throws IllegalAccessException {
         ParameterTool parameter = (ParameterTool) env.getConfig().getGlobalJobParameters();
         String topic = parameter.getRequired(PropertiesConstants.METRICS_TOPIC);
         Long time = parameter.getLong(PropertiesConstants.CONSUMER_FROM_TIME, 0L);
@@ -60,10 +60,10 @@ public class KafkaConfigUtil {
      * @return
      * @throws IllegalAccessException
      */
-    public static DataStreamSource<Metrics> buildSource(StreamExecutionEnvironment env, String topic, Long time) throws IllegalAccessException {
+    public static DataStreamSource<MetricEvent> buildSource(StreamExecutionEnvironment env, String topic, Long time) throws IllegalAccessException {
         ParameterTool parameterTool = (ParameterTool) env.getConfig().getGlobalJobParameters();
         Properties props = buildKafkaProps(parameterTool);
-        FlinkKafkaConsumer011<Metrics> consumer = new FlinkKafkaConsumer011<>(
+        FlinkKafkaConsumer011<MetricEvent> consumer = new FlinkKafkaConsumer011<>(
                 topic,
                 new MetricSchema(),
                 props);
@@ -91,7 +91,7 @@ public class KafkaConfigUtil {
         return partitionOffset;
     }
 
-    public static SingleOutputStreamOperator<Metrics> parseSource(DataStreamSource<Metrics> dataStreamSource) {
+    public static SingleOutputStreamOperator<MetricEvent> parseSource(DataStreamSource<MetricEvent> dataStreamSource) {
         return dataStreamSource.assignTimestampsAndWatermarks(new MetricWatermark());
     }
 }

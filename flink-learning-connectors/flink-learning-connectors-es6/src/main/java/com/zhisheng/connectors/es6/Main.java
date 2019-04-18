@@ -1,7 +1,7 @@
 package com.zhisheng.connectors.es6;
 
 
-import com.zhisheng.common.model.Metrics;
+import com.zhisheng.common.model.MetricEvent;
 import com.zhisheng.common.utils.ExecutionEnvUtil;
 import com.zhisheng.common.utils.GsonUtil;
 import com.zhisheng.common.utils.KafkaConfigUtil;
@@ -29,7 +29,7 @@ public class Main {
     public static void main(String[] args) throws Exception {
         final ParameterTool parameterTool = ExecutionEnvUtil.createParameterTool(args);
         StreamExecutionEnvironment env = ExecutionEnvUtil.prepare(parameterTool);
-        DataStreamSource<Metrics> data = KafkaConfigUtil.buildSource(env);
+        DataStreamSource<MetricEvent> data = KafkaConfigUtil.buildSource(env);
 
         List<HttpHost> esAddresses = ElasticSearchSinkUtil.getEsAddresses(parameterTool.get(ELASTICSEARCH_HOSTS));
         int bulkSize = parameterTool.getInt(ELASTICSEARCH_BULK_FLUSH_MAX_ACTIONS, 40);
@@ -38,7 +38,7 @@ public class Main {
         log.info("-----esAddresses = {}, parameterTool = {}, ", esAddresses, parameterTool);
 
         ElasticSearchSinkUtil.addSink(esAddresses, bulkSize, sinkParallelism, data,
-                (Metrics metric, RuntimeContext runtimeContext, RequestIndexer requestIndexer) -> {
+                (MetricEvent metric, RuntimeContext runtimeContext, RequestIndexer requestIndexer) -> {
                     requestIndexer.add(Requests.indexRequest()
                             .index(ZHISHENG + "_" + metric.getName())
                             .type(ZHISHENG)

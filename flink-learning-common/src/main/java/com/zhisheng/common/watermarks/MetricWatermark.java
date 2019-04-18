@@ -1,6 +1,6 @@
 package com.zhisheng.common.watermarks;
 
-import com.zhisheng.common.model.Metrics;
+import com.zhisheng.common.model.MetricEvent;
 import org.apache.flink.streaming.api.functions.AssignerWithPeriodicWatermarks;
 import org.apache.flink.streaming.api.watermark.Watermark;
 
@@ -10,7 +10,7 @@ import javax.annotation.Nullable;
  * blog：http://www.54tianzhisheng.cn/
  * 微信公众号：zhisheng
  */
-public class MetricWatermark implements AssignerWithPeriodicWatermarks<Metrics> {
+public class MetricWatermark implements AssignerWithPeriodicWatermarks<MetricEvent> {
 
     private long currentTimestamp = Long.MIN_VALUE;
 
@@ -21,7 +21,7 @@ public class MetricWatermark implements AssignerWithPeriodicWatermarks<Metrics> 
     }
 
     @Override
-    public long extractTimestamp(Metrics metrics, long l) {
+    public long extractTimestamp(MetricEvent metrics, long l) {
         long timestamp = metrics.getTimestamp() / (1000 * 1000);
         this.currentTimestamp = timestamp;
         return timestamp;

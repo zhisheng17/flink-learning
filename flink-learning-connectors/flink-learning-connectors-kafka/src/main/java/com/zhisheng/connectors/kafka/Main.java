@@ -1,7 +1,7 @@
 package com.zhisheng.connectors.kafka;
 
 
-import com.zhisheng.common.model.Metrics;
+import com.zhisheng.common.model.MetricEvent;
 import com.zhisheng.common.schemas.MetricSchema;
 import com.zhisheng.common.utils.ExecutionEnvUtil;
 import com.zhisheng.common.utils.KafkaConfigUtil;
@@ -18,9 +18,9 @@ public class Main {
     public static void main(String[] args) throws Exception {
         final ParameterTool parameterTool = ExecutionEnvUtil.createParameterTool(args);
         StreamExecutionEnvironment env = ExecutionEnvUtil.prepare(parameterTool);
-        DataStreamSource<Metrics> data = KafkaConfigUtil.buildSource(env);
+        DataStreamSource<MetricEvent> data = KafkaConfigUtil.buildSource(env);
 
-        data.addSink(new FlinkKafkaProducer011<Metrics>(
+        data.addSink(new FlinkKafkaProducer011<>(
                 parameterTool.get("kafka.sink.brokers"),
                 parameterTool.get("kafka.sink.topic"),
                 new MetricSchema()
