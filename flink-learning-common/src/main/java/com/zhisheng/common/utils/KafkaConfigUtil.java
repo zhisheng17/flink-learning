@@ -28,6 +28,16 @@ import static com.zhisheng.common.constant.PropertiesConstants.*;
  * 微信公众号：zhisheng
  */
 public class KafkaConfigUtil {
+
+    /**
+     * 设置基础的 Kafka 配置
+     *
+     * @return
+     */
+    public static Properties buildKafkaProps() {
+        return buildKafkaProps(ParameterTool.fromSystemProperties());
+    }
+
     /**
      * 设置 kafka 配置
      *
