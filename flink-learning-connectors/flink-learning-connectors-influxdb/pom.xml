@@ -10,6 +10,17 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>flink-learning-connectors-influxdb</artifactId>
+    <properties>
+        <influxdb-client.version>2.7</influxdb-client.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.influxdb</groupId>
+            <artifactId>influxdb-java</artifactId>
+            <version>${influxdb-client.version}</version>
+        </dependency>
+    </dependencies>
 
     <build>
         <plugins>
