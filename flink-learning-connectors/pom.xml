@@ -24,6 +24,7 @@
         <module>flink-learning-connectors-flume</module>
         <module>flink-learning-connectors-influxdb</module>
         <module>flink-learning-connectors-activemq</module>
+        <module>flink-learning-connectors-netty</module>
     </modules>
 
     <dependencies>
