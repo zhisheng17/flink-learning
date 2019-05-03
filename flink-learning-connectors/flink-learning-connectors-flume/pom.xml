@@ -11,6 +11,19 @@
 
     <artifactId>flink-learning-connectors-flume</artifactId>
 
+    <properties>
+        <flume-ng.version>1.9.0</flume-ng.version>
+    </properties>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>org.apache.flume</groupId>
+            <artifactId>flume-ng-core</artifactId>
+            <version>${flume-ng.version}</version>
+        </dependency>
+    </dependencies>
+
     <build>
         <plugins>
             <plugin>
