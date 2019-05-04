@@ -11,4 +11,6 @@ public class HBaseConstant {
     public static final String HBASE_CLIENT_OPERATION_TIMEOUT = "hbase.client.operation.timeout";
     public static final String HBASE_CLIENT_SCANNER_TIMEOUT_PERIOD = "hbase.client.scanner.timeout.period";
 
+    public static final String HBASE_TABLE_NAME = "hbase.table.name";
+    public static final String HBASE_COLUMN_NAME = "hbase.column.name";
 }
