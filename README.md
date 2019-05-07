@@ -202,6 +202,71 @@
 
 33、[ CheckPoint与SavePoint的区别是什么？](https://t.zsxq.com/R3ZZJUF)
 
+34、[flink可以在算子中共享状态吗？或者大佬你有什么方法可以共享状态的呢？](https://t.zsxq.com/Aa62Bim)
+
+35、[运行几分钟就报了，看taskmager日志，报的是 failed elasticsearch bulk request null，可是我代码里面已经做过空值判断了呀 而且也过滤掉了，flink版本1.7.2 es版本6.3.1](https://t.zsxq.com/ayFmmMF)
+
+36、[这种情况，我们调并行度 还是配置参数好](https://t.zsxq.com/Yzzzb2b)
+
+37、[大家都用jdbc写，各种数据库增删查改拼sql有没有觉得很累，ps.set代码一大堆，还要计算每个参数的位置](https://t.zsxq.com/AqBUR3f)
+
+38、[关于datasource的配置，每个taskmanager对应一个datasource?还是每个slot? 实际运行下来，每个slot中datasorce线程池只要设置1就行了，多了也用不到?](https://t.zsxq.com/AqBUR3f)
+
+39、[kafka现在每天出现数据丢失，现在小批量数据，一天200W左右, kafka版本为 1.0.0，集群总共7个节点，TOPIC有十六个分区，单条报文1.5k左右](https://t.zsxq.com/AqBUR3f)
+
+40、[根据key.hash的绝对值 对并发度求模，进行分组，假设10各并发度，实际只有8个分区有处理数据，有2个始终不处理，还有一个分区处理的数据是其他的三倍，如截图](https://t.zsxq.com/AqBUR3f)
+
+41、[flink每7小时不知道在处理什么， CPU 负载 每7小时，有一次高峰，5分钟内平均负载超过0.8，如截图](https://t.zsxq.com/AqBUR3f)
+
+42、[有没有Flink写的项目推荐？我想看到用Flink写的整体项目是怎么组织的，不单单是一个单例子](https://t.zsxq.com/M3fIMbu)
+
+43、[Flink 源码的结构图](https://t.zsxq.com/yv7EQFA)
+
+44、[我想根据不同业务表（case when）进行不同的redis sink（hash ，set），我要如何操作？](https://t.zsxq.com/vBAYNJq)
+
+45、[这个需要清理什么数据呀，我把hdfs里面的已经清理了 启动还是报这个](https://t.zsxq.com/b2zbUJa)
+
+46、[  在流处理系统，在机器发生故障恢复之后，什么情况消息最多会被处理一次？什么情况消息最少会被处理一次呢？](https://t.zsxq.com/QjQFmQr)
+
+47、[我检查点都调到5分钟了，这是什么问题](https://t.zsxq.com/zbQNfuJ)
+
+48、[reduce方法后 那个交易时间 怎么不是最新的，是第一次进入的那个时间，](https://t.zsxq.com/ZrjEauN)
+
+49、[Flink  on Yarn 模式，用yarn session脚本启动的时候，我在后台没有看到到Jobmanager，TaskManager，ApplicationMaster这几个进程，想请问一下这是什么原因呢？因为之前看官网的时候，说Jobmanager就是一个jvm进程，Taskmanage也是一个JVM进程](https://t.zsxq.com/VJyr3bM)
+
+50、[Flink  on Yarn的时候得指定 多少个TaskManager和每个TaskManager slot去运行任务，这样做感觉不太合理，因为用户也不知道需要多少个TaskManager适合，Flink 有动态启动TaskManager的机制吗。](https://t.zsxq.com/VJyr3bM)
+
+51、[参考这个例子，Flink 零基础实战教程：如何计算实时热门商品 | Jark's Blog， 窗口聚合的时候，用keywindow，用的是timeWindowAll，然后在aggregate的时候用aggregate(new CustomAggregateFunction(), new CustomWindowFunction())，打印结果后，发现窗口中一直使用的重复的数据，统计的结果也不变，去掉CustomWindowFunction()就正常了 ？ 非常奇怪](https://t.zsxq.com/UBmUJMv)
+
+52、[用户进入产品预定页面（端埋点上报），并填写了一些信息（端埋点上报），但半小时内并没有产生任何订单，然后给该类用户发送一个push。 1. 这种需求适合用flink去做吗？2. 如果适合，说下大概的思路](https://t.zsxq.com/naQb6aI)
+
+53、[业务场景是实时获取数据存redis，请问我要如何按天、按周、按月分别存入redis里？（比方说过了一天自动换一个位置存redis）](https://t.zsxq.com/AUf2VNz)
+
+54、[有人 AggregatingState 的例子吗, 感觉官方的例子和 官网的不太一样?](https://t.zsxq.com/UJ6Y7m2)
+
+55、[flink-jdbc这个jar有吗？怎么没找到啊？1.8.0的没找到，1.6.2的有](https://t.zsxq.com/r3BaAY3)
+
+56、[现有个关于savepoint的问题，操作流程为，取消任务时设置保存点，更新任务，从保存点启动任务；现在遇到个问题，假设我中间某个算子重写，原先通过state编写，有用定时器，现在更改后，采用窗口，反正就是实现方式完全不一样；从保存点启动就会一直报错，重启，原先的保存点不能还原，此时就会有很多数据重复等各种问题，如何才能保证数据不丢失，不重复等，恢复到停止的时候，现在想到的是记下kafka的偏移量，再做处理，貌似也不是很好弄，有什么解决办法吗](https://t.zsxq.com/jiybIee)
+
+57、[需要在flink计算app页面访问时长，消费Kafka计算后输出到Kafka。第一条log需要等待第二条log的时间戳计算访问时长。我想问的是，flink是分布式的，那么它能否保证执行的顺序性？后来的数据有没有可能先被执行？](https://t.zsxq.com/eMJmiQz)
+
+58、[我公司想做实时大屏，现有技术是将业务所需指标实时用spark拉到redis里存着，然后再用一条spark streaming流计算简单乘除运算，指标包含了各月份的比较。请问我该如何用flink简化上述流程？](https://t.zsxq.com/Y7e6aIu)
+
+59、[flink on yarn 方式，这样理解不知道对不对，yarn-session这个脚本其实就是准备yarn环境的，执行run任务的时候，根据yarn-session初始化的yarnDescription 把 flink 任务的jobGraph提交到yarn上去执行](https://t.zsxq.com/QbIayJ6)
+
+60、[同样的代码逻辑写在单独的main函数中就可以成功的消费kafka ，写在一个spring boot的程序中，接受外部请求，然后执行相同的逻辑就不能消费kafka。你遇到过吗？能给一些查问题的建议，或者在哪里打个断点，能看到为什么消费不到kafka的消息呢？](https://t.zsxq.com/VFMRbYN)
+
+61、[请问下flink可以实现一个流中同时存在订单表和订单商品表的数据 两者是一对多的关系  能实现得到 以订单表为主 一个订单多个商品 这种需求嘛](https://t.zsxq.com/QNvjI6Q)
+
+62、[在用中间状态的时候，如果中间一些信息保存在state中，有没有必要在redis中再保存一份，来做第三方的存储。](https://t.zsxq.com/6ie66EE)
+
+63、[能否出一期flink state的文章。什么场景下用什么样的state？如，最简单的，实时累加update到state。](https://t.zsxq.com/bm6mYjI)
+
+64、[flink的双流join博主有使用的经验吗？会有什么常见的问题吗](https://t.zsxq.com/II6AEe2)
+
+65、[窗口触发的条件问题](https://t.zsxq.com/V7EmUZR)
+
+
 等等等，还有很多，复制粘贴的我手累啊 😂
 
 另外里面还会及时分享 Flink 的一些最新的资料（包括数据、视频、PPT、优秀博客，持续更新，保证全网最全，因为我知道 Flink 目前的资料还不多）
@@ -224,6 +289,8 @@
 
 6、[监控平台该有架构是长这样子的](https://t.zsxq.com/yfYrvFA)
 
+7、[《大数据“重磅炸弹”——实时计算框架 Flink》目录大纲](https://t.zsxq.com/beu7Mvj)
+
 
 当然，除了更新 Flink 相关的东西外，我还会更新一些大数据相关的东西，因为我个人之前不是大数据开发，所以现在也要狂补些知识！总之，希望进来的童鞋们一起共同进步！
 
@@ -238,3 +305,11 @@
 5、[GitChat Flink 文章答疑记录](https://t.zsxq.com/ZjiYrVr)
 
 6、[Java 并发课程要掌握的知识点](https://t.zsxq.com/QZVJyz7)
+
+7、[Lightweight Asynchronous Snapshots for Distributed Dataflows](https://t.zsxq.com/VVN7YB2)
+
+8、[Apache Flink™- Stream and Batch Processing in a Single Engine](https://t.zsxq.com/VVN7YB2)
+
+9、[Flink状态管理与容错机制](https://t.zsxq.com/NjAQFi2)
+
+10、[Flink 流批一体的技术架构以及在阿里 的实践](https://t.zsxq.com/MvfUvzN)
