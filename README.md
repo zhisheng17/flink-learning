@@ -2,37 +2,7 @@
 
 ## 项目结构
 
-```
-├── README.md
-├── flink-learning-cep
-├── flink-learning-common
-├── flink-learning-connectors
-│   ├── flink-learning-connectors-activemq
-│   ├── flink-learning-connectors-cassandra
-│   ├── flink-learning-connectors-es6
-│   ├── flink-learning-connectors-flume
-│   ├── flink-learning-connectors-hbase
-│   ├── flink-learning-connectors-hdfs
-│   ├── flink-learning-connectors-influxdb
-│   ├── flink-learning-connectors-kafka
-│   ├── flink-learning-connectors-mysql
-│   ├── flink-learning-connectors-rabbitmq
-│   ├── flink-learning-connectors-redis
-│   ├── flink-learning-connectors-rocketmq
-├── flink-learning-data-sinks
-├── flink-learning-data-sources
-├── flink-learning-examples
-├── flink-learning-monitor
-│   ├── flink-learning-monitor-alert
-│   ├── flink-learning-monitor-collector
-│   ├── flink-learning-monitor-common
-│   ├── flink-learning-monitor-dashboard
-│   ├── flink-learning-monitor-storage
-├── flink-learning-sql
-├── flink-learning-state
-├── flink-learning-template
-├── flink-learning-window
-```
+![](./pics/flink-learning.png)
 
 ## 博客
 
