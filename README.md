@@ -2,7 +2,7 @@
 
 ## 项目结构
 
-![](./pics/flink-learning.png)
+![](./pics/Flink-learning.png)
 
 ## 博客
 
