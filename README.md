@@ -73,33 +73,37 @@
 
 目前知识星球内已更新的系列文章：
 
-1、[《从1到100深入学习Flink》—— 源码编译](https://t.zsxq.com/UZfaYfE)
+1、[Flink 源码解析 —— 源码编译运行](https://t.zsxq.com/UZfaYfE)
 
-2、[《从1到100深入学习Flink》—— 项目结构一览](https://t.zsxq.com/zZZjaYf)
+2、[Flink 源码解析 —— 项目结构一览](https://t.zsxq.com/zZZjaYf)
 
-3、[《从1到100深入学习Flink》—— local 模式启动流程](https://t.zsxq.com/zV7MnuJ)
+3、[Flink 源码解析—— local 模式启动流程](https://t.zsxq.com/zV7MnuJ)
 
-4、[《从1到100深入学习Flink》—— standalonesession 模式启动流程](https://t.zsxq.com/QZVRZJA)
+4、[Flink 源码解析 —— standalonesession 模式启动流程](https://t.zsxq.com/QZVRZJA)
 
-5、[《从1到100深入学习Flink》—— Standalone Session Cluster 启动流程深度分析之 Job Manager 启动](https://t.zsxq.com/u3fayvf)
+5、[Flink 源码解析 —— Standalone Session Cluster 启动流程深度分析之 Job Manager 启动](https://t.zsxq.com/u3fayvf)
 
-6、[《从1到100深入学习Flink》—— Standalone Session Cluster 启动流程深度分析之 Task Manager 启动](https://t.zsxq.com/MnQRByb)
+6、[Flink 源码解析 —— Standalone Session Cluster 启动流程深度分析之 Task Manager 启动](https://t.zsxq.com/MnQRByb)
 
-7、[《从1到100深入学习Flink》——分析 Batch WordCount 程序的执行过程](https://t.zsxq.com/YJ2Zrfi)
+7、[Flink 源码解析 —— 分析 Batch WordCount 程序的执行过程](https://t.zsxq.com/YJ2Zrfi)
 
-8、[《从1到100深入学习Flink》——分析 Streaming WordCount 程序的执行过程](https://t.zsxq.com/qnMFEUJ)
+8、[Flink 源码解析 —— 分析 Streaming WordCount 程序的执行过程](https://t.zsxq.com/qnMFEUJ)
 
-9、[《从1到100深入学习Flink》——如何获取 StreamGraph？](https://t.zsxq.com/qRFIm6I)
+9、[Flink 源码解析 —— 如何获取 JobGraph？](https://t.zsxq.com/naaMf6y)
 
-10、[《从1到100深入学习Flink》——如何获取 JobGraph？](https://t.zsxq.com/naaMf6y)
+10、[Flink 源码解析 —— 如何获取 StreamGraph？](https://t.zsxq.com/qRFIm6I)
 
-11、[《从1到100深入学习Flink》—— Flink JobManager 有什么作用？](https://t.zsxq.com/zV7MnuJ)
+11、[Flink 源码解析 —— Flink JobManager 有什么作用？](https://t.zsxq.com/zV7MnuJ)
 
-12、[《从1到100深入学习Flink》—— Flink TaskManager 有什么作用？](https://t.zsxq.com/zV7MnuJ)
+12、[Flink 源码解析 —— Flink TaskManager 有什么作用？](https://t.zsxq.com/zV7MnuJ)
 
-13、[《从1到100深入学习Flink》—— JobManager 处理 SubmitJob 的过程](https://t.zsxq.com/zV7MnuJ)
+13、[Flink 源码解析 —— JobManager 处理 SubmitJob 的过程](https://t.zsxq.com/zV7MnuJ)
 
-14、[《从1到100深入学习Flink》—— TaskManager 处理 SubmitJob 的过程](https://t.zsxq.com/zV7MnuJ)
+14、[Flink 源码解析 —— TaskManager 处理 SubmitJob 的过程](https://t.zsxq.com/zV7MnuJ)
+
+15、[Flink 源码解析 —— 深度解析 Flink Checkpoint 机制](https://t.zsxq.com/ynQNbeM)
+
+16、[Flink 源码解析 —— 深度解析 Flink 序列化机制](https://t.zsxq.com/JaQfeMf)
 
 除了《从1到100深入学习Flink》源码学习这个系列文章，《从0到1学习Flink》的案例文章也会优先在知识星球更新，让大家先通过一些 demo 学习 Flink，再去深入源码学习！
 
@@ -236,6 +240,40 @@
 
 65、[窗口触发的条件问题](https://t.zsxq.com/V7EmUZR)
 
+66、[flink 定时任务怎么做？有相关的demo么？](https://t.zsxq.com/JY3NJam)
+
+67、[流式处理过程中数据的一致性如何保证或者如何检测](https://t.zsxq.com/7YZ3Fuz)
+
+68、[重启flink单机集群，还报job not found 异常。](https://t.zsxq.com/nEEQvzR)
+
+69、[kafka的数据是用 org.apache.kafka.common.serialization.ByteArraySerialize序列化的，flink这边消费的时候怎么通过FlinkKafkaConsumer创建DataStream<String>？](https://t.zsxq.com/qJyvzNj)
+
+70、[现在公司有一个需求，一些用户的支付日志，通过sls收集，要把这些日志处理后，结果写入到MySQL，关键这些日志可能连着来好几条才是一个用户的，因为发起请求，响应等每个环节都有相应的日志，这几条日志综合处理才能得到最终的结果，请问博主有什么好的方法没有？](https://t.zsxq.com/byvnaEi)
+
+71、[flink 支持hadoop 主备么？ hadoop主节点挂了 flink 会切换到hadoop 备用节点？](https://t.zsxq.com/qfie6qR)
+
+72、[请教大家: 实际 flink 开发中用 scala 多还是 java多些？ 刚入手 flink 大数据 scala 需要深入学习么？](https://t.zsxq.com/ZVZzZv7)
+
+73、[我使用的是flink是1.7.2最近用了split的方式分流，但是底层的SplitStream上却标注为Deprecated，请问是官方不推荐使用分流的方式吗？](https://t.zsxq.com/Qzbi6yn)
+
+74、[KeyBy 的正确理解，和数据倾斜问题的解释](https://t.zsxq.com/Auf2NVR)
+
+75、[用flink时，遇到个问题 checkpoint大概有2G左右， 有背压时，flink会重启有遇到过这个问题吗](https://t.zsxq.com/3vnIm62)
+
+76、[flink使用yarn-session方式部署，如何保证yarn-session的稳定性，如果yarn-session挂了，需要重新部署一个yarn-session，如何恢复之前yarn-session上的job呢，之前的checkpoint还能使用吗？](https://t.zsxq.com/URzVBIm)
+
+77、[我想请教一下关于sink的问题。我现在的需求是从Kafka消费Json数据，这个Json数据字段可能会增加，然后将拿到的json数据以parquet的格式存入hdfs。现在我可以拿到json数据的schema，但是在保存parquet文件的时候不知道怎么处理。一是flink没有专门的format parquet，二是对于可变字段的Json怎么处理成parquet比较合适？](https://t.zsxq.com/MjyN7Uf)
+
+78、[flink如何在较大的数据量中做去重计算。](https://t.zsxq.com/6qBqVvZ)
+
+79、[flink能在没有数据的时候也定时执行算子吗？](https://t.zsxq.com/Eqjyju7)
+
+80、[使用rocksdb状态后端，自定义pojo怎么实现序列化和反序列化的，有相关demo么？](https://t.zsxq.com/i2zVfIi)
+
+81、[check point 老是失败，是不是自定义的pojo问题？到本地可以，到hdfs就不行，网上也有很多类似的问题 都没有一个很好的解释和解决方案](https://t.zsxq.com/vRJujAi)
+
+82、[cep规则如图，当start事件进入时，时间00:00:15，而后进入end事件，时间00:00:40。我发现规则无法命中。请问within 是从start事件开始计时？还是跟window一样根据系统时间划分的？如果是后者，请问怎么配置才能从start开始计时？](https://t.zsxq.com/MVFmuB6)
+
 
 等等等，还有很多，复制粘贴的我手累啊 😂
 
@@ -259,7 +297,9 @@
 
 6、[监控平台该有架构是长这样子的](https://t.zsxq.com/yfYrvFA)
 
-7、[《大数据“重磅炸弹”——实时计算框架 Flink》目录大纲](https://t.zsxq.com/beu7Mvj)
+7、[《大数据“重磅炸弹”——实时计算框架 Flink》专栏系列文章目录大纲](https://t.zsxq.com/beu7Mvj)
+
+8、[《大数据“重磅炸弹”——实时计算框架 Flink》Chat 付费文章](https://t.zsxq.com/UvrRNJM)
 
 
 当然，除了更新 Flink 相关的东西外，我还会更新一些大数据相关的东西，因为我个人之前不是大数据开发，所以现在也要狂补些知识！总之，希望进来的童鞋们一起共同进步！
@@ -283,3 +323,7 @@
 9、[Flink状态管理与容错机制](https://t.zsxq.com/NjAQFi2)
 
 10、[Flink 流批一体的技术架构以及在阿里 的实践](https://t.zsxq.com/MvfUvzN)
+
+11、[Flink Checkpoint-轻量级分布式快照](https://t.zsxq.com/QVFqjea)
+
+12、[Flink 流批一体的技术架构以及在阿里 的实践](https://t.zsxq.com/MvfUvzN)
