@@ -14,16 +14,19 @@ public class MetricWatermark implements AssignerWithPeriodicWatermarks<MetricEve
 
     private long currentTimestamp = Long.MIN_VALUE;
 
+    @Override
+    public long extractTimestamp(MetricEvent metricEvent, long previousElementTimestamp) {
+        if (metricEvent.getTimestamp() > currentTimestamp) {
+            this.currentTimestamp = metricEvent.getTimestamp();
+        }
+        return currentTimestamp;
+    }
+
     @Nullable
     @Override
     public Watermark getCurrentWatermark() {
-        return new Watermark(currentTimestamp == Long.MIN_VALUE ? Long.MIN_VALUE : currentTimestamp - 1);
-    }
+        long maxTimeLag = 5000;
+        return new Watermark(currentTimestamp == Long.MIN_VALUE ? Long.MIN_VALUE : currentTimestamp - maxTimeLag);
 
-    @Override
-    public long extractTimestamp(MetricEvent metrics, long l) {
-        long timestamp = metrics.getTimestamp() / (1000 * 1000);
-        this.currentTimestamp = timestamp;
-        return timestamp;
     }
 }
