@@ -1,6 +1,7 @@
 package com.zhisheng.data.sources.sources;
 
 import com.zhisheng.data.sources.model.Student;
+import com.zhisheng.data.sources.utils.MySQLUtil;
 import org.apache.flink.configuration.Configuration;
 import org.apache.flink.streaming.api.functions.source.RichSourceFunction;
 
@@ -28,7 +29,10 @@ public class SourceFromMySQL extends RichSourceFunction<Student> {
     @Override
     public void open(Configuration parameters) throws Exception {
         super.open(parameters);
-        connection = getConnection();
+        connection = MySQLUtil.getConnection("com.mysql.jdbc.Driver",
+                "jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=UTF-8",
+                "root",
+                "root123456");
         String sql = "select * from Student;";
         ps = this.connection.prepareStatement(sql);
     }
@@ -70,17 +74,5 @@ public class SourceFromMySQL extends RichSourceFunction<Student> {
 
     @Override
     public void cancel() {
-    }
-
-    private static Connection getConnection() {
-        Connection con = null;
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            //注意，这里替换成你自己的mysql 数据库路径和用户名、密码
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=UTF-8", "root", "root123456");
-        } catch (Exception e) {
-            System.out.println("-----------mysql get connection has exception , msg = "+ e.getMessage());
-        }
-        return con;
     }
 }
