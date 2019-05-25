@@ -93,9 +93,9 @@
 
 10、[Flink 源码解析 —— 如何获取 StreamGraph？](https://t.zsxq.com/qRFIm6I)
 
-11、[Flink 源码解析 —— Flink JobManager 有什么作用？](https://t.zsxq.com/zV7MnuJ)
+11、[Flink 源码解析 —— Flink JobManager 有什么作用？](https://t.zsxq.com/2VRrbuf)
 
-12、[Flink 源码解析 —— Flink TaskManager 有什么作用？](https://t.zsxq.com/zV7MnuJ)
+12、[Flink 源码解析 —— Flink TaskManager 有什么作用？](https://t.zsxq.com/RZbu7yN)
 
 13、[Flink 源码解析 —— JobManager 处理 SubmitJob 的过程](https://t.zsxq.com/zV7MnuJ)
 
