@@ -1,1 +1,3 @@
-模版项目，不做任何代码编写，方便创建新的 module 时复制
+### Flink-learning-sql
+
+Flink Table & SQL API
