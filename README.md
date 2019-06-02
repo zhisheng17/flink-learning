@@ -4,63 +4,69 @@
 
 ![](http://zhisheng-blog.oss-cn-hangzhou.aliyuncs.com/img/2019-05-25-124027.jpg)
 
-## 项目结构
+## 本项目结构
 
 ![](./pics/Flink-learning.png)
 
 ## 博客
 
-1、[《从0到1学习Flink》—— Apache Flink 介绍](http://www.54tianzhisheng.cn/2018/10/13/flink-introduction/)
+1、[Flink 从0到1学习 —— Apache Flink 介绍](http://www.54tianzhisheng.cn/2018/10/13/flink-introduction/)
 
-2、[《从0到1学习Flink》—— Mac 上搭建 Flink 1.6.0 环境并构建运行简单程序入门](http://www.54tianzhisheng.cn/2018/09/18/flink-install)
+2、[Flink 从0到1学习 —— Mac 上搭建 Flink 1.6.0 环境并构建运行简单程序入门](http://www.54tianzhisheng.cn/2018/09/18/flink-install)
 
-3、[《从0到1学习Flink》—— Flink 配置文件详解](http://www.54tianzhisheng.cn/2018/10/27/flink-config/)
+3、[Flink 从0到1学习 —— Flink 配置文件详解](http://www.54tianzhisheng.cn/2018/10/27/flink-config/)
 
-4、[《从0到1学习Flink》—— Data Source 介绍](http://www.54tianzhisheng.cn/2018/10/28/flink-sources/)
+4、[Flink 从0到1学习 —— Data Source 介绍](http://www.54tianzhisheng.cn/2018/10/28/flink-sources/)
 
-5、[《从0到1学习Flink》—— 如何自定义 Data Source ？](http://www.54tianzhisheng.cn/2018/10/30/flink-create-source/)
+5、[Flink 从0到1学习 —— 如何自定义 Data Source ？](http://www.54tianzhisheng.cn/2018/10/30/flink-create-source/)
 
-6、[《从0到1学习Flink》—— Data Sink 介绍](http://www.54tianzhisheng.cn/2018/10/29/flink-sink/)
+6、[Flink 从0到1学习 —— Data Sink 介绍](http://www.54tianzhisheng.cn/2018/10/29/flink-sink/)
 
-7、[《从0到1学习Flink》—— 如何自定义 Data Sink ？](http://www.54tianzhisheng.cn/2018/10/31/flink-create-sink/)
+7、[Flink 从0到1学习 —— 如何自定义 Data Sink ？](http://www.54tianzhisheng.cn/2018/10/31/flink-create-sink/)
 
-8、[《从0到1学习Flink》—— Flink Data transformation(转换)](http://www.54tianzhisheng.cn/2018/11/04/Flink-Data-transformation/)
+8、[Flink 从0到1学习 —— Flink Data transformation(转换)](http://www.54tianzhisheng.cn/2018/11/04/Flink-Data-transformation/)
 
-9、[《从0到1学习Flink》—— 介绍 Flink 中的 Stream Windows](http://www.54tianzhisheng.cn/2018/12/08/Flink-Stream-Windows/)
+9、[Flink 从0到1学习 —— 介绍 Flink 中的 Stream Windows](http://www.54tianzhisheng.cn/2018/12/08/Flink-Stream-Windows/)
 
-10、[《从0到1学习Flink》—— Flink 中的几种 Time 详解](http://www.54tianzhisheng.cn/2018/12/11/Flink-time/)
+10、[Flink 从0到1学习 —— Flink 中的几种 Time 详解](http://www.54tianzhisheng.cn/2018/12/11/Flink-time/)
 
-11、[《从0到1学习Flink》—— Flink 读取 Kafka 数据写入到 ElasticSearch](http://www.54tianzhisheng.cn/2018/12/30/Flink-ElasticSearch-Sink/)
+11、[Flink 从0到1学习 —— Flink 读取 Kafka 数据写入到 ElasticSearch](http://www.54tianzhisheng.cn/2018/12/30/Flink-ElasticSearch-Sink/)
 
-12、[《从0到1学习Flink》—— Flink 项目如何运行？](http://www.54tianzhisheng.cn/2019/01/05/Flink-run/)
+12、[Flink 从0到1学习 —— Flink 项目如何运行？](http://www.54tianzhisheng.cn/2019/01/05/Flink-run/)
 
-13、[《从0到1学习Flink》—— Flink 读取 Kafka 数据写入到 Kafka](http://www.54tianzhisheng.cn/2019/01/06/Flink-Kafka-sink/)
+13、[Flink 从0到1学习 —— Flink 读取 Kafka 数据写入到 Kafka](http://www.54tianzhisheng.cn/2019/01/06/Flink-Kafka-sink/)
 
-14、[《从0到1学习Flink》—— Flink JobManager 高可用性配置](http://www.54tianzhisheng.cn/2019/01/13/Flink-JobManager-High-availability/)
+14、[Flink 从0到1学习 —— Flink JobManager 高可用性配置](http://www.54tianzhisheng.cn/2019/01/13/Flink-JobManager-High-availability/)
 
-15、[《从0到1学习Flink》—— Flink parallelism 和 Slot 介绍](http://www.54tianzhisheng.cn/2019/01/14/Flink-parallelism-slot/)
+15、[Flink 从0到1学习 —— Flink parallelism 和 Slot 介绍](http://www.54tianzhisheng.cn/2019/01/14/Flink-parallelism-slot/)
 
-16、[《从0到1学习Flink》—— Flink 读取 Kafka 数据批量写入到 MySQL](http://www.54tianzhisheng.cn/2019/01/15/Flink-MySQL-sink/)
+16、[Flink 从0到1学习 —— Flink 读取 Kafka 数据批量写入到 MySQL](http://www.54tianzhisheng.cn/2019/01/15/Flink-MySQL-sink/)
 
-17、[《从0到1学习Flink》—— Flink 读取 Kafka 数据写入到 RabbitMQ](https://t.zsxq.com/uVbi2nq)
+17、[Flink 从0到1学习 —— Flink 读取 Kafka 数据写入到 RabbitMQ](https://t.zsxq.com/uVbi2nq)
 
-18、[《从0到1学习Flink》—— Flink 读取 Kafka 数据写入到 HBase](https://t.zsxq.com/zV7MnuJ)
+18、[Flink 从0到1学习 —— Flink 读取 Kafka 数据写入到 HBase](https://t.zsxq.com/zV7MnuJ)
 
-19、[《从0到1学习Flink》—— Flink 读取 Kafka 数据写入到 HDFS](https://t.zsxq.com/zV7MnuJ)
+19、[Flink 从0到1学习 —— Flink 读取 Kafka 数据写入到 HDFS](https://t.zsxq.com/zV7MnuJ)
 
-20、[《从0到1学习Flink》—— Flink 读取 Kafka 数据写入到 Redis](https://t.zsxq.com/zV7MnuJ)
+20、[Flink 从0到1学习 —— Flink 读取 Kafka 数据写入到 Redis](https://t.zsxq.com/zV7MnuJ)
 
-21、[《从0到1学习Flink》—— Flink 读取 Kafka 数据写入到 Cassandra](https://t.zsxq.com/uVbi2nq)
+21、[Flink 从0到1学习 —— Flink 读取 Kafka 数据写入到 Cassandra](https://t.zsxq.com/uVbi2nq)
 
-22、[《从0到1学习Flink》—— Flink 读取 Kafka 数据写入到 Flume](https://t.zsxq.com/zV7MnuJ)
+22、[Flink 从0到1学习 —— Flink 读取 Kafka 数据写入到 Flume](https://t.zsxq.com/zV7MnuJ)
 
-23、[《从0到1学习Flink》—— Flink 读取 Kafka 数据写入到 InfluxDB](https://t.zsxq.com/zV7MnuJ)
+23、[Flink 从0到1学习 —— Flink 读取 Kafka 数据写入到 InfluxDB](https://t.zsxq.com/zV7MnuJ)
 
-24、[《从0到1学习Flink》—— Flink 读取 Kafka 数据写入到 RocketMQ](https://t.zsxq.com/zV7MnuJ)
+24、[Flink 从0到1学习 —— Flink 读取 Kafka 数据写入到 RocketMQ](https://t.zsxq.com/zV7MnuJ)
 
-25、[《从0到1学习Flink》—— 你上传的 jar 包藏到哪里去了](https://t.zsxq.com/uniY7mm)
+25、[Flink 从0到1学习 —— 你上传的 jar 包藏到哪里去了](https://t.zsxq.com/uniY7mm)
 
-26、[《从0到1学习Flink》—— 你的 Flink job 日志跑到哪里去了](https://t.zsxq.com/zV7MnuJ)
+26、[Flink 从0到1学习 —— 你的 Flink job 日志跑到哪里去了](https://t.zsxq.com/zV7MnuJ)
+
+
+### Flink 源码项目结构
+
+![](./pics/Flink-code.png)
+
 
 ## 学习资料
 
@@ -282,6 +288,28 @@
 
 83、[Flink聚合结果直接写Mysql的幂等性设计问题](https://t.zsxq.com/EybM3vR)
 
+84、[Flink job打开了checkpoint，用的rocksdb，通过观察hdfs上checkpoint目录，为啥算副本总量会暴增爆减](https://t.zsxq.com/62VzNRF)
+
+85、[Flink 提交任务的 jar包可以指定路径为 HDFS 上的吗]()
+
+86、[在flink web Ui上提交的任务，设置的并行度为2，flink是stand alone部署的。两个任务都正常的运行了几天了，今天有个地方逻辑需要修改，于是将任务cancel掉(在命令行cancel也试了)，结果taskmanger挂掉了一个节点。后来用其他任务试了，也同样会导致节点挂掉](https://t.zsxq.com/VfimieI)
+
+87、[一个配置动态更新的问题折腾好久（配置用个静态的map变量存着，有个线程定时去数据库捞数据然后存在这个map里面更新一把），本地 idea 调试没问题，集群部署就一直报 空指针异常。下游的算子使用这个静态变量map去get key在集群模式下会出现这个空指针异常，估计就是拿不到 map](https://t.zsxq.com/nee6qRv)
+
+88、[批量写入MySQL，完成HBase批量写入](https://t.zsxq.com/3bEUZfQ)
+
+89、[用flink清洗数据，其中要访问redis，根据redis的结果来决定是否把数据传递到下流，这有可能实现吗？](https://t.zsxq.com/Zb6AM3V)
+
+90、[监控页面流处理的时候这个发送和接收字节为0。](https://t.zsxq.com/RbeYZvb)
+
+91、[sink到MySQL，如果直接用idea的话可以运行，并且成功，大大的代码上面用的FlinkKafkaConsumer010，而我的Flink版本为1.7，kafka版本为2.12，所以当我用FlinkKafkaConsumer010就有问题，于是改为
+    FlinkKafkaConsumer就可以直接在idea完成sink到MySQL，但是为何当我把该程序打成Jar包，去运行的时候，就是报FlinkKafkaConsumer找不到呢](https://t.zsxq.com/MN7iuZf)
+
+92、[SocketTextStreamWordCount中输入中文统计不出来，请问这个怎么解决，我猜测应该是需要修改一下代码，应该是这个例子默认统计英文](https://t.zsxq.com/e2VNN7Y)
+
+93、[ Flink 应用程序本地 ide 里面运行的时候并行度是怎么算的？](https://t.zsxq.com/RVRn6AE)
+
+
 等等等，还有很多，复制粘贴的我手累啊 😂
 
 另外里面还会及时分享 Flink 的一些最新的资料（包括数据、视频、PPT、优秀博客，持续更新，保证全网最全，因为我知道 Flink 目前的资料还不多）
@@ -310,6 +338,8 @@
 
 9、[Apache Flink 是如何管理好内存的？](https://t.zsxq.com/zjQvjeM)
 
+10、[Flink On K8s](https://t.zsxq.com/eYNBaAa)
+
 
 当然，除了更新 Flink 相关的东西外，我还会更新一些大数据相关的东西，因为我个人之前不是大数据开发，所以现在也要狂补些知识！总之，希望进来的童鞋们一起共同进步！
 
@@ -336,3 +366,5 @@
 11、[Flink Checkpoint-轻量级分布式快照](https://t.zsxq.com/QVFqjea)
 
 12、[Flink 流批一体的技术架构以及在阿里 的实践](https://t.zsxq.com/MvfUvzN)
+
+13、[Stream Processing with Apache Flink pdf](https://t.zsxq.com/N37mUzB)
