@@ -26,4 +26,10 @@ public class PropertiesConstants {
     public static final String ELASTICSEARCH_BULK_FLUSH_MAX_ACTIONS = "elasticsearch.bulk.flush.max.actions";
     public static final String ELASTICSEARCH_HOSTS = "elasticsearch.hosts";
 
+    //mysql
+    public static final String MYSQL_DATABASE = "mysql.database";
+    public static final String MYSQL_HOST = "mysql.host";
+    public static final String MYSQL_PASSWORD = "mysql.password";
+    public static final String MYSQL_PORT = "mysql.port";
+    public static final String MYSQL_USERNAME = "mysql.username";
 }
