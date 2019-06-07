@@ -1,1 +1,20 @@
-模版项目，不做任何代码编写，方便创建新的 module 时复制
+### Flink connectors
+
+暂时有这些 Cooncetor，其中这些并不是 Flink 自带的，需要自己定义，另外提供这些 Connector 的使用案例，大家可以参考。欢迎补充和点赞
+
+```text
+.
+├── flink-learning-connectors-activemq
+├── flink-learning-connectors-cassandra
+├── flink-learning-connectors-es6
+├── flink-learning-connectors-flume
+├── flink-learning-connectors-hbase
+├── flink-learning-connectors-hdfs
+├── flink-learning-connectors-influxdb
+├── flink-learning-connectors-kafka
+├── flink-learning-connectors-mysql
+├── flink-learning-connectors-netty
+├── flink-learning-connectors-rabbitmq
+├── flink-learning-connectors-redis
+└── flink-learning-connectors-rocketmq
+```
