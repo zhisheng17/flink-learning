@@ -5,6 +5,7 @@
 ```text
 .
 ├── flink-learning-connectors-activemq
+├── flink-learning-connectors-akka
 ├── flink-learning-connectors-cassandra
 ├── flink-learning-connectors-es6
 ├── flink-learning-connectors-flume
@@ -12,6 +13,7 @@
 ├── flink-learning-connectors-hdfs
 ├── flink-learning-connectors-influxdb
 ├── flink-learning-connectors-kafka
+├── flink-learning-connectors-kudu
 ├── flink-learning-connectors-mysql
 ├── flink-learning-connectors-netty
 ├── flink-learning-connectors-rabbitmq
