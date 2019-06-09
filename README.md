@@ -18,6 +18,10 @@
 
 + [Streaming System.pdf](books/Streaming_System.pdf)  这本书评价不是一般的高
 
+2019/06/09 新增流处理引擎相关的 Paper，在 paper 目录下：
+
++ [流处理引擎相关的 Paper](./paper/paper.md)
+
 ## 博客
 
 1、[Flink 从0到1学习 —— Apache Flink 介绍](http://www.54tianzhisheng.cn/2018/10/13/flink-introduction/)
