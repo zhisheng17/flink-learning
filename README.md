@@ -6,7 +6,7 @@
 
 ## 本项目结构
 
-![](http://zhisheng-blog.oss-cn-hangzhou.aliyuncs.com/img/2019-07-23-125710.jpg)
+![](./pics/Flink-learning.png)
 
 2019/06/08 新增 Flink 四本电子书籍的 PDF，在 books 目录下：
 
@@ -79,7 +79,7 @@
 
 ### Flink 源码项目结构
 
-![](http://zhisheng-blog.oss-cn-hangzhou.aliyuncs.com/img/2019-07-23-125756.jpg)
+![](./pics/Flink-code.png)
 
 
 ## 学习资料
