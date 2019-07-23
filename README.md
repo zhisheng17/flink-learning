@@ -6,7 +6,7 @@
 
 ## 本项目结构
 
-![](./pics/Flink-learning.png)
+![](http://zhisheng-blog.oss-cn-hangzhou.aliyuncs.com/img/2019-07-23-125710.jpg)
 
 2019/06/08 新增 Flink 四本电子书籍的 PDF，在 books 目录下：
 
@@ -79,7 +79,7 @@
 
 ### Flink 源码项目结构
 
-![](./pics/Flink-code.png)
+![](http://zhisheng-blog.oss-cn-hangzhou.aliyuncs.com/img/2019-07-23-125756.jpg)
 
 
 ## 学习资料
@@ -87,11 +87,11 @@
 另外我自己整理了些 Flink 的学习资料，目前已经全部放到微信公众号了。
 你可以加我的微信：**zhisheng_tian**，然后回复关键字：**Flink** 即可无条件获取到，转载请联系本人获取授权，违者必究。
 
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fyh07imy15j30bq0bwq43.jpg)
+![](http://zhisheng-blog.oss-cn-hangzhou.aliyuncs.com/img/2019-07-23-124405.jpg)
 
 更多私密资料请加入知识星球！
 
-![](https://ws1.sinaimg.cn/large/006tKfTcly1g0c5a3l1cyj30u00gewg6.jpg)
+![](http://zhisheng-blog.oss-cn-hangzhou.aliyuncs.com/img/2019-07-23-124320.jpg)
 
 有人要问知识星球里面更新什么内容？值得加入吗？
 
@@ -457,7 +457,71 @@
 
 168、[设置taskmanager.numberOfTaskSlots: 4的时候没有问题，但是cpu没有压上去，只用了30%左右，于是设置了taskmanager.numberOfTaskSlots: 8，但是就报错误找不到其中一个自定义的类，然后kafka数据就不消费了。为什么？cpu到多少合适？slot是不是和cpu数量一致是最佳配置？kafka分区数多少合适，是不是和slot,parallesim一致最佳？](https://t.zsxq.com/bIAEyFe)
 
+169、[需求是根据每条日志切分出需要9个字段，有五个指标再根据9个字段的不同组合去做计算。  第一个方法是：我目前做法是切分的9个字段开5分钟大小1分钟计算一次的滑动窗口窗口，进行一次reduce去重，然后再map取出需要的字段，然后过滤再开5分钟大小1分钟计算一次的滑动窗口窗口进行计算保存结果，这个思路遇到的问题是上一个滑动窗口会每一分钟会计算5分钟数据，到第二个窗口划定的5分钟范围的数据会有好多重复，这个思路会造成数据重复。 第二个方法是：切分的9个字段开5分钟大小1分钟计算一次的滑动窗口窗口，再pross方法里完成所有的过滤，聚合计算，但是再高峰期每分钟400万条数据，这个思路担心在高峰期flink计算不过来](https://t.zsxq.com/BUNfYnY)
 
+170、[a,b,c三个表，a和c有eventtime，a和c直接join可以，a和b join后再和c join 就会报错，这是怎么回事呢](https://t.zsxq.com/aAqBEY7)
+
+171、[自定义的source是这样的（图一所示） 使用的时候是这样的（图二所示），为什么无论 sum.print().setParallelism(2)（图2所示）的并行度设置成几最后结果都是这样的](https://t.zsxq.com/zZNNRzr)
+
+172、[刚接触flink，如有问的不合适的地方，请见谅。 1、为什么说flink是有状态的计算？ 2、这个状态是什么？3、状态存在哪里](https://t.zsxq.com/i6Mz7Yj)
+
+173、[这边用flink 1.8.1的版本，采用flink on yarn，hadoop版本2.6.0。代码是一个简单的滚动窗口统计函数，但启动的时候报错，如下图片。  （2）然后我把flink版本换成1.7.1，重新提交到2.6.0的yarn平台，就能正常运行了。 （3）我们测试集群hadoop版本是3.0，我用flink 1.8.1版本将这个程序再次打包，提交到3.0版本的yarn平台，也能正常运行。 貌似是flink 1.8.1版本与yarn 2.6.0版本不兼容造成的这个问题](https://t.zsxq.com/vNjAIMN)
+
+174、[StateBackend我使用的是MemoryStateBackend， State是怎么释放内存的，例如我在函数中用ValueState存储了历史状态信息。但是历史状态数据我没有手动释放，那么程序会自动释放么？还是一直驻留在内存中](https://t.zsxq.com/2rVbm6Y)
+
+175、[请问老师是否可以提供一些Apachebeam的学习资料 谢谢](https://t.zsxq.com/3bIEAyv)
+
+176、[flink 的 DataSet或者DataStream支持索引查询以及删除吗，像spark rdd，如果不支持的话，该转换成什么](https://t.zsxq.com/yFEyZVB)
+
+177、[关于flink的状态，能否把它当做数据库使用，类似于内存数据库，在处理过程中存业务数据。如果是数据库可以算是分布式数据库吗?是不是使用rocksdb这种存储方式才算是?支持的单库大小是不是只是跟本地机器的磁盘大小相关?如果使用硬盘存储会不会效率性能有影响](https://t.zsxq.com/VNrn6iI)
+
+178、[我这边做了个http sink，想要批量发送数据，不过现在只能用数量控制发送，但最后的几个记录没法触发发送动作，想问下有没有什么办法](https://t.zsxq.com/yfmiUvf)
+
+179、[请问下如何做定时去重计数，就是根据时间分窗口，窗口内根据id去重计数得出结果，多谢。试了不少办法，没有简单直接办法](https://t.zsxq.com/vNvrfmE)
+
+180、[我有个job使用了elastic search sink. 设置了批量5000一写入，但是看es监控显示每秒只能插入500条。是不是bulkprocessor的currentrequest为0有关](https://t.zsxq.com/rzZbQFA)
+
+181、[有docker部署flink的资料吗](https://t.zsxq.com/aIur7ai)
+
+182、[在说明KeyBy的StreamGraph执行过程时，keyBy的ID为啥是6？  根据前面说，ID是一个静态变量，每取一次就递增1，我觉得应该是3啊，是我理解错了吗](https://t.zsxq.com/VjQjqF6)
+
+183、[有没计划出Execution Graph的远码解析](https://t.zsxq.com/BEmAIQv)
+
+184、[可以分享下物理执行图怎样划分task，以及task如何执行，还有他们之间数据如何传递这块代码嘛？](https://t.zsxq.com/vVjiYJQ)
+
+185、[Flink源码和这个学习项目的结构图](https://t.zsxq.com/FyNJQbQ)
+
+186、[请问flink1.8，如何做到动态加载外部udf-jar包呢？](https://t.zsxq.com/qrjmmaU)
+
+187、[同一个Task Manager中不同的Slot是怎么交互的，比如：source处理完要传递给map的时候，如果在不同的Slot中，他们的内存是相互隔离，是怎么交互的呢？  我猜是通过序列化和反序列化对象，并且通过网络来进行交互的](https://t.zsxq.com/ZFQjQnm)
+
+188、[你们有没有这种业务场景。flink从kafka里面取数据，每一条数据里面有mongdb表A的id,这时我会在map的时候采用flink的异步IO连接A表，然后查询出A表的字段1，再根据该字段1又需要异步IO去B表查询字段2，然后又根据字段2去C表查询字段3.....像这样的业务场景，如果多来几种逻辑，我应该用什么方案最好呢](https://t.zsxq.com/YBQFufi)
+
+189、[今天本地运行flink程序，消费socket中的数据，连续只能消费两条，第三条flink就消费不了了](https://t.zsxq.com/vnufYFY)
+
+190、[源数据经过过滤后分成了两条流，然后再分别提取事件时间和水印，做时间窗口，我测试时一条流没有数据，另一条的数据看日志到了窗口操作那边就没走下去，貌似窗口一直没有等到触发](https://t.zsxq.com/me6EmM3)
+
+191、[有做flink cep的吗，有资料没？](https://t.zsxq.com/fubQrvj)
+
+192、[麻烦问一下 BucketingSink跨集群写，如果任务运行在hadoop A集群，从kafka读取数据处理后写到Hadoo B集群，即使把core-site.xml和hdfs-site.xml拷贝到代码resources下，路径使用hdfs://hadoopB/xxx，会提示ava.lang.RuntimeException: Error while creating FileSystem when initializing the state of the BucketingSink.，跨集群写这个问题  flink不支持吗？](https://t.zsxq.com/fEQVjAe)
+
+193、[想咨询下，如何对flink中的datastream和dataset进行数据采样](https://t.zsxq.com/fIMVJ2J)
+
+194、[一个flink作业经常发生oom，可能是什么原因导致的。  处理流程只有15+字段的解析，redis数据读取等操作，TM配置10g。  业务会在夜间刷数据，qps能打到2500左右~](https://t.zsxq.com/7MVjyzz)
+
+195、[我看到flink 1.8的状态过期仅支持Processing Time，那么如果我使用的是Event time那么状态就不会过期吗](https://t.zsxq.com/jA2NVnU)
+
+196、[请问我想每隔一小时统计一个属性从当天零点到当前时间的平均值，这样的时间窗该如何定义？](https://t.zsxq.com/BQv33Rb)
+
+197、[flink任务里面反序列化一个类，报ClassNotFoundException，可是包里面是有这个类的，有遇到这种情况吗？](https://t.zsxq.com/nEAiIea)
+
+198、[在构造StreamGraph，类似PartitionTransformmation 这种类型的 transform，为什么要添加成一个虚拟节点，而不是一个实际的物理节点呢？](https://t.zsxq.com/RnayrVn)
+
+199、[flink消费kafka的数据写入到hdfs中，我采用了BucketingSink 这个sink将operator出来的数据写入到hdfs文件上，并通过在hive中建外部表来查询这个。但现在有个问题，处于in-progress的文件，hive是无法识别出来该文件中的数据，可我想能在hive中实时查询进来的数据，且不想产生很多的小文件，这个该如何处理呢](https://t.zsxq.com/A2fYNFA)
+
+200、[采用Flink单机集群模式一个jobmanager和两个taskmanager，机器是单机是24核，现在做个简单的功能从kafka的一个topic转满足条件的消息到另一个topic，topic的分区是30，我设置了程序默认并发为30，现在每秒消费2w多数据，不够快，请问可以怎么提高job的性能呢？](https://t.zsxq.com/7AurJU3)
+
+201、[Flink Metric 源码分析](https://t.zsxq.com/Mnm2nI6)
 
 等等等，还有很多，复制粘贴的我手累啊 😂
 
@@ -488,6 +552,24 @@
 9、[Apache Flink 是如何管理好内存的？](https://t.zsxq.com/zjQvjeM)
 
 10、[Flink On K8s](https://t.zsxq.com/eYNBaAa)
+
+11、[Flink-metrics-core](https://t.zsxq.com/Mnm2nI6)
+   
+12、[Flink-metrics-datadog](https://t.zsxq.com/Mnm2nI6)
+
+13、[Flink-metrics-dropwizard](https://t.zsxq.com/Mnm2nI6)
+   
+14、[Flink-metrics-graphite](https://t.zsxq.com/Mnm2nI6)
+   
+15、[Flink-metrics-influxdb](https://t.zsxq.com/Mnm2nI6)
+   
+16、[Flink-metrics-jmx](https://t.zsxq.com/Mnm2nI6)
+   
+17、[Flink-metrics-slf4j](https://t.zsxq.com/Mnm2nI6)
+   
+18、[Flink-metrics-statsd](https://t.zsxq.com/Mnm2nI6)
+
+19、[Flink-metrics-prometheus](https://t.zsxq.com/Mnm2nI6)
 
 
 当然，除了更新 Flink 相关的东西外，我还会更新一些大数据相关的东西，因为我个人之前不是大数据开发，所以现在也要狂补些知识！总之，希望进来的童鞋们一起共同进步！
