@@ -81,7 +81,7 @@ public class KuduTableInfo implements Serializable {
     public static class Builder {
         KuduTableInfo table;
 
-        private Builder(String name) {
+        public Builder(String name) {
             table = new KuduTableInfo(name);
         }
 
