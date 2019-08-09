@@ -1,13 +1,12 @@
 package com.zhisheng.connectors.mysql.sinks;
 
 import com.zhisheng.connectors.mysql.model.Student;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.apache.flink.configuration.Configuration;
 import org.apache.flink.streaming.api.functions.sink.RichSinkFunction;
 
-import javax.sql.DataSource;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.util.List;
 
@@ -16,6 +15,7 @@ import java.util.List;
  * Created by zhisheng_tian on 2019-02-17
  * Blog: http://www.54tianzhisheng.cn/2019/01/09/Flink-MySQL-sink/
  */
+@Slf4j
 public class SinkToMySQL extends RichSinkFunction<List<Student>> {
     PreparedStatement ps;
     BasicDataSource dataSource;
@@ -33,7 +33,9 @@ public class SinkToMySQL extends RichSinkFunction<List<Student>> {
         dataSource = new BasicDataSource();
         connection = getConnection(dataSource);
         String sql = "insert into Student(id, name, password, age) values(?, ?, ?, ?);";
-        ps = this.connection.prepareStatement(sql);
+        if (connection != null) {
+            ps = this.connection.prepareStatement(sql);
+        }
     }
 
     @Override
@@ -57,6 +59,9 @@ public class SinkToMySQL extends RichSinkFunction<List<Student>> {
      */
     @Override
     public void invoke(List<Student> value, Context context) throws Exception {
+        if (ps == null) {
+            return;
+        }
         //遍历数据集合
         for (Student student : value) {
             ps.setInt(1, student.getId());
@@ -66,7 +71,7 @@ public class SinkToMySQL extends RichSinkFunction<List<Student>> {
             ps.addBatch();
         }
         int[] count = ps.executeBatch();//批量后执行
-        System.out.println("成功了插入了" + count.length + "行数据");
+        log.info("成功了插入了 {} 行数据", count.length);
     }
 
 
@@ -84,9 +89,9 @@ public class SinkToMySQL extends RichSinkFunction<List<Student>> {
         Connection con = null;
         try {
             con = dataSource.getConnection();
-            System.out.println("创建连接池：" + con);
+            log.info("创建连接池：{}", con);
         } catch (Exception e) {
-            System.out.println("-----------mysql get connection has exception , msg = " + e.getMessage());
+            log.error("-----------mysql get connection has exception , msg = {}", e.getMessage());
         }
         return con;
     }
