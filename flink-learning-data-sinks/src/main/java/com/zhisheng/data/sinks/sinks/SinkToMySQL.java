@@ -1,6 +1,7 @@
 package com.zhisheng.data.sinks.sinks;
 
 import com.zhisheng.data.sinks.model.Student;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.flink.configuration.Configuration;
 import org.apache.flink.streaming.api.functions.sink.RichSinkFunction;
 
@@ -13,6 +14,7 @@ import java.sql.PreparedStatement;
  * Created by zhisheng_tian on 2019-02-17
  * Blog: http://www.54tianzhisheng.cn/tags/Flink/
  */
+@Slf4j
 public class SinkToMySQL extends RichSinkFunction<Student> {
     PreparedStatement ps;
     private Connection connection;
@@ -28,7 +30,9 @@ public class SinkToMySQL extends RichSinkFunction<Student> {
         super.open(parameters);
         connection = getConnection();
         String sql = "insert into Student(id, name, password, age) values(?, ?, ?, ?);";
-        ps = this.connection.prepareStatement(sql);
+        if (connection != null) {
+            ps = this.connection.prepareStatement(sql);
+        }
     }
 
     @Override
@@ -52,6 +56,9 @@ public class SinkToMySQL extends RichSinkFunction<Student> {
      */
     @Override
     public void invoke(Student value, Context context) throws Exception {
+        if (ps == null) {
+            return;
+        }
         //组装数据，执行插入操作
         ps.setInt(1, value.getId());
         ps.setString(2, value.getName());
@@ -67,7 +74,7 @@ public class SinkToMySQL extends RichSinkFunction<Student> {
             //注意，替换成自己本地的 mysql 数据库地址和用户名、密码
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=UTF-8", "root", "root123456");
         } catch (Exception e) {
-            System.out.println("-----------mysql get connection has exception , msg = "+ e.getMessage());
+            log.error("-----------mysql get connection has exception , msg = {}", e.getMessage());
         }
         return con;
     }
