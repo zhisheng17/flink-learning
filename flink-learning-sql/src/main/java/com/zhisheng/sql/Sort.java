@@ -43,7 +43,7 @@ public class Sort {
         rowDataStream.print();
 
         //把执行计划打印出来
-        System.out.println(env.getExecutionPlan());
+//        System.out.println(env.getExecutionPlan());
 
         env.execute("sort-streaming-data");
 

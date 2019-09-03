@@ -49,12 +49,7 @@ public class Main2 {
                     }
                 });
 
-        data.keyBy(new KeySelector<WordEvent, String>() {
-            @Override
-            public String getKey(WordEvent value) throws Exception {
-                return value.getWord();
-            }
-        })
+        data.keyBy(WordEvent::getWord)
                 .timeWindow(Time.seconds(5))
                 .sum("count")
                 .print();
