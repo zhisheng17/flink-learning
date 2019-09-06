@@ -1,6 +1,7 @@
 package com.zhisheng.connectors.es6.utils;
 
 import lombok.extern.slf4j.Slf4j;
+import org.apache.flink.api.java.utils.ParameterTool;
 import org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator;
 import org.apache.flink.streaming.connectors.elasticsearch.ActionRequestFailureHandler;
 import org.apache.flink.streaming.connectors.elasticsearch.ElasticsearchSinkFunction;
@@ -20,11 +21,18 @@ import java.util.List;
 import java.util.Optional;
 
 /**
+ * ES Sink 工具类（含获取 ES 的地址、写入、拒绝重试策略、index template）
+ *
  * blog：http://www.54tianzhisheng.cn/
  * 微信公众号：zhisheng
  */
 @Slf4j
 public class ElasticSearchSinkUtil {
+
+    //es security constant
+    public static final String ES_SECURITY_ENABLE = "es.security.enable";
+    public static final String ES_SECURITY_USERNAME = "es.security.username";
+    public static final String ES_SECURITY_PASSWORD = "es.security.password";
 
     /**
      * es sink
@@ -37,10 +45,12 @@ public class ElasticSearchSinkUtil {
      * @param <T>
      */
     public static <T> void addSink(List<HttpHost> hosts, int bulkFlushMaxActions, int parallelism,
-                                   SingleOutputStreamOperator<T> data, ElasticsearchSinkFunction<T> func) {
+                                   SingleOutputStreamOperator<T> data, ElasticsearchSinkFunction<T> func,
+                                   ParameterTool parameterTool) {
         ElasticsearchSink.Builder<T> esSinkBuilder = new ElasticsearchSink.Builder<>(hosts, func);
         esSinkBuilder.setBulkFlushMaxActions(bulkFlushMaxActions);
         esSinkBuilder.setFailureHandler(new RetryRejectedExecutionFailureHandler());
+        //todo:xpack security
         data.addSink(esSinkBuilder.build()).setParallelism(parallelism);
     }
 

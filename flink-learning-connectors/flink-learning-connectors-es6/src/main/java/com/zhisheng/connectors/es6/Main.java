@@ -43,7 +43,8 @@ public class Main {
                             .index(ZHISHENG + "_" + metric.getName())
                             .type(ZHISHENG)
                             .source(GsonUtil.toJSONBytes(metric), XContentType.JSON));
-                });
+                },
+                parameterTool);
         env.execute("flink learning connectors es6");
     }
 }
