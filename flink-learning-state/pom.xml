@@ -14,7 +14,7 @@
     <dependencies>
         <dependency>
             <groupId>org.apache.flink</groupId>
-            <artifactId>flink-queryable-state-client-java_2.11</artifactId>
+            <artifactId>flink-queryable-state-client-java</artifactId>
             <version>${flink.version}</version>
         </dependency>
         <dependency>
