@@ -39,8 +39,10 @@ public class GetAlarmNotifyData extends RichSourceFunction<Map<String, String>> 
         String url = "jdbc:mysql://" + host + ":" + port + "/" + database + "?useUnicode=true&characterEncoding=UTF-8";
         connection = MySQLUtil.getConnection(driver, url, username, password);
 
-        String sql = "select * from alarm_notify";
-        ps = connection.prepareStatement(sql);
+        if (connection != null) {
+            String sql = "select * from alarm_notify";
+            ps = connection.prepareStatement(sql);
+        }
     }
 
     @Override

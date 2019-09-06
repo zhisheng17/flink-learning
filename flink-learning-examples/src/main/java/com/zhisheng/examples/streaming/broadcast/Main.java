@@ -8,7 +8,6 @@ import org.apache.flink.api.common.state.MapStateDescriptor;
 import org.apache.flink.api.common.state.ReadOnlyBroadcastState;
 import org.apache.flink.api.common.typeinfo.BasicTypeInfo;
 import org.apache.flink.api.java.utils.ParameterTool;
-import org.apache.flink.streaming.api.datastream.BroadcastStream;
 import org.apache.flink.streaming.api.datastream.DataStreamSource;
 import org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
@@ -35,12 +34,14 @@ public class Main {
         final ParameterTool parameterTool = ExecutionEnvUtil.createParameterTool(args);
         StreamExecutionEnvironment env = ExecutionEnvUtil.prepare(parameterTool);
 
-        BroadcastStream<Map<String, String>> broadcast = env.addSource(new GetAlarmNotifyData()).setParallelism(1) //数据流定时从数据库中查出来数据
-                .broadcast(ALARM_RULES);    //广播出去
+        DataStreamSource<Map<String, String>> alarmDataStream = env.addSource(new GetAlarmNotifyData()).setParallelism(1);//数据流定时从数据库中查出来数据
+
+        //test for get data from MySQL
+//        alarmDataStream.print();
 
 
         DataStreamSource<MetricEvent> metricEventDataStream = KafkaConfigUtil.buildSource(env);
-        SingleOutputStreamOperator<MetricEvent> alert = metricEventDataStream.connect(broadcast)
+        SingleOutputStreamOperator<MetricEvent> alert = metricEventDataStream.connect(alarmDataStream.broadcast(ALARM_RULES))
                 .process(new BroadcastProcessFunction<MetricEvent, Map<String, String>, MetricEvent>() {
 
                     private MapStateDescriptor<String, String> alarmRulesMapStateDescriptor;
@@ -77,6 +78,6 @@ public class Main {
         //然后在下游的算子中有使用到 alarmNotifyMap 中的配置信息
 
 
-        env.execute("spot alerting-send");
+        env.execute("zhisheng broadcast demo");
     }
 }
