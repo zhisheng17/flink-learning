@@ -118,8 +118,8 @@ public class DingDingGroupMsgUtil {
     /**
      * 给一个钉钉机器人同时发送多条消息（注意：钉钉本身的限制 1分钟内一个机器人最多发送 20 条消息）
      *
-     * @param url
-     * @param msgs
+     * @param url 钉钉地址
+     * @param msgs 多条消息
      */
     public static void sendDingDingMsg(String url, List<String> msgs) {
         if (msgs == null || msgs.size() <= 0) {
@@ -128,6 +128,29 @@ public class DingDingGroupMsgUtil {
         }
         for (String msg: msgs) {
             sendDingDingMsg(url, msg);
+        }
+    }
+
+
+    /**
+     * 给多个钉钉群发送多条消息
+     *
+     * @param urls 多个钉钉地址
+     * @param msgs 多条消息
+     */
+    public static void sendDingDingMsg(List<String> urls, List<String> msgs) {
+        if (msgs == null || msgs.size() <= 0) {
+            log.warn("you may forget add notify msg");
+            return;
+        }
+        if (urls == null || urls.size() <= 0) {
+            log.warn("you may forget add notify dingding hook");
+            return;
+        }
+        for (String url : urls) {
+            for (String msg: msgs) {
+                sendDingDingMsg(url, msg);
+            }
         }
     }
 }

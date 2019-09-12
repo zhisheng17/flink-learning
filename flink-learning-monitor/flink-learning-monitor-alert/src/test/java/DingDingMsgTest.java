@@ -47,7 +47,6 @@ public class DingDingMsgTest {
         DingDingGroupMsgUtil.sendDingDingMsg("https://oapi.dingtalk.com/robot/send?access_token=32e9d99020641c46146174de1ea437fffb4122f957102078b3f1898009af7e40", Lists.newArrayList(text1, text2, text3, text4));
 
 
-
         //多个钉钉发送同一条消息
         String hook1 = "https://oapi.dingtalk.com/robot/send?access_token=32e9d99020641c46146174de1ea437fffb4122f957102078b3f1898009af7e40";
         String hook2 = "https://oapi.dingtalk.com/robot/send?access_token=32e9d99020641c46146174de1ea437fffb4122f957102078b3f1898009af7e40";
@@ -55,5 +54,9 @@ public class DingDingMsgTest {
         String hook4 = "https://oapi.dingtalk.com/robot/send?access_token=32e9d99020641c46146174de1ea437fffb4122f957102078b3f1898009af7e40";
         String msg = "zhisheng 的博客";
         DingDingGroupMsgUtil.sendDingDingMsg(Lists.newArrayList(hook1, hook2, hook3, hook4), msg);
+
+
+        //给多个钉钉群发送多条消息
+        DingDingGroupMsgUtil.sendDingDingMsg(Lists.newArrayList(hook1, hook2, hook3, hook4), Lists.newArrayList(text1, text2, text3, text4));
     }
 }
