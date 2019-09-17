@@ -87,9 +87,9 @@
 ## 学习资料
 
 另外我自己整理了些 Flink 的学习资料，目前已经全部放到微信公众号了。
-你可以加我的微信：**zhisheng_tian**，然后回复关键字：**Flink** 即可无条件获取到，转载请联系本人获取授权，违者必究。
+你可以加我的微信：**yuanblog_tzs**，然后回复关键字：**Flink** 即可无条件获取到，转载请联系本人获取授权，违者必究。
 
-![](http://zhisheng-blog.oss-cn-hangzhou.aliyuncs.com/img/2019-07-23-124405.jpg)
+![](http://zhisheng-blog.oss-cn-hangzhou.aliyuncs.com/img/2019-09-17-143454.jpg)
 
 更多私密资料请加入知识星球！
 
