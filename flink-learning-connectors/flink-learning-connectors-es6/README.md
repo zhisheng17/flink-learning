@@ -23,3 +23,10 @@
 9、使用 RestHighLevelClient
 
 总之目的就是为了在能够高效的将数据写入进 ElasticSearch，还要保证 ElasticSearch 不挂
+
+
+## TODO
+
+1、X-Pack 权限认证
+
+2、使用 RestHighLevelClient
