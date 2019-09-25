@@ -20,6 +20,7 @@
         <module>flink-learning-monitor</module>
         <module>flink-learning-window</module>
         <module>flink-learning-state</module>
+        <module>flink-learning-core</module>
     </modules>
 
     <properties>
