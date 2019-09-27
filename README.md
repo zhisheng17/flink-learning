@@ -8,6 +8,33 @@
 
 ![](./pics/Flink-learning.png)
 
+
+## How to build
+
+Maybe your Maven conf file `settings.xml` mirrors can add aliyun central mirror :
+
+```xml
+<mirror>
+  <id>alimaven</id>
+  <mirrorOf>central</mirrorOf>
+  <name>aliyun maven</name>
+  <url>https://maven.aliyun.com/repository/central</url>
+</mirror>
+```
+
+than you can run the following command :
+
+```
+mvn clean package -Dmaven.test.skip=true
+```
+
+you can see following result if build success.
+
+![](http://zhisheng-blog.oss-cn-hangzhou.aliyuncs.com/img/2019-09-27-121923.jpg)
+
+
+## Change
+
 2019/09/06 将该项目的 Flink 版本升级到 1.9.0，有一些变动，Flink 1.8.0 版本的代码经群里讨论保存在分支 [feature/flink-1.8.0](https://github.com/zhisheng17/flink-learning/tree/feature/flink-1.8.0) 以便部分同学需要。
 
 2019/06/08 新增 Flink 四本电子书籍的 PDF，在 books 目录下：
