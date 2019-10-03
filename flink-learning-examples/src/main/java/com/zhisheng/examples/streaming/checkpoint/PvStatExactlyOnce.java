@@ -1,6 +1,7 @@
 package com.zhisheng.examples.streaming.checkpoint;
 
 
+import com.zhisheng.examples.streaming.checkpoint.util.PvStatExactlyOnceKafkaUtil;
 import org.apache.flink.api.common.functions.RichMapFunction;
 import org.apache.flink.api.common.serialization.SimpleStringSchema;
 import org.apache.flink.api.common.state.ValueState;
@@ -51,12 +52,12 @@ public class PvStatExactlyOnce {
         checkpointConf.enableExternalizedCheckpoints(CheckpointConfig.ExternalizedCheckpointCleanup.RETAIN_ON_CANCELLATION);
 
         Properties props = new Properties();
-        props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "192.168.30.215:9092,192.168.30.216:9092,192.168.30.220:9092");
+        props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, PvStatExactlyOnceKafkaUtil.broker_list);
         props.put(ConsumerConfig.GROUP_ID_CONFIG, "app-pv-stat");
 
         DataStreamSource<String> appInfoSource = env.addSource(new FlinkKafkaConsumer011<>(
                 // kafka topic， String 序列化
-                "app-topic",  new SimpleStringSchema(), props));
+                PvStatExactlyOnceKafkaUtil.topic,  new SimpleStringSchema(), props));
 
         // 按照 appId 进行 keyBy
         appInfoSource.keyBy((KeySelector<String, String>) appId -> appId)
