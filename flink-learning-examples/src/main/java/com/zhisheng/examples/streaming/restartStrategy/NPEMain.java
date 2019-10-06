@@ -7,12 +7,12 @@ import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.streaming.api.functions.source.SourceFunction;
 
 /**
- * Desc: 测试重启代码出现异常，导致触发重启策略
- * Created by zhisheng on 2019-04-19
+ * Desc: NullPointerException application，RestartStrategy Test
+ * Created by zhisheng on 2019/10/5 下午11:22
  * blog：http://www.54tianzhisheng.cn/
  * 微信公众号：zhisheng
  */
-public class Main {
+public class NPEMain {
     public static void main(String[] args) throws Exception {
         //创建流运行环境
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
@@ -24,16 +24,14 @@ public class Main {
             @Override
             public void run(SourceContext<Long> sourceContext) throws Exception {
                 while (true) {
-                    sourceContext.collect(System.currentTimeMillis());
+                    sourceContext.collect(null);
                 }
             }
-
             @Override
             public void cancel() {
-
             }
         })
-                .map((MapFunction<Long, Long>) aLong -> aLong / 0)
+                .map((MapFunction<Long, Long>) aLong -> aLong / 1)
                 .print();
 
         env.execute("zhisheng RestartStrategy example");
