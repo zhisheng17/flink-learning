@@ -1,4 +1,4 @@
-package com.zhisheng.examples.streaming.executionPlan;
+package com.zhisheng.examples.streaming.chain;
 
 import org.apache.flink.api.common.functions.FlatMapFunction;
 import org.apache.flink.api.common.functions.ReduceFunction;
@@ -13,7 +13,7 @@ import org.apache.flink.util.Collector;
  * blog：http://www.54tianzhisheng.cn/
  * 微信公众号：zhisheng
  */
-public class Main {
+public class ExecutionPlanMain {
     public static void main(String[] args) throws Exception {
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
         env.getConfig().setGlobalJobParameters(ParameterTool.fromArgs(args));
@@ -42,7 +42,7 @@ public class Main {
 
         //get the job ExecutionPlan json
         System.out.println("=====" + env.getExecutionPlan());
-        env.execute("zhisheng —— word count streaming demo");
+        env.execute("zhisheng —— word count executionPlan demo");
     }
 
     private static final String[] WORDS = new String[]{
