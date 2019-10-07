@@ -17,7 +17,7 @@ public class FailureRateRestartStrategyMain {
     public static void main(String[] args) throws Exception {
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
         env.getConfig().setGlobalJobParameters(ParameterTool.fromArgs(args));
-        //每隔 10s 重启一次，如果重启速率大于（3次／2分钟）则停止 Job
+        //每隔 10s 重启一次，如果两分钟内重启过三次则停止 Job
         env.setRestartStrategy(RestartStrategies.failureRateRestart(3, Time.minutes(2), Time.seconds(10)));
 
         env.addSource(new SourceFunction<Long>() {
