@@ -2,6 +2,7 @@ package com.zhisheng.examples.streaming.config;
 
 import org.apache.flink.api.java.utils.ParameterTool;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
+import org.apache.flink.streaming.api.functions.source.ParallelSourceFunction;
 import org.apache.flink.streaming.api.functions.source.RichSourceFunction;
 
 /**
@@ -13,7 +14,6 @@ import org.apache.flink.streaming.api.functions.source.RichSourceFunction;
 public class ParameterToolGetSystemMain {
     public static void main(String[] args) throws Exception {
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
-        env.getConfig();
         env.getConfig().setGlobalJobParameters(ParameterTool.fromSystemProperties());
         env.addSource(new RichSourceFunction<String>() {
             @Override
