@@ -38,7 +38,14 @@ public class KeyedProcessFunctionMain {
 
                     @Override
                     public void processElement(Tuple2<String, Integer> value, Context ctx, Collector<Tuple2<String, Integer>> out) throws Exception {
+                        System.out.println(ctx.getCurrentKey());
                         out.collect(new Tuple2<>(ctx.getCurrentKey() + value.f0, value.f1 + 1));
+                    }
+
+                    @Override
+                    public void onTimer(long timestamp, OnTimerContext ctx, Collector<Tuple2<String, Integer>> out) throws Exception {
+                        System.out.println(ctx.getCurrentKey());
+                        super.onTimer(timestamp, ctx, out);
                     }
                 })
                 .print();
