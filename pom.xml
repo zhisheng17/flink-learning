@@ -13,7 +13,6 @@
         <module>flink-learning-connectors</module>
         <module>flink-learning-data-sources</module>
         <module>flink-learning-data-sinks</module>
-        <module>flink-learning-cep</module>
         <module>flink-learning-template</module>
         <module>flink-learning-sql</module>
         <module>flink-learning-examples</module>
@@ -21,6 +20,7 @@
         <module>flink-learning-window</module>
         <module>flink-learning-state</module>
         <module>flink-learning-core</module>
+        <module>flink-learning-libraries</module>
     </modules>
 
     <properties>

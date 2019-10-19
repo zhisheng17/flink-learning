@@ -22,7 +22,7 @@ Maybe your Maven conf file `settings.xml` mirrors can add aliyun central mirror 
 </mirror>
 ```
 
-than you can run the following command :
+then you can run the following command :
 
 ```
 mvn clean package -Dmaven.test.skip=true
