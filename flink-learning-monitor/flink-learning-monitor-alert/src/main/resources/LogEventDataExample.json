@@ -1,0 +1,14 @@
+{
+  "type": "app",
+  "id": "121",
+  "timestamp": 1570941591229,
+  "level": "error",
+  "offset": 32313131,
+  "content": "Exception in thread \"main\" java.lang.NoClassDefFoundError: org/apache/flink/api/common/ExecutionConfig$GlobalJobParameters",
+  "tags": {
+    "cluster_name": "zhisheng",
+    "app_name": "zhisheng",
+    "host_ip": "127.0.0.1",
+    "app_id": "21"
+  }
+}

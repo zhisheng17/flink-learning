@@ -27,6 +27,7 @@
         <module>flink-learning-connectors-netty</module>
         <module>flink-learning-connectors-akka</module>
         <module>flink-learning-connectors-kudu</module>
+        <module>flink-learning-connectors-clickhouse</module>
     </modules>
 
     <dependencies>
