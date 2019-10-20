@@ -117,19 +117,20 @@ class MySink extends RichSinkFunction implements CheckpointedFunction{
 
         System.out.println("subtask: " + subtaskIndex + "  start restore state");
 
+        if(context.isRestored()){
+            restoredUnionListState = new TreeMap<>();
+            for (Tuple2<Integer, Long> indexOfSubtaskState : unionListState.get()) {
+                restoredUnionListState.put(indexOfSubtaskState.f0, indexOfSubtaskState.f1);
+                System.out.println("restore UnionListState  currentSubtask: " + subtaskIndex + " restoreSubtask "
+                        + indexOfSubtaskState.f0 + " restoreCheckPointId " + indexOfSubtaskState.f1);
+            }
 
-        restoredUnionListState = new TreeMap<>();
-        for (Tuple2<Integer, Long> indexOfSubtaskState : unionListState.get()) {
-            restoredUnionListState.put(indexOfSubtaskState.f0, indexOfSubtaskState.f1);
-            System.out.println("restore UnionListState  currentSubtask: " + subtaskIndex + " restoreSubtask "
-                    + indexOfSubtaskState.f0 + " restoreCheckPointId " + indexOfSubtaskState.f1);
-        }
-
-        restoredListState = new TreeMap<>();
-        for (Tuple2<Integer, Long> indexOfSubtaskState : listState.get()) {
-            restoredListState.put(indexOfSubtaskState.f0, indexOfSubtaskState.f1);
-            System.out.println("restore ListState  currentSubtask: " + subtaskIndex + " restoreSubtask "
-                    + indexOfSubtaskState.f0 + " restoreCheckPointId " + indexOfSubtaskState.f1);
+            restoredListState = new TreeMap<>();
+            for (Tuple2<Integer, Long> indexOfSubtaskState : listState.get()) {
+                restoredListState.put(indexOfSubtaskState.f0, indexOfSubtaskState.f1);
+                System.out.println("restore ListState  currentSubtask: " + subtaskIndex + " restoreSubtask "
+                        + indexOfSubtaskState.f0 + " restoreCheckPointId " + indexOfSubtaskState.f1);
+            }
         }
 
         System.out.println("subtask: " + subtaskIndex + "  complete restore");
