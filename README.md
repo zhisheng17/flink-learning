@@ -37,15 +37,15 @@ you can see following result if build success.
 
 2019/09/06 将该项目的 Flink 版本升级到 1.9.0，有一些变动，Flink 1.8.0 版本的代码经群里讨论保存在分支 [feature/flink-1.8.0](https://github.com/zhisheng17/flink-learning/tree/feature/flink-1.8.0) 以便部分同学需要。
 
-2019/06/08 新增 Flink 四本电子书籍的 PDF，在 books 目录下：
+2019/06/08 四本 Flink 书籍：
 
-+ [Introduction_to_Apache_Flink_book.pdf](./books/Introduction_to_Apache_Flink_book.pdf)    这本书比较薄，处于介绍阶段，国内有这本的翻译书籍
++ [Introduction_to_Apache_Flink_book.pdf]()    这本书比较薄，处于介绍阶段，国内有这本的翻译书籍
 
-+ [Learning Apache Flink.pdf](books/Learning_Apache_Flink.pdf)    这本书比较基础，初学的话可以多看看
++ [Learning Apache Flink.pdf]()    这本书比较基础，初学的话可以多看看
 
-+ [Stream Processing with Apache Flink.pdf](books/Stream_Processing_with_Apache_Flink.pdf)    这本书是 Flink PMC 写的
++ [Stream Processing with Apache Flink.pdf]()    这本书是 Flink PMC 写的
 
-+ [Streaming System.pdf](books/Streaming_System.pdf)  这本书评价不是一般的高
++ [Streaming System.pdf]()  这本书评价不是一般的高
 
 2019/06/09 新增流处理引擎相关的 Paper，在 paper 目录下：
 
