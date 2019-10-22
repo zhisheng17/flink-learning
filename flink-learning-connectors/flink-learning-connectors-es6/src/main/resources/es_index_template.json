@@ -5,8 +5,8 @@
     "index.translog.durability": "async",
     "index.translog.sync_interval": "20s",
     "index.translog.flush_threshold_size": "1024mb",
-    "number_of_shards": 1,
-    "number_of_replicas": 2
+    "number_of_shards": 5,
+    "number_of_replicas": 5
   },
   "mappings": {
     "zhisheng": {

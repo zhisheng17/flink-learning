@@ -5,7 +5,7 @@ import com.zhisheng.common.model.MetricEvent;
 import com.zhisheng.common.utils.ExecutionEnvUtil;
 import com.zhisheng.common.utils.GsonUtil;
 import com.zhisheng.common.utils.KafkaConfigUtil;
-import com.zhisheng.connectors.es6.utils.ElasticSearchSinkUtil;
+import com.zhisheng.connectors.es6.utils.ESSinkUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.flink.api.common.functions.RuntimeContext;
 import org.apache.flink.api.java.utils.ParameterTool;
@@ -25,19 +25,19 @@ import static com.zhisheng.common.constant.PropertiesConstants.*;
  * 微信公众号：zhisheng
  */
 @Slf4j
-public class Main {
+public class Sink2ES6Main {
     public static void main(String[] args) throws Exception {
         final ParameterTool parameterTool = ExecutionEnvUtil.createParameterTool(args);
         StreamExecutionEnvironment env = ExecutionEnvUtil.prepare(parameterTool);
         DataStreamSource<MetricEvent> data = KafkaConfigUtil.buildSource(env);
 
-        List<HttpHost> esAddresses = ElasticSearchSinkUtil.getEsAddresses(parameterTool.get(ELASTICSEARCH_HOSTS));
+        List<HttpHost> esAddresses = ESSinkUtil.getEsAddresses(parameterTool.get(ELASTICSEARCH_HOSTS));
         int bulkSize = parameterTool.getInt(ELASTICSEARCH_BULK_FLUSH_MAX_ACTIONS, 40);
         int sinkParallelism = parameterTool.getInt(STREAM_SINK_PARALLELISM, 5);
 
         log.info("-----esAddresses = {}, parameterTool = {}, ", esAddresses, parameterTool);
 
-        ElasticSearchSinkUtil.addSink(esAddresses, bulkSize, sinkParallelism, data,
+        ESSinkUtil.addSink(esAddresses, bulkSize, sinkParallelism, data,
                 (MetricEvent metric, RuntimeContext runtimeContext, RequestIndexer requestIndexer) -> {
                     requestIndexer.add(Requests.indexRequest()
                             .index(ZHISHENG + "_" + metric.getName())

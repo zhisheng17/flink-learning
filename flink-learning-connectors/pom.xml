@@ -28,6 +28,9 @@
         <module>flink-learning-connectors-akka</module>
         <module>flink-learning-connectors-kudu</module>
         <module>flink-learning-connectors-clickhouse</module>
+        <module>flink-learning-connectors-es2</module>
+        <module>flink-learning-connectors-es5</module>
+        <module>flink-learning-connectors-es7</module>
     </modules>
 
     <dependencies>

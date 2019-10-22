@@ -1,34 +1,23 @@
 package com.zhisheng.connectors.es6.utils;
 
-import lombok.extern.slf4j.Slf4j;
 import org.apache.flink.api.java.utils.ParameterTool;
 import org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator;
-import org.apache.flink.streaming.connectors.elasticsearch.ActionRequestFailureHandler;
 import org.apache.flink.streaming.connectors.elasticsearch.ElasticsearchSinkFunction;
-import org.apache.flink.streaming.connectors.elasticsearch.RequestIndexer;
 import org.apache.flink.streaming.connectors.elasticsearch6.ElasticsearchSink;
-import org.apache.flink.util.ExceptionUtils;
 import org.apache.http.HttpHost;
-import org.elasticsearch.action.ActionRequest;
-import org.elasticsearch.common.util.concurrent.EsRejectedExecutionException;
 
-import java.io.IOException;
 import java.net.MalformedURLException;
-import java.net.SocketTimeoutException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 /**
- * ES Sink 工具类（含获取 ES 的地址、写入、拒绝重试策略、index template）
- *
+ * Desc: ES Sink util（get ES host、addSink）//todo: index template & x-pack
+ * Created by zhisheng on 2019/10/21 下午3:05
  * blog：http://www.54tianzhisheng.cn/
  * 微信公众号：zhisheng
  */
-@Slf4j
-public class ElasticSearchSinkUtil {
-
+public class ESSinkUtil {
     //es security constant
     public static final String ES_SECURITY_ENABLE = "es.security.enable";
     public static final String ES_SECURITY_USERNAME = "es.security.username";
@@ -49,7 +38,7 @@ public class ElasticSearchSinkUtil {
                                    ParameterTool parameterTool) {
         ElasticsearchSink.Builder<T> esSinkBuilder = new ElasticsearchSink.Builder<>(hosts, func);
         esSinkBuilder.setBulkFlushMaxActions(bulkFlushMaxActions);
-        esSinkBuilder.setFailureHandler(new RetryRejectedExecutionFailureHandler());
+        esSinkBuilder.setFailureHandler(new RetryRequestFailureHandler());
         //todo:xpack security
         data.addSink(esSinkBuilder.build()).setParallelism(parallelism);
     }
@@ -78,36 +67,5 @@ public class ElasticSearchSinkUtil {
             }
         }
         return addresses;
-    }
-
-    public static class RetryRejectedExecutionFailureHandler implements ActionRequestFailureHandler {
-        private static final long serialVersionUID = -7423562912824511906L;
-
-        public RetryRejectedExecutionFailureHandler() {
-        }
-
-        @Override
-        public void onFailure(ActionRequest action, Throwable failure, int restStatusCode, RequestIndexer indexer) throws Throwable {
-            if (ExceptionUtils.findThrowable(failure, EsRejectedExecutionException.class).isPresent()) {
-                indexer.add(new ActionRequest[]{action});
-            } else {
-                if (ExceptionUtils.findThrowable(failure, SocketTimeoutException.class).isPresent()) {
-                    // 忽略写入超时，因为ElasticSearchSink 内部会重试请求，不需要抛出来去重启 flink job
-                    return;
-                } else {
-                    Optional<IOException> exp = ExceptionUtils.findThrowable(failure, IOException.class);
-                    if (exp.isPresent()) {
-                        IOException ioExp = exp.get();
-                        if (ioExp != null && ioExp.getMessage() != null && ioExp.getMessage().contains("max retry timeout")) {
-                            // request retries exceeded max retry timeout
-                            // 经过多次不同的节点重试，还是写入失败的，则忽略这个错误，丢失数据。
-                            log.error(ioExp.getMessage());
-                            return;
-                        }
-                    }
-                }
-                throw failure;
-            }
-        }
     }
 }
