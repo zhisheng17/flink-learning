@@ -28,7 +28,7 @@ public class LogEvent {
     //the level of log(debug/info/warn/error)
     private String level;
 
-    //the message of offset log
+    //the message of log
     private String message;
 
     //the tag of log(appId、dockerId、machine hostIp、machine clusterName、...)
