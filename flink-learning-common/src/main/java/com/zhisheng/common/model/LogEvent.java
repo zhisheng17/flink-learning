@@ -22,20 +22,14 @@ public class LogEvent {
     //the type of log(app、docker、...)
     private String type;
 
-    //the id of log
-    private String id;
-
     // the timestamp of log
     private Long timestamp;
 
     //the level of log(debug/info/warn/error)
     private String level;
 
-    //the offset of logfile
-    private Long offset;
-
-    //the content of offset log
-    private String content;
+    //the message of offset log
+    private String message;
 
     //the tag of log(appId、dockerId、machine hostIp、machine clusterName、...)
     private Map<String, String> tags = new HashMap<>();
