@@ -1,7 +1,7 @@
-package com.zhisheng.examples.streaming.uv.util;
+package com.zhisheng.pvuv.utils;
 
-import com.zhisheng.common.model.UserVisitWebEvent;
 import com.zhisheng.common.utils.GsonUtil;
+import com.zhisheng.pvuv.model.UserVisitWebEvent;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.joda.time.DateTime;

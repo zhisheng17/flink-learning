@@ -1,9 +1,9 @@
-package com.zhisheng.examples.streaming.uv;
+package com.zhisheng.pvuv;
 
 
-import com.zhisheng.common.model.UserVisitWebEvent;
 import com.zhisheng.common.utils.GsonUtil;
-import com.zhisheng.examples.streaming.uv.util.UvExampleUtil;
+import com.zhisheng.pvuv.model.UserVisitWebEvent;
+import com.zhisheng.pvuv.utils.UvExampleUtil;
 import org.apache.flink.api.common.serialization.SimpleStringSchema;
 import org.apache.flink.api.common.typeinfo.TypeHint;
 import org.apache.flink.api.java.tuple.Tuple2;

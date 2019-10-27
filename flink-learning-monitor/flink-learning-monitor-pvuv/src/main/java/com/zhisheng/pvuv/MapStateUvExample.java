@@ -1,10 +1,9 @@
-package com.zhisheng.examples.streaming.uv;
+package com.zhisheng.pvuv;
 
 
-import com.zhisheng.common.model.UserVisitWebEvent;
+import com.zhisheng.pvuv.model.UserVisitWebEvent;
 import com.zhisheng.common.utils.GsonUtil;
-import com.zhisheng.examples.streaming.uv.util.UvExampleUtil;
-import org.apache.commons.lang3.math.NumberUtils;
+import com.zhisheng.pvuv.utils.UvExampleUtil;
 import org.apache.flink.api.common.functions.RichMapFunction;
 import org.apache.flink.api.common.serialization.SimpleStringSchema;
 import org.apache.flink.api.common.state.MapState;
@@ -111,7 +110,7 @@ public class MapStateUvExample {
         public RedisCommandDescription getCommandDescription() {
             // 这里必须是 set 操作，通过 MapState 来维护用户集合，
             // 输出到 Redis 仅仅是为了展示结果供其他系统查询统计结果
-            return new RedisCommandDescription(RedisCommand.PFADD.SET);
+            return new RedisCommandDescription(RedisCommand.SET);
         }
 
         @Override
