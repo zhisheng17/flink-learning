@@ -21,6 +21,7 @@
         <module>flink-learning-state</module>
         <module>flink-learning-core</module>
         <module>flink-learning-libraries</module>
+        <module>flink-learning-project</module>
     </modules>
 
     <properties>
