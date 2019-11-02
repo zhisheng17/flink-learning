@@ -15,7 +15,7 @@
     <dependencies>
         <dependency>
             <groupId>com.zhisheng.flink</groupId>
-            <artifactId>flink-learning-common</artifactId>
+            <artifactId>flink-learning-project-common</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
@@ -30,5 +30,51 @@
             <version>2.9.0</version>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.1.0</version>
+                <configuration>
+                    <createDependencyReducedPom>false</createDependencyReducedPom>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+
+                        <configuration>
+                            <transformers>
+
+                                <transformer
+                                        implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                    <!--如果要打包的话，这里要换成对应的 main class-->
+                                    <mainClass>com.zhisheng.project.deduplication.KeyedStateDeduplication</mainClass>
+                                </transformer>
+                                <transformer
+                                        implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+                                    <resource>reference.conf</resource>
+                                </transformer>
+                            </transformers>
+                            <filters>
+                                <filter>
+                                    <artifact>*:*:*:*</artifact>
+                                    <excludes>
+                                        <exclude>META-INF/*.SF</exclude>
+                                        <exclude>META-INF/*.DSA</exclude>
+                                        <exclude>META-INF/*.RSA</exclude>
+                                    </excludes>
+                                </filter>
+                            </filters>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

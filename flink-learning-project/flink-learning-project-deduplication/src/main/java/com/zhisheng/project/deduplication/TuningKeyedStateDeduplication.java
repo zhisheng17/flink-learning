@@ -1,10 +1,10 @@
-package com.zhisheng.pvuv;
+package com.zhisheng.project.deduplication;
 
 
 import com.google.common.hash.Hashing;
 import com.zhisheng.common.utils.GsonUtil;
-import com.zhisheng.pvuv.model.UserVisitWebEvent;
-import com.zhisheng.pvuv.utils.DeduplicationExampleUtil;
+import com.zhisheng.project.deduplication.model.UserVisitWebEvent;
+import com.zhisheng.project.deduplication.utils.DeduplicationExampleUtil;
 import org.apache.flink.api.common.serialization.SimpleStringSchema;
 import org.apache.flink.api.java.functions.KeySelector;
 import org.apache.flink.contrib.streaming.state.PredefinedOptions;
