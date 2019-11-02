@@ -1,6 +1,6 @@
-package com.zhisheng.sql;
+package com.zhisheng.sql.ago.sql;
 
-import com.zhisheng.model.WC;
+import com.zhisheng.sql.ago.model.WC;
 import org.apache.flink.api.java.DataSet;
 import org.apache.flink.api.java.ExecutionEnvironment;
 import org.apache.flink.table.api.Table;

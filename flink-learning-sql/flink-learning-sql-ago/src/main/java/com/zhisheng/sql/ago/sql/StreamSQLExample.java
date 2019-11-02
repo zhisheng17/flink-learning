@@ -1,4 +1,4 @@
-package com.zhisheng.sql;
+package com.zhisheng.sql.ago.sql;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

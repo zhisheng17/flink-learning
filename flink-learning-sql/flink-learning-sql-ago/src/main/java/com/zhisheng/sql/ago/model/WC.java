@@ -1,4 +1,4 @@
-package com.zhisheng.model;
+package com.zhisheng.sql.ago.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
