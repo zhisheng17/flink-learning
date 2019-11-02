@@ -15,7 +15,7 @@
         <dependency>
             <groupId>com.zhisheng.flink</groupId>
             <artifactId>flink-learning-common</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
 

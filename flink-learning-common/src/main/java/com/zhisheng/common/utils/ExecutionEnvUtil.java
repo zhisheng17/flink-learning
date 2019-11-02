@@ -7,8 +7,6 @@ import org.apache.flink.streaming.api.TimeCharacteristic;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * blog：http://www.54tianzhisheng.cn/
@@ -19,8 +17,7 @@ public class ExecutionEnvUtil {
         return ParameterTool
                 .fromPropertiesFile(ExecutionEnvUtil.class.getResourceAsStream(PropertiesConstants.PROPERTIES_FILE_NAME))
                 .mergeWith(ParameterTool.fromArgs(args))
-                .mergeWith(ParameterTool.fromSystemProperties())
-                .mergeWith(ParameterTool.fromMap(getenv()));
+                .mergeWith(ParameterTool.fromSystemProperties());
     }
 
     public static final ParameterTool PARAMETER_TOOL = createParameterTool();
@@ -29,32 +26,23 @@ public class ExecutionEnvUtil {
         try {
             return ParameterTool
                     .fromPropertiesFile(ExecutionEnvUtil.class.getResourceAsStream(PropertiesConstants.PROPERTIES_FILE_NAME))
-                    .mergeWith(ParameterTool.fromSystemProperties())
-                    .mergeWith(ParameterTool.fromMap(getenv()));
+                    .mergeWith(ParameterTool.fromSystemProperties());
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return null;
+        return ParameterTool.fromSystemProperties();
     }
 
     public static StreamExecutionEnvironment prepare(ParameterTool parameterTool) throws Exception {
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
         env.setParallelism(parameterTool.getInt(PropertiesConstants.STREAM_PARALLELISM, 5));
         env.getConfig().disableSysoutLogging();
-        env.getConfig().setRestartStrategy(RestartStrategies.fixedDelayRestart(4, 10000));
+        env.getConfig().setRestartStrategy(RestartStrategies.fixedDelayRestart(4, 60000));
         if (parameterTool.getBoolean(PropertiesConstants.STREAM_CHECKPOINT_ENABLE, true)) {
-            env.enableCheckpointing(parameterTool.getInt(PropertiesConstants.STREAM_CHECKPOINT_INTERVAL, 1000)); // create a checkpoint every 5 seconds
+            env.enableCheckpointing(parameterTool.getInt(PropertiesConstants.STREAM_CHECKPOINT_INTERVAL, 10000));
         }
-        env.getConfig().setGlobalJobParameters(parameterTool); // make parameters available in the web interface
+        env.getConfig().setGlobalJobParameters(parameterTool);
         env.setStreamTimeCharacteristic(TimeCharacteristic.EventTime);
         return env;
-    }
-
-    private static Map<String, String> getenv() {
-        Map<String, String> map = new HashMap<>();
-        for (Map.Entry<String, String> entry : System.getenv().entrySet()) {
-            map.put(entry.getKey(), entry.getValue());
-        }
-        return map;
     }
 }

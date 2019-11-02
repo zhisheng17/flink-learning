@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Desc: ES Sink util（get ES host、addSink）//todo: index template & x-pack
+ * Desc: ES Sink utils（get ES host、addSink）//todo: index template & x-pack
  * Created by zhisheng on 2019/10/21 下午3:05
  * blog：http://www.54tianzhisheng.cn/
  * 微信公众号：zhisheng
