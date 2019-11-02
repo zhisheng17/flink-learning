@@ -1,4 +1,4 @@
-package com.zhisheng.pvuv.model;
+package com.zhisheng.monitor.pvuv.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
