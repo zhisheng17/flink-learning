@@ -29,12 +29,10 @@ public class BuildLogEventDataUtil {
 
         for (int i = 0; i < 100; i++) {
             LogEvent logEvent = new LogEvent().builder()
-                    .id(String.valueOf(i + 1))
                     .type("app")
                     .timestamp(System.currentTimeMillis())
                     .level(logLevel())
-                    .offset(Long.valueOf(i))
-                    .content(content(i + 1))
+                    .message(message(i + 1))
                     .tags(mapData())
                     .build();
 //            System.out.println(logEvent);
@@ -48,7 +46,7 @@ public class BuildLogEventDataUtil {
         writeDataToKafka();
     }
 
-    public static String content(int i) {
+    public static String message(int i) {
         return "这是第 " + i + " 行日志！";
     }
 

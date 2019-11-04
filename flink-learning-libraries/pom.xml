@@ -15,13 +15,14 @@
         <module>flink-learning-libraries-gelly</module>
         <module>flink-learning-libraries-cep</module>
         <module>flink-learning-libraries-state-processor-api</module>
+        <module>flink-learning-libraries-machine-learning</module>
     </modules>
 
     <dependencies>
         <dependency>
             <groupId>com.zhisheng.flink</groupId>
             <artifactId>flink-learning-common</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
 </project>

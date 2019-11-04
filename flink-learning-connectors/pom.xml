@@ -28,13 +28,17 @@
         <module>flink-learning-connectors-akka</module>
         <module>flink-learning-connectors-kudu</module>
         <module>flink-learning-connectors-clickhouse</module>
+        <module>flink-learning-connectors-es2</module>
+        <module>flink-learning-connectors-es5</module>
+        <module>flink-learning-connectors-es7</module>
+        <module>flink-learning-connectors-hive</module>
     </modules>
 
     <dependencies>
         <dependency>
             <groupId>com.zhisheng.flink</groupId>
             <artifactId>flink-learning-common</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
 

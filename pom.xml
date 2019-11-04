@@ -17,10 +17,12 @@
         <module>flink-learning-sql</module>
         <module>flink-learning-examples</module>
         <module>flink-learning-monitor</module>
+        <module>flink-learning-project</module>
         <module>flink-learning-window</module>
         <module>flink-learning-state</module>
         <module>flink-learning-core</module>
         <module>flink-learning-libraries</module>
+        <module>flink-learning-project</module>
     </modules>
 
     <properties>

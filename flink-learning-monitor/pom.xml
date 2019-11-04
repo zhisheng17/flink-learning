@@ -16,7 +16,9 @@
         <module>flink-learning-monitor-alert</module>
         <module>flink-learning-monitor-storage</module>
         <module>flink-learning-monitor-common</module>
+        <module>flink-learning-monitor-pvuv</module>
         <module>flink-learning-monitor-dashboard</module>
+        <module>flink-learning-monitor-log</module>
     </modules>
 
 

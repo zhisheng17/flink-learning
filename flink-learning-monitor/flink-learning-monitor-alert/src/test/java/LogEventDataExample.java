@@ -15,7 +15,6 @@ public class LogEventDataExample {
 
         LogEvent logEvent = new LogEvent();
         logEvent.setType("app");
-        logEvent.setId("121");
         Map<String, String> tags = new HashMap<>();
         tags.put("cluster_name", "zhisheng");
         tags.put("host_ip", "127.0.0.1");
@@ -23,16 +22,14 @@ public class LogEventDataExample {
         tags.put("app_name", "zhisheng");
 
 
-        String content = "Exception in thread \"main\" java.lang.NoClassDefFoundError: org/apache/flink/api/common/ExecutionConfig$GlobalJobParameters";
+        String message = "Exception in thread \"main\" java.lang.NoClassDefFoundError: org/apache/flink/api/common/ExecutionConfig$GlobalJobParameters";
 
 
         LogEvent event = new LogEvent().builder()
                 .type("app")
-                .id("121")
                 .timestamp(System.currentTimeMillis())
                 .level("error")
-                .offset(32313131L)
-                .content(content)
+                .message(message)
                 .tags(tags).build();
 
         System.out.println(GsonUtil.toJson(event));
