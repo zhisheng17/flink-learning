@@ -13,6 +13,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>flink-learning-project-deduplication</module>
+        <module>flink-learning-project-common</module>
     </modules>
 
 

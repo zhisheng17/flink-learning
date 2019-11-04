@@ -21,6 +21,7 @@ import java.util.List;
 import static com.zhisheng.common.constant.PropertiesConstants.*;
 
 /**
+ * sink data to es6
  * blog：http://www.54tianzhisheng.cn/
  * 微信公众号：zhisheng
  */

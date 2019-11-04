@@ -29,6 +29,33 @@ public class HttpUtil {
 
     private static final CloseableHttpClient httpClient = HttpClients.createDefault();
 
+    public static String doPostString(String url, String jsonParams) throws Exception {
+        CloseableHttpResponse response = null;
+        HttpPost httpPost = new HttpPost(url);
+
+        String httpStr;
+        try {
+            StringEntity entity = new StringEntity(jsonParams, "UTF-8");
+            entity.setContentEncoding("UTF-8");
+            entity.setContentType("application/json");
+
+            httpPost.setEntity(entity);
+            httpPost.setHeader("content-type", "application/json");
+            //如果要设置 Basic Auth 的话
+//        httpPost.setHeader("Authorization", getHeader());
+            response = httpClient.execute(httpPost);
+            httpStr = EntityUtils.toString(response.getEntity(), "UTF-8");
+
+        } finally {
+            if (response != null) {
+                EntityUtils.consume(response.getEntity());
+                response.close();
+            }
+        }
+        return httpStr;
+    }
+
+
     /**
      * 通过GET方式发起http请求
      */
@@ -60,6 +87,33 @@ public class HttpUtil {
     }
 
 
+    public static String doPutString(String url, String jsonParams) throws Exception {
+        CloseableHttpResponse response = null;
+        HttpPut httpPut = new HttpPut(url);
+
+        String httpStr;
+        try {
+            StringEntity entity = new StringEntity(jsonParams, "UTF-8");
+            entity.setContentEncoding("UTF-8");
+            entity.setContentType("application/json");
+
+            httpPut.setEntity(entity);
+            httpPut.setHeader("content-type", "application/json");
+            //如果要设置 Basic Auth 的话
+//        httpPut.setHeader("Authorization", getHeader());
+            response = httpClient.execute(httpPut);
+            httpStr = EntityUtils.toString(response.getEntity(), "UTF-8");
+
+        } finally {
+            if (response != null) {
+                EntityUtils.consume(response.getEntity());
+                response.close();
+            }
+        }
+        return httpStr;
+    }
+
+
     /**
      * 发送 POST 请求（HTTP），JSON形式
      *
@@ -88,60 +142,6 @@ public class HttpUtil {
             }
         }
         return response;
-    }
-
-
-    public static String doPostString(String url, String jsonParams) throws Exception {
-        CloseableHttpResponse response = null;
-        HttpPost httpPost = new HttpPost(url);
-
-        String httpStr;
-        try {
-            StringEntity entity = new StringEntity(jsonParams, "UTF-8");
-            entity.setContentEncoding("UTF-8");
-            entity.setContentType("application/json");
-
-            httpPost.setEntity(entity);
-            httpPost.setHeader("content-type", "application/json");
-            //如果要设置 Basic Auth 的话
-//        httpPost.setHeader("Authorization", getHeader());
-            response = httpClient.execute(httpPost);
-            httpStr = EntityUtils.toString(response.getEntity(), "UTF-8");
-
-        } finally {
-            if (response != null) {
-                EntityUtils.consume(response.getEntity());
-                response.close();
-            }
-        }
-        return httpStr;
-    }
-
-
-    public static String doPutString(String url, String jsonParams) throws Exception {
-        CloseableHttpResponse response = null;
-        HttpPut httpPut = new HttpPut(url);
-
-        String httpStr;
-        try {
-            StringEntity entity = new StringEntity(jsonParams, "UTF-8");
-            entity.setContentEncoding("UTF-8");
-            entity.setContentType("application/json");
-
-            httpPut.setEntity(entity);
-            httpPut.setHeader("content-type", "application/json");
-            //如果要设置 Basic Auth 的话
-//        httpPut.setHeader("Authorization", getHeader());
-            response = httpClient.execute(httpPut);
-            httpStr = EntityUtils.toString(response.getEntity(), "UTF-8");
-
-        } finally {
-            if (response != null) {
-                EntityUtils.consume(response.getEntity());
-                response.close();
-            }
-        }
-        return httpStr;
     }
 
 
