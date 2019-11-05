@@ -25,7 +25,7 @@
 - [The Dataflow Model: A Practical Approach to Balancing Correctness, Latency, and Cost in Massive-Scale, Unbounded, Out-of-Order Data Processing](http://people.csail.mit.edu/matei/courses/2015/6.S897/readings/google-dataflow.pdf) (VLDB): 来自 Google 的将 stream processing 模型和 batch processing 模型统一的尝试。在 Dataflow model 下，底层依赖 FlumeJava 支持 batch processing，依赖 MillWheel 支持 stream processing。Dataflow model 的开源实现是 Apache Beam 项目。
 
 
-- [Apache Flink: Stream and Batch Processing in a Single Engine](https://kth.diva-portal.org/smash/get/diva2:1059537/FULLTEXT01.pdf): Apache Flink 是一个处理 streaming data 和 batch data 的开源系统。Flink 的设计哲学是，包括实时分析 (real-time analytics)、持续数据处理 (continuous data pipelines)、历史数据处理 (historic data processing / batch)、迭代式算法 (iterative algorithms - machine learning, graph analysis) 等的很多类数据处理应用，都能用 pipelined fault-tolerant 的 dataflows 执行模型来表达。
+- [Apache Flink: Stream and Batch Processing in a Single Engine](https://www.researchgate.net/publication/308993790_Apache_Flink_Stream_and_Batch_Processing_in_a_Single_Engine): Apache Flink 是一个处理 streaming data 和 batch data 的开源系统。Flink 的设计哲学是，包括实时分析 (real-time analytics)、持续数据处理 (continuous data pipelines)、历史数据处理 (historic data processing / batch)、迭代式算法 (iterative algorithms - machine learning, graph analysis) 等的很多类数据处理应用，都能用 pipelined fault-tolerant 的 dataflows 执行模型来表达。
 
 
 - [Lightweight asynchronous snapshots for distributed dataflows](https://arxiv.org/pdf/1506.08603.pdf): Apache Flink 所实现的一个轻量级的、异步做状态快照的方法。基于此，Flink 得以保证分布式状态的一致性，从而保证整个系统的 exactly-once 语义。具体的，Flink 会持续性的在 stream 里插入 barrier markers，制造一个分布式的顺序关系，使得不同的节点能够在同一批 barrier marker 上达成整个系统的一致性状态。
@@ -52,7 +52,7 @@
 - [Discretized Streams: Fault-Tolerant Streaming Computation at Scale](https://people.csail.mit.edu/matei/papers/2013/sosp_spark_streaming.pdf) (SOSP): Spark Streaming 是基于 Spark 执行引擎、micro-batch 模式的准实时处理系统。对比 RDD 是 Spark 引擎的数据抽象，DStream (Discretized Stream) 则是 Spark Streaming 引擎的数据抽象。DStream 像 RDD 一样，具有分布式、可故障恢复的特点，并且能够充分利用 Spark 引擎的推测执行，应对 straggler 的出现。
 
 
-- [MillWheel: Fault-Tolerant Stream Processing at Internet Scale](https://www.sics.se/~amir/id2221/papers/2013%20-%20MillWheel%20-%20Fault-Tolerant%20Stream%20Processing%20at%20Internet%20Scale%20(VLDB).pdf) (VLDB): MillWheel 是 Google 内部研发的实时流数据处理系统，具有分布式、低延迟、高可用、支持 exactly-once 语义的特点。不出意外，MillWheel 是 Google 强大 infra structure 和强大 engeering 能力的综合体现 —— 利用 Bigtable/Spanner 作为后备状态存储、保证 exactly-once 特性等等。另外，MillWheel 将 watermark 机制发扬光大，对 event time 有着非常好的支持。推荐对 streaming system 感兴趣的朋友一定多读几遍此篇论文 —— 虽然此篇已经发表了几年，但工业界开源的系统尚未完全达到 MillWheel 的水平。
+- [MillWheel: Fault-Tolerant Stream Processing at Internet Scale](https://static.googleusercontent.com/media/research.google.com/zh-CN//pubs/archive/41378.pdf) (VLDB): MillWheel 是 Google 内部研发的实时流数据处理系统，具有分布式、低延迟、高可用、支持 exactly-once 语义的特点。不出意外，MillWheel 是 Google 强大 infra structure 和强大 engeering 能力的综合体现 —— 利用 Bigtable/Spanner 作为后备状态存储、保证 exactly-once 特性等等。另外，MillWheel 将 watermark 机制发扬光大，对 event time 有着非常好的支持。推荐对 streaming system 感兴趣的朋友一定多读几遍此篇论文 —— 虽然此篇已经发表了几年，但工业界开源的系统尚未完全达到 MillWheel 的水平。
 
 
 - [Integrating Scale Out and Fault Tolerance in Stream Processing using Operator State Management](http://openaccess.city.ac.uk/8175/1/sigmod13-seep.pdf) (SIGMOD): 针对有状态的算子的状态，此篇的基本洞察是，scale out 和 fault tolerance 其实很相通，应该结合到一起考虑和实现，而不是将其割裂开来。文章提出了算子的 3 类状态：(a) processing state, (b) buffer state, 和 (c) routing state，并提出了算子状态的 4 个操作原语：(1) checkpoint state, (2) backup state, (3) restore state, (4) partition state。
@@ -67,10 +67,10 @@
 ## 2008 年
 
 
-- [Out-of-Order Processing: A New Architecture for HighPerformance Stream System](http://www.vldb.org/pvldb/1/1453890.pdf) (VLDB): 这篇文章提出了一种新的处理模型，即 out-of-order processing (OOP)，取消了以往 streaming system 里对事件有序的假设。重要的是，这篇文章提出了并实现了 low watermark: lwm(n, S, A) is the smallest value for A that occurs after prefix Sn of stream S。我们看到，在 2 年后 Google 开始研发的 MillWheel 里，watermark 将被发扬光大。
+- [Out-of-Order Processing: A New Architecture for HighPerformance Stream System](https://www.researchgate.net/publication/220538528_Out-of-Order_Processing_a_New_Architecture_for_High-Performance_Stream_Systems) (VLDB): 这篇文章提出了一种新的处理模型，即 out-of-order processing (OOP)，取消了以往 streaming system 里对事件有序的假设。重要的是，这篇文章提出了并实现了 low watermark: lwm(n, S, A) is the smallest value for A that occurs after prefix Sn of stream S。我们看到，在 2 年后 Google 开始研发的 MillWheel 里，watermark 将被发扬光大。
 
 
-- [Fast and Highly-Available Stream Processing over Wide Area Networks](http://ai2-s2-pdfs.s3.amazonaws.com/49b6/db86d9902abbf7564e7f429d69102ee845bb.pdf) (ICDE): 针对广域网 (wide area networks) 的 stream processing 设计的快速、高可用方案。主要思想是依靠 replication。
+- [Fast and Highly-Available Stream Processing over Wide Area Networks](http://cs.brown.edu/~ugur/fast.pdf) (ICDE): 针对广域网 (wide area networks) 的 stream processing 设计的快速、高可用方案。主要思想是依靠 replication。
 
 
 ## 2007 年
