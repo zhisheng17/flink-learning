@@ -52,7 +52,7 @@ public class PvStatLocalKeyByExactlyOnce {
         final StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
         // 1 分钟一次CheckPoint
         env.enableCheckpointing(TimeUnit.MINUTES.toMillis(1));
-        env.setParallelism(1);
+        env.setParallelism(2);
 
         CheckpointConfig checkpointConf = env.getCheckpointConfig();
         // CheckPoint 语义 EXACTLY ONCE
@@ -112,14 +112,17 @@ public class PvStatLocalKeyByExactlyOnce {
  * LocalKeyByFlatMap 中实现了在 shuffle 的上游端对数据进行预聚合，
  * 从而减少发送到下游的数据量，使得热点数据量大大降低。
  * 注：本案例中积攒批次使用数据量来积攒，当长时间数据量较少时，由于数据量积攒不够，
- * 可能导致上游buffer中数据不往下游发送，所以可以加定时策略，
+ * 可能导致上游buffer中数据不往下游发送，可以加定时策略，
  * 例如：如果数据量少但是时间超过了 200ms，也会强制将数据发送到下游
  */
-class LocalKeyByFlatMap extends RichFlatMapFunction<String, Tuple2<String, Long>> implements CheckpointedFunction {
+class LocalKeyByFlatMap extends RichFlatMapFunction<String, Tuple2<String, Long>>
+        implements CheckpointedFunction {
 
     /**
-     * 由于加了 buffer，所以 CheckPoint 的时候，可能还有 CheckPoint 之前的数据缓存在 buffer 中没有发送到下游被处理
-     * 把这部分数据放到 localPvStatListState 中，当 CheckPoint 恢复时，把这部分数据从状态中恢复到 buffer 中
+     * 由于加了 buffer，所以 CheckPoint 的时候，
+     * 可能还有 CheckPoint 之前的数据缓存在 buffer 中没有发送到下游被处理
+     * 把这部分数据放到 localPvStatListState 中，当 CheckPoint 恢复时，
+     * 把这部分数据从状态中恢复到 buffer 中
      */
     private ListState<Tuple2<String, Long>> localPvStatListState;
     /**
@@ -139,7 +142,8 @@ class LocalKeyByFlatMap extends RichFlatMapFunction<String, Tuple2<String, Long>
 
 
     LocalKeyByFlatMap(int batchSize){
-        checkArgument(batchSize >= 0, "Cannot define a negative value for the batchSize.");
+        checkArgument(batchSize >= 0,
+                "Cannot define a negative value for the batchSize.");
         this.batchSize = batchSize;
     }
 
@@ -147,19 +151,17 @@ class LocalKeyByFlatMap extends RichFlatMapFunction<String, Tuple2<String, Long>
     @Override
     public void flatMap(String in, Collector collector) throws Exception {
         //  将新来的数据添加到 buffer 中
-        Long pv = localPvStat.get(in);
-        if(null == pv) {
-            localPvStat.put(in, 1L);
-        } else {
-            localPvStat.put(in, pv + 1);
-        }
-        System.out.println("invoke   subtask:" + subtaskIndex + "   appId:" +in + "   pv:" + localPvStat.get(in));
+        Long pv = localPvStat.getOrDefault(in, 0L);
+        localPvStat.put(in, pv + 1);
+        System.out.println("invoke   subtask:" + subtaskIndex + "   appId:" +
+                in + "   pv:" + localPvStat.get(in));
 
         // 如果到达设定的批次，则将 buffer 中的数据发送到下游
         if(currentSize.incrementAndGet() >= batchSize){
             for(Map.Entry<String, Long> appIdPv: localPvStat.entrySet()) {
                 collector.collect(Tuple2.of(appIdPv.getKey(), appIdPv.getValue()));
-                System.out.println("batchSend   subtask:" + subtaskIndex + "   appId:" +appIdPv.getKey() + "   pv:" + appIdPv.getValue());
+                System.out.println("batchSend   subtask:" + subtaskIndex +
+                        "   appId:" +appIdPv.getKey() + "   pv:" + appIdPv.getValue());
             }
             localPvStat.clear();
             currentSize.set(0);
@@ -173,7 +175,8 @@ class LocalKeyByFlatMap extends RichFlatMapFunction<String, Tuple2<String, Long>
         localPvStatListState.clear();
         for(Map.Entry<String, Long> appIdPv: localPvStat.entrySet()) {
             localPvStatListState.add(Tuple2.of(appIdPv.getKey(), appIdPv.getValue()));
-            System.out.println("snapshot   subtask:" + subtaskIndex + "   appId:" +appIdPv.getKey() + "   pv:" + appIdPv.getValue());
+            System.out.println("snapshot   subtask:" + subtaskIndex +
+                    "   appId:" +appIdPv.getKey() + "   pv:" + appIdPv.getValue());
         }
     }
 
@@ -193,11 +196,13 @@ class LocalKeyByFlatMap extends RichFlatMapFunction<String, Tuple2<String, Long>
                 if(null == pv) {
                     localPvStat.put(appIdPv.f0, appIdPv.f1);
                 } else {
-                    // 如果出现 pv != null,说明改变了并行度，ListState 中的数据会被均匀分发到新的 subtask中
+                    // 如果出现 pv != null,说明改变了并行度，
+                    // ListState 中的数据会被均匀分发到新的 subtask中
                     // 所以单个 subtask 恢复的状态中可能包含两个相同的 app 的数据
                     localPvStat.put(appIdPv.f0, pv + appIdPv.f1);
                 }
-                System.out.println("init   subtask:" + subtaskIndex + "   appId:" +appIdPv.f0 + "   pv:" + appIdPv.f1);
+                System.out.println("init   subtask:" + subtaskIndex +
+                        "   appId:" +appIdPv.f0 + "   pv:" + appIdPv.f1);
             }
             //  从状态恢复时，默认认为 buffer 中数据量达到了 batchSize，需要向下游发送数据了
             currentSize = new AtomicInteger(batchSize);
