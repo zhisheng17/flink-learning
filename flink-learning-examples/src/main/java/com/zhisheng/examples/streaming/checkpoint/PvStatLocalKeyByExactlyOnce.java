@@ -191,16 +191,13 @@ class LocalKeyByFlatMap extends RichFlatMapFunction<String, Tuple2<String, Long>
                         })));
         localPvStat = new HashMap();
         if(context.isRestored()) {
+            // 从状态中恢复 buffer 中的数据
             for(Tuple2<String, Long> appIdPv: localPvStatListState.get()){
-                Long pv = localPvStat.get(appIdPv.f0);
-                if(null == pv) {
-                    localPvStat.put(appIdPv.f0, appIdPv.f1);
-                } else {
-                    // 如果出现 pv != null,说明改变了并行度，
-                    // ListState 中的数据会被均匀分发到新的 subtask中
-                    // 所以单个 subtask 恢复的状态中可能包含两个相同的 app 的数据
-                    localPvStat.put(appIdPv.f0, pv + appIdPv.f1);
-                }
+                long pv = localPvStat.getOrDefault(appIdPv.f0, 0L);
+                // 如果出现 pv != 0,说明改变了并行度，
+                // ListState 中的数据会被均匀分发到新的 subtask中
+                // 所以单个 subtask 恢复的状态中可能包含两个相同的 app 的数据
+                localPvStat.put(appIdPv.f0, pv + appIdPv.f1);
                 System.out.println("init   subtask:" + subtaskIndex +
                         "   appId:" +appIdPv.f0 + "   pv:" + appIdPv.f1);
             }
