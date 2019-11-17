@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>flink-learning-connector-clickhouse</artifactId>
+    <artifactId>flink-learning-connectors-clickhouse</artifactId>
 
     <properties>
         <async.client.version>2.0.39</async.client.version>

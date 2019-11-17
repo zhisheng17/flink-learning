@@ -37,7 +37,7 @@ public class Sort {
         Table table = tableEnv.fromDataStream(source, "eventTime.rowtime");
 
         tableEnv.registerTable("zhisheng", table);
-        Table sorted = tableEnv.sqlQuery("select eventTime from zhisheng order by eventTime desc");
+        Table sorted = tableEnv.sqlQuery("select eventTime from zhisheng order by eventTime");
         DataStream<Row> rowDataStream = tableEnv.toAppendStream(sorted, Row.class);
 
         rowDataStream.print();
