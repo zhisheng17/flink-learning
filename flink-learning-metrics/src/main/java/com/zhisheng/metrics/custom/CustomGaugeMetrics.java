@@ -57,6 +57,6 @@ public class CustomGaugeMetrics {
             }
         }).print();
 
-        env.execute("Flink custom Counter Metrics");
+        env.execute("Flink custom Gauge Metrics");
     }
 }

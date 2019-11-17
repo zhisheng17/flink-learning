@@ -59,6 +59,6 @@ public class CustomHistogramMetrics {
             }
         }).print();
 
-        env.execute("Flink custom Counter Metrics");
+        env.execute("Flink custom Histogram Metrics");
     }
 }

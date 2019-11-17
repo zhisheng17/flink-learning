@@ -9,7 +9,7 @@ import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.streaming.api.functions.source.SourceFunction;
 
 /**
- * Desc:
+ * Desc: custom Meter
  * Created by zhisheng on 2019-11-16 19:08
  * blog：http://www.54tianzhisheng.cn/
  * 微信公众号：zhisheng
@@ -57,6 +57,6 @@ public class CustomMeterMetrics {
             }
         }).print();
 
-        env.execute("Flink custom Counter Metrics");
+        env.execute("Flink custom Meter Metrics");
     }
 }
