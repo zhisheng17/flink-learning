@@ -22,6 +22,7 @@
         <module>flink-learning-core</module>
         <module>flink-learning-libraries</module>
         <module>flink-learning-project</module>
+        <module>flink-learning-metrics</module>
     </modules>
 
     <properties>
