@@ -1,6 +1,7 @@
 package com.zhisheng.connectors.mysql.sinks;
 
 import com.zhisheng.connectors.mysql.model.Student;
+import com.zhisheng.connectors.mysql.utils.JdbcPoolUtil;
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.apache.flink.configuration.Configuration;
 import org.apache.flink.streaming.api.functions.sink.RichSinkFunction;
@@ -18,7 +19,6 @@ import java.util.List;
  */
 public class SinkToMySQL extends RichSinkFunction<List<Student>> {
     PreparedStatement ps;
-    BasicDataSource dataSource;
     private Connection connection;
 
     /**
@@ -29,23 +29,14 @@ public class SinkToMySQL extends RichSinkFunction<List<Student>> {
      */
     @Override
     public void open(Configuration parameters) throws Exception {
-        super.open(parameters);
-        dataSource = new BasicDataSource();
-        connection = getConnection(dataSource);
+        connection = JdbcPoolUtil.getConnect();
         String sql = "insert into Student(id, name, password, age) values(?, ?, ?, ?);";
         ps = this.connection.prepareStatement(sql);
     }
 
     @Override
     public void close() throws Exception {
-        super.close();
-        //关闭连接和释放资源
-        if (connection != null) {
-            connection.close();
-        }
-        if (ps != null) {
-            ps.close();
-        }
+        //连接池不需要关闭
     }
 
     /**
@@ -67,27 +58,5 @@ public class SinkToMySQL extends RichSinkFunction<List<Student>> {
         }
         int[] count = ps.executeBatch();//批量后执行
         System.out.println("成功了插入了" + count.length + "行数据");
-    }
-
-
-    private static Connection getConnection(BasicDataSource dataSource) {
-        dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-        //注意，替换成自己本地的 mysql 数据库地址和用户名、密码
-        dataSource.setUrl("jdbc:mysql://localhost:3306/test");
-        dataSource.setUsername("root");
-        dataSource.setPassword("root123456");
-        //设置连接池的一些参数
-        dataSource.setInitialSize(10);
-        dataSource.setMaxTotal(50);
-        dataSource.setMinIdle(2);
-
-        Connection con = null;
-        try {
-            con = dataSource.getConnection();
-            System.out.println("创建连接池：" + con);
-        } catch (Exception e) {
-            System.out.println("-----------mysql get connection has exception , msg = " + e.getMessage());
-        }
-        return con;
     }
 }
