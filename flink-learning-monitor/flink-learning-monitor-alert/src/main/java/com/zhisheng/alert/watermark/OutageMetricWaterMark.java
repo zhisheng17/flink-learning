@@ -1,4 +1,4 @@
-package com.zhisheng.alert.schema;
+package com.zhisheng.alert.watermark;
 
 import com.zhisheng.alert.model.OutageMetricEvent;
 import org.apache.flink.streaming.api.functions.AssignerWithPeriodicWatermarks;
