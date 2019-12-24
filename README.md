@@ -4,6 +4,10 @@
 
 ![](http://zhisheng-blog.oss-cn-hangzhou.aliyuncs.com/img/2019-05-25-124027.jpg)
 
+## Stargazers over time
+
+[![Stargazers over time](https://starchart.cc/zhisheng17/flink-learning.svg)](https://starchart.cc/zhisheng17/flink-learning)
+
 ## 本项目结构
 
 ![](./pics/Flink-learning.png)
