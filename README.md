@@ -6,7 +6,7 @@
 
 ## Stargazers over time
 
-[![Stargazers over time](https://starchart.cc/zhisheng17/flink-learning.svg)](https://starchart.cc/zhisheng17/flink-learning)
+![Stargazers over time](https://starchart.cc/zhisheng17/flink-learning.svg)
 
 ## 本项目结构
 
