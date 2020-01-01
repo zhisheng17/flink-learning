@@ -15,13 +15,13 @@ import java.util.Random;
  */
 public class PvStatExactlyOnceKafkaUtil {
     public static final String broker_list = "192.168.30.215:9092,192.168.30.216:9092,192.168.30.220:9092";
-    public static final HashMap<String,Long> producerMap = new HashMap();
+    private static final HashMap<String, Long> producerMap = new HashMap<>();
     /**
      * kafka topic，Flink 程序中需要和这个统一
      */
     public static final String topic = "app-topic";
 
-    public static void writeToKafka() throws InterruptedException {
+    private static void writeToKafka() {
         Properties props = new Properties();
         props.put("bootstrap.servers", broker_list);
         props.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
@@ -35,13 +35,13 @@ public class PvStatExactlyOnceKafkaUtil {
         System.out.println("发送数据: " + value);
 
         Long pv = producerMap.get(value);
-        if(null == pv) {
+        if (null == pv) {
             producerMap.put(value, 1L);
         } else {
             producerMap.put(value, pv + 1);
         }
         System.out.println("生产数据:");
-        for(Map.Entry<String, Long> appIdPv: producerMap.entrySet()) {
+        for (Map.Entry<String, Long> appIdPv : producerMap.entrySet()) {
             System.out.println("appId:" + appIdPv.getKey() + "   pv:" + appIdPv.getValue());
         }
 

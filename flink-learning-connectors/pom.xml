@@ -32,6 +32,10 @@
         <module>flink-learning-connectors-es5</module>
         <module>flink-learning-connectors-es7</module>
         <module>flink-learning-connectors-hive</module>
+        <module>flink-learning-connectors-gcp-pubsub</module>
+        <module>flink-learning-connectors-nifi</module>
+        <module>flink-learning-connectors-pulsar</module>
+        <!--<module>flink-learning-connectors-kinesis</module>-->
     </modules>
 
     <dependencies>

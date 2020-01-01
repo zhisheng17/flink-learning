@@ -4,6 +4,10 @@
 
 ![](http://zhisheng-blog.oss-cn-hangzhou.aliyuncs.com/img/2019-05-25-124027.jpg)
 
+## Stargazers over time
+
+![Stargazers over time](https://starchart.cc/zhisheng17/flink-learning.svg)
+
 ## 本项目结构
 
 ![](./pics/Flink-learning.png)
@@ -141,7 +145,7 @@ you can see following result if build success.
 
 1、[《大数据重磅炸弹——实时计算引擎 Flink》开篇词](https://t.zsxq.com/fqfuVRR​)
 
-2、、[你公司到底需不需要引入实时计算引擎？](https://t.zsxq.com/emMBaQN​)
+2、[你公司到底需不需要引入实时计算引擎？](https://t.zsxq.com/emMBaQN​)
 
 3、[一文让你彻底了解大数据实时计算框架 Flink](https://t.zsxq.com/eM3ZRf2) ​
 
@@ -166,6 +170,12 @@ you can see following result if build success.
 13、[如何使用 DataStream API 来处理数据？](https://t.zsxq.com/VzNBi2r)
 
 14、[Flink WaterMark 详解及结合 WaterMark 处理延迟数据](https://t.zsxq.com/Iub6IQf)
+
+15、[基于 Apache Flink 的监控告警系统](https://t.zsxq.com/MniUnqb)
+
+16、[数据仓库、数据库的对比介绍与实时数仓案例分享](https://t.zsxq.com/v7QzNZ3)
+
+17、[使用 Prometheus Grafana 监控 Flink](https://t.zsxq.com/uRN3VfA)
 
 
 ### 源码系列
@@ -928,6 +938,116 @@ you can see following result if build success.
 348、[flink on k8s的高可用、扩缩容这块目前还有哪些问题？](https://t.zsxq.com/uVv7uJU)
 
 349、[有个问题问一下，是这样的现在Kafka4个分区每秒钟生产4000多到5000条日志数据，但是在消费者FLINK这边接收我只开了4个solt接收，这边只是接收后做切分存储，现在出现了延迟现象，我不清楚是我这边处切分慢了还是Flink接收kafka的数据慢了？Flink UI界面显示这两个背压高](https://t.zsxq.com/zFq3fqb)
+
+350、[想请问一下，在flink集群模式下，能不能指定某个节点来执行一个task?](https://t.zsxq.com/NbaMjem)
+
++ [请问一下aggrefunction 的merge方法什么时候会用到呢，google上有答案说合并相同的key， 但相同的key应该是被hash相同的task上了?这块不是很理解](https://t.zsxq.com/VnEim6m)
+
++ [请问flink遇到这种问题怎么解决？1. eventA发起事件，eventB响应事件，每分钟统计事件的响应的成功率。说明，eventA和eventB有相同的commitId关联，eventA到flink的时间早于eventB的时间，但eventB到达的时间也有可能早于eventA。要求是：eventA有A,B,C,D,E五条数据，如果eventB有A',B',C',X',Y'五条数据，成功率是3/5.2. 每分钟统计一次eventC成功率(状态0、1)。但该事件日志会重复报，只统计eventTime最早的一条。上一分钟统计到过的，下一分钟不再统计](https://t.zsxq.com/eMnMrRJ)
+
++ [Flink当前版本中Yarn,k8s,standalone的HA设计方案与源码解析请问可以系统性讲讲么](https://t.zsxq.com/EamqrFQ)
+
++ [怎么用javaAPI提交job以yarn-cluster模式运行](https://t.zsxq.com/vR76amq)
+
++ [有人遇到过流损坏的问题么？不知道怎么着手解决？](https://t.zsxq.com/6iMvjmq)
+
++ [从这个日志能看出什么异常的原因吗？我查看了kafka，yarn，zookeeper。这三个组件都没有任何异常](https://t.zsxq.com/uByFUrb)
+
++ [为啥flink内部维护两套通信框架，client与jobmanager和jobmanager与taskmanager是akka通信，然而takmanager之间是netty通信？](https://t.zsxq.com/yvBiImq)
+
++ [问各位球友一个小问题，flink 的 wordcount ，输出在控制台的时候，前面有个数字  > 是什么意思](https://t.zsxq.com/yzzBMji)
+
++ [从kafka的topicA读数据，转换后写入topicB，开启了checkpoint，任务启动后正常运行，新的topic也有数据写入，但是想监控一下消费topicA有没有延迟，使用kafka客户端提供的脚本查看groupid相关信息，提示没有该groupid](https://t.zsxq.com/MNFUVnE)
+
++ [将flink分流之后，再进行窗口计算，如何将多个窗口计算的结果汇总起来 作为一个sink，定时输出?
+   我想将多个流计算的不同实时统计指标，比如每1min对多个指标进行统计（多个指标分布在不同的流里面），然后将多个指标作为一条元组存入mysql中?](https://t.zsxq.com/mUfm2zF)
+
++ [Flink最终如何输出到数据大屏上去。](https://t.zsxq.com/nimeA66)
+
++ [为什么我keyby 之后，不同key的数据会进入同一个AggregateFunction中吗？ 还是说不同key用的AggregateFunction实列是同一个呢？我在AggregateFunction中给一个对象赋值之后，发现其他key的数据会把之前的数据覆盖，这是怎么回事啊？](https://t.zsxq.com/IMzBUFA)
+
++ [flink窗口计算的结果怎么和之前的结果聚合在一起](https://t.zsxq.com/yFI2FYv)
+
++ [flink on yarn 的任务该如何监控呢，之前自带 influxdb metrics 好像无法采集到flink on yarn 的指标](https://t.zsxq.com/ZZ3FmqF)
+
++ [link1.9.0消费kafka0.10.1.1数据时，通过ui监控查看发现部分分区的current offset和commit offset一直显示为负数，随着程序运行也始终不变，麻烦问下这是怎么回事？](https://t.zsxq.com/QvRNjiU)
+
++ [flink 1.9 使用rank的时候报，org.apache.flink.table.api.TableException: RANK() on streaming table is not supported currently](https://t.zsxq.com/Y7MBaQb)
+
++ [Flink任务能不能动态的变更source源kafka的topic，但是又不用重启任务](https://t.zsxq.com/rzVjMjM)
+
++ [1、keyed state 和opeater state 区分点是啥（是否进行了shuffle流程？）
+   2、CheckpointedFunction 这个接口的作用是啥？
+   3、何时调用这个snapshotState这个方法？](https://t.zsxq.com/ZVnEyne)
+
++ [请教一下各位大佬，日志一般都怎么收集？task manager貌似把不同job的日志都打印在一起，有木有分开打印的办法？](https://t.zsxq.com/AayjeiM)
+
++ [最近接到一个需求，统计今天累计在线人数并且要去重，每5秒显示一次结果，请问如何做这个需求？](https://t.zsxq.com/IuJ2FYR)
+
++ [目前是flink消费kafka的一个问题。kafka使用的是阿里云的kafka，可以申请consumer。目前在同一个A-test的topic下，使用A1的consumer组进行消费，但是在两个程序里，source端得到的数据量差别很大，图一是目前消费kafka写入到另一个kafka的topic中，目前已知只有100条；图二是消费kafka，写入到hdfs中。两次消费起始偏移量一致（消费后，恢复偏移量到最初再消费）按照时间以及设置从头开始消费的策略也都还是只有100条；后面我把kafka的offset提交到checkpoint选项关掉了，也还是只有100条。很奇怪，所以想问一下，目前这个问题是要从state来出发解决](https://t.zsxq.com/eqBUZFm)
+
++ [问一下 grafana的dashboard 有没有推荐的，我们现在用是prometheus pushgateway reporter来收集metric。但是目前来说，到底哪些指标是要重点关注的还是不太清楚](https://t.zsxq.com/EYz7iMV)
+
++ [on yarn   1. session 模式提交是不是意味着 多个flink任务会由同一个 jobManager 管理 2. per-job 模式 会启动各自多个jobManager](https://t.zsxq.com/u3vVV3b)
+
++ [您在flink里面使用过lettuce连接redis cluster吗，我这里使用时报错，Cannot retrieve initial cluster partitions from initial URIs](https://t.zsxq.com/VNnEQJ6)
+
++ [zhisheng你好，我在使用flink滑动窗口时，每10分钟会向redis写入大量的内容，影响了线上性能，这个有什么办法可以控制写redis的速度吗？](https://t.zsxq.com/62ZZJmi)
+
++ [flink standalone模式，启动服务的命令为：flink run -c 类名 jar包  。对应的Slots怎么能均匀分布呢？目前遇到问题，一直使用一个机器的Slots，任务多了后直接会把taskjob挂掉。报错信息如二图](https://t.zsxq.com/2zjqVnE)
+
++ [zhisheng你好，像standalone与yarn集群，其master与workers相互通信都依赖于ssh协议，请问有哪种不依赖于ssh协议的搭建方式吗？](https://t.zsxq.com/qzrvbaQ)
+
++ [官网中，这两种周期性watermaker的产生分别适用什么场景呢？](https://t.zsxq.com/2fUjAQz)
+
++ [周期性的watermarke 设置定时产生， ExecutionConfig.setAutoWatermarkInterval（…），这个定时的时间一般怎样去评估呢？](https://t.zsxq.com/7IEAyV3)
+
++ [想问一下能否得到flink分配资源的时间？](https://t.zsxq.com/YjqRBq3)
+
++ [问下flink向kafka生产数据有时候报错：This server does not host this topic-partition](https://t.zsxq.com/vJyJiMJ)
+
++ [flink yarn 模式启动，log4j. properties配置信息见图片，yarn启动页面的taskmanager能看到日志输出到stdout，但是在指定的日志文件夹中就是没有日志文件生成。，本地运行有日志文件的](https://t.zsxq.com/N3ZrZbQ)
+
++ [教一个问题。flink2hbase 如何根据hbase中的日期字段，动态按天建表呢？我自定义了hbase sink，在invoke方法中根据数据的时间建表，但是带来了一个问题，每条数据都要去check表是否存在，这样会产生大量的rpc请求。请问星主大大，针对上述这种情况，有什么好的解决办法吗？](https://t.zsxq.com/3rNBubU)
+
++ [你好，有关于TM,slots,内存，线程数，进程数，cpu，调度相关的资料吗？比如一个slot起多少线程，为什么，如何起的，task是如何调度的之类的。网上没找到想要的，书上写的也不够细。源码的话刚开始看不太懂，所以想先找找资料看看](https://t.zsxq.com/buBIAMf)
+
++ [能否在flink中只新建一个FlinkKafkaConsumer读取多个kafka的topics ，这些topics的处理逻辑都是一样的 最终将数据写入每个topic对应的es表 请问这个实现逻辑是怎样的 ](https://t.zsxq.com/EY37aEm)
+
++ [能不能描述一下在窗口中，例如滚动窗口，多个事件进窗口后，事件在内存中保存的形式是怎么样的？会变成一个state？还是多个事件变成一个state？事件跟state的关系？事件时间过了在窗口是怎么清理事件的？如果state backends用的是RocksDBStateBackend，增量checkpoint，怎么清理已保存过期的事件咧？](https://t.zsxq.com/3vzzj62)
+
++ [请问一下 Flink的监控是如何做的？比如job挂了能告警通知。目前是想用Prometheus来做监控，但是发现上报的指标没有很符合的我需求。我这边用yarn-session启动的job，一个jobManger会管理多个job。Prometheus还是刚了解阶段可能遗漏了一些上报指标，球主大大有没有好的建议。](https://t.zsxq.com/vJyRnY7)
+
++ [ProcessTime和EventTime是否可以一起使用？当任务抛出异常失败的时候，如果配置了重启策略，重启时是不是从最近的checkpoint继续？遇到了一个数据库主键冲突的问题，查看kafka数据源发现该主键的消息只有一条，查看日志发现Redis连接池抛了异常(当时Redis在重启)导致任务失败重试，当时用的ProcessTime](https://t.zsxq.com/BuZJaUb)
+
++ [flink-kafka 自定义反序列化中如何更好的处理数据异常呢，有翻到前面一篇提问，如果使用 try-catch 捕获到异常，是抛出异常更好呢？还是return null 更好呢](https://t.zsxq.com/u3niYni)
+
++ [现在在用flink做上下游数据的比对，现在遇到了性能瓶颈，一个节点现在最多只能消费50条数据。观察taskmanager日志的gc日志发现最大堆内存有2.7g，但是新生代最大只有300m。能不能设置flink的jvm参数，flink on yarn启动模式](https://t.zsxq.com/rvJYBuB)
+
++ [请教一个原理性的问题，side out put和直接把一个流用两种方式处理有啥本质区别？我试了下，把一个流一边写缓存，一边入数据库，两边也都是全量数据](https://t.zsxq.com/Ee27i6a)
+
++ [如何定义一个flink window处理方式，1秒钟处理500条，1：kafka中有10000条数据时，仍旧1秒钟处理500条；2，kafka中有20条，每隔1秒处理一次。](https://t.zsxq.com/u7YbyFe)
+
++ [问一下大佬，网页UI可以进行savepoint的保存么？还是只能从savepoint启动？](https://t.zsxq.com/YfAqFUj)
+
++ [能否指定Kafka某些分区消费拉取消息，其他分区不拉取消息。现在有有很多场景，一个topic上百个分区，但是我只需要其中几个分区的数据](https://t.zsxq.com/AUfEAQB)
+
++ [我想过滤kafka 读到的某些数据，过滤条件从redis中拿到（与用户的配置相关，所以需要定时更新），总觉得怪怪的，请问有更好的方案吗？因为不提供redis的source，因此我是用jedis客户端来读取redis数据的，数据也获取不到，请问星主，flink代码在编写的时候，一般是如何调试的呢](https://t.zsxq.com/qr7UzjM)
+
++ [flink使用rocksdb状态检查点存在HDFS上，有的任务状态很小但是HDFS一个文件最小128M所以磁盘空间很快就满了，有没有啥配置可以自动清理检查点呢](https://t.zsxq.com/Ufqj2ZR)
+
++ [这是实时去重的问题。
+   举个例子，当发生订单交易的时候，业务中台会把该比订单消息发送到kafka，然后flink消费，统计总金额。如果因为业务中台误操作，发送了多次相同的订单过来（订单id相同），那么统计结果就会多次累加，造成统计的总金额比实际交易金额更多。我需要自定义在source里通过operate state去重，但是operate state是和每个source实例绑定，会造成重复的订单可能发送到不同的source实例，这样取出来的state里面就可能没有上一次已经记录的订单id，那么就会将这条重复的订单金额统计到最后结果中，](https://t.zsxq.com/RzB6E6A)
+
++ [双流join的时候，怎么能保证两边来的数据是对应的？举个例子，订单消息和库存消息，按逻辑来说，发生订单的时候，库存也会变，这两个topic都会同时各自发一条消息给我，我拿到这两条消息会根据订单id做join操作。问题是那如果库存消息延迟了5秒或者10秒，订单消息来的时候就join不到库存消息，这时候该怎么办？](https://t.zsxq.com/nunynmI)
+
++ [我这有一个比对程序用的是flink，数据源用的是flink-kafka，业务数据分为上下游，需要根据某个字段分组，相同的key上下游数据放一起比对。上下游数据进来的时间不一样，因此我用了一个可以迭代的窗口大小为5分钟window进行比对处理，最大迭代次数为3次。statebackend用的是fsstatebackend。通过监控发现当程序每分钟数据量超过2万条的时候，程序就不消费数据了，虽然webui上显示正常，而且jobmanager和taskmanager的stdout没有异常日志，但是程序就是不消费数据了。](https://t.zsxq.com/nmeE2Fm)
+
++ [异步io里面有个容量，是指同时多少个并发还是，假如我每个taskmanager核数设置10个，共10个taskmanager，那我这个数量只能设置100呢](https://t.zsxq.com/vjimeiI)
+
++ [有个性能问题想问下有没有相关的经验？一个job从kafka里读一个topic数据，然后进行分流，使用sideout分开之后直接处理，性能影响大吗？比如分开以后有一百多子任务。还有其他什么好的方案进行分流吗？](https://t.zsxq.com/mEeUrZB)
+
++ [线上有个作业抛出了一下异常，但是还能正常运行，这个怎么排查，能否提供一下思路](https://t.zsxq.com/Eayzr3R)
 
 等等等，还有很多，复制粘贴的我手累啊 😂
 

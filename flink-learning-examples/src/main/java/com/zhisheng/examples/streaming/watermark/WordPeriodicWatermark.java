@@ -20,17 +20,13 @@ public class WordPeriodicWatermark implements AssignerWithPeriodicWatermarks<Wor
 
     @Override
     public long extractTimestamp(Word word, long previousElementTimestamp) {
-        this.currentTimestamp = word.getTimestamp();
+        long timestamp = word.getTimestamp();
+        currentTimestamp = Math.max(timestamp, currentTimestamp);
         log.info("event timestamp = {}, {}, CurrentWatermark = {}, {}", word.getTimestamp(),
                 DateUtil.format(word.getTimestamp(), YYYY_MM_DD_HH_MM_SS),
                 getCurrentWatermark().getTimestamp(),
                 DateUtil.format(getCurrentWatermark().getTimestamp(), YYYY_MM_DD_HH_MM_SS));
         return word.getTimestamp();
-
-//        if (word.getTimestamp() > currentTimestamp) {
-//            this.currentTimestamp = word.getTimestamp();
-//        }
-//        return currentTimestamp;
     }
 
     @Nullable

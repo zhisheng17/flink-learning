@@ -16,7 +16,7 @@ import java.util.Properties;
 import static com.zhisheng.common.utils.KafkaConfigUtil.buildKafkaProps;
 
 /**
- * Desc: Flink 消费 kafka topic，schema 的修改
+ * Desc: Flink 消费 kafka topic，watermark 的修改
  * Created by zhisheng on 2019-09-22
  * blog：http://www.54tianzhisheng.cn/
  * 微信公众号：zhisheng

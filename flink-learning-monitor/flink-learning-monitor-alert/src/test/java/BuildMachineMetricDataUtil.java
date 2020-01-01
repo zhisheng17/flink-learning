@@ -40,11 +40,13 @@ public class BuildMachineMetricDataUtil {
 
                 producer.send(cpuRecord);
                 producer.send(loadRecord);
+//                System.out.println(cpuData);
+//                System.out.println(loadData);
                 producer.send(memRecord);
                 producer.send(swapRecord);
             }
             producer.flush();
-            Thread.sleep(10000);
+            Thread.sleep(1000);
         }
     }
 

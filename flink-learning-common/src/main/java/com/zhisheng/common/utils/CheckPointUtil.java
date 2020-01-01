@@ -25,13 +25,13 @@ public class CheckPointUtil {
         if (parameterTool.getBoolean(STREAM_CHECKPOINT_ENABLE, false) && CHECKPOINT_MEMORY.equals(parameterTool.get(STREAM_CHECKPOINT_TYPE).toLowerCase())) {
             //1、state 存放在内存中，默认是 5M
             StateBackend stateBackend = new MemoryStateBackend(5 * 1024 * 1024 * 100);
-            env.enableCheckpointing(parameterTool.getInt(STREAM_CHECKPOINT_INTERVAL, 60000));
+            env.enableCheckpointing(parameterTool.getLong(STREAM_CHECKPOINT_INTERVAL, 60000));
             env.setStateBackend(stateBackend);
         }
 
         if (parameterTool.getBoolean(STREAM_CHECKPOINT_ENABLE, false) && CHECKPOINT_FS.equals(parameterTool.get(STREAM_CHECKPOINT_TYPE).toLowerCase())) {
             StateBackend stateBackend = new FsStateBackend(new URI(parameterTool.get(STREAM_CHECKPOINT_DIR)), 0);
-            env.enableCheckpointing(parameterTool.getInt(STREAM_CHECKPOINT_INTERVAL, 60000));
+            env.enableCheckpointing(parameterTool.getLong(STREAM_CHECKPOINT_INTERVAL, 60000));
             env.setStateBackend(stateBackend);
         }
 
@@ -41,7 +41,7 @@ public class CheckPointUtil {
         }
 
         //设置 checkpoint 周期时间
-        env.enableCheckpointing(parameterTool.getInt(STREAM_CHECKPOINT_INTERVAL, 60000));
+        env.enableCheckpointing(parameterTool.getLong(STREAM_CHECKPOINT_INTERVAL, 60000));
 
         //高级设置（这些配置也建议写成配置文件中去读取，优先环境变量）
         // 设置 exactly-once 模式

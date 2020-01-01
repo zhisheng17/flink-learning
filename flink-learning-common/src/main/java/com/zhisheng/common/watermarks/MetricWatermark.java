@@ -16,10 +16,9 @@ public class MetricWatermark implements AssignerWithPeriodicWatermarks<MetricEve
 
     @Override
     public long extractTimestamp(MetricEvent metricEvent, long previousElementTimestamp) {
-        if (metricEvent.getTimestamp() > currentTimestamp) {
-            this.currentTimestamp = metricEvent.getTimestamp();
-        }
-        return currentTimestamp;
+        long timestamp = metricEvent.getTimestamp();
+        currentTimestamp = Math.max(timestamp, currentTimestamp);
+        return timestamp;
     }
 
     @Nullable

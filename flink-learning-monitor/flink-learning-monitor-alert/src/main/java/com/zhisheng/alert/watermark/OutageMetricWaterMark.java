@@ -1,4 +1,4 @@
-package com.zhisheng.alert.schema;
+package com.zhisheng.alert.watermark;
 
 import com.zhisheng.alert.model.OutageMetricEvent;
 import org.apache.flink.streaming.api.functions.AssignerWithPeriodicWatermarks;
@@ -22,9 +22,8 @@ public class OutageMetricWaterMark implements AssignerWithPeriodicWatermarks<Out
 
     @Override
     public long extractTimestamp(OutageMetricEvent outageMetricEvent, long l) {
-        if (outageMetricEvent.getTimestamp() > currentTimestamp) {
-            this.currentTimestamp = outageMetricEvent.getTimestamp();
-        }
-        return currentTimestamp;
+        long timestamp = outageMetricEvent.getTimestamp();
+        currentTimestamp = Math.max(timestamp, currentTimestamp);
+        return timestamp;
     }
 }

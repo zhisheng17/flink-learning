@@ -4,7 +4,7 @@ import com.google.common.collect.Maps;
 import com.zhisheng.alert.function.OutageProcessFunction;
 import com.zhisheng.alert.model.OutageMetricEvent;
 import com.zhisheng.alert.model.AlertEvent;
-import com.zhisheng.alert.schema.OutageMetricWaterMark;
+import com.zhisheng.alert.watermark.OutageMetricWaterMark;
 import com.zhisheng.common.model.MetricEvent;
 import com.zhisheng.common.schemas.MetricSchema;
 import com.zhisheng.common.utils.ExecutionEnvUtil;
@@ -56,7 +56,7 @@ public class OutageAlert {
                 .assignTimestampsAndWatermarks(new OutageMetricWaterMark())
                 .keyBy(outageMetricEvent -> outageMetricEvent.getKey())
                 .process(new OutageProcessFunction(1000 * 10, 60))
-                .assignTimestampsAndWatermarks(new OutageMetricWaterMark())
+//                .assignTimestampsAndWatermarks(new OutageMetricWaterMark())
                 .map(new MapFunction<OutageMetricEvent, AlertEvent>() {
                     @Override
                     public AlertEvent map(OutageMetricEvent value) throws Exception {
