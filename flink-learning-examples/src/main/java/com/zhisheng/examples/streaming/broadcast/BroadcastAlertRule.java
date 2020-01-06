@@ -21,7 +21,7 @@ import java.util.List;
  * 微信公众号：zhisheng
  */
 @Slf4j
-public class BroadcastA {
+public class BroadcastAlertRule {
     final static MapStateDescriptor<String, String> ALERT_RULE = new MapStateDescriptor<>(
             "alert_rule",
             BasicTypeInfo.STRING_TYPE_INFO,
