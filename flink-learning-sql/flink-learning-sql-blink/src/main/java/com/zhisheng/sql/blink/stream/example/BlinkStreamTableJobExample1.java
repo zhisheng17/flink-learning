@@ -1,4 +1,4 @@
-package com.zhisheng.sql.blink.stream;
+package com.zhisheng.sql.blink.stream.example;
 
 import org.apache.flink.api.common.typeinfo.Types;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
@@ -27,7 +27,7 @@ public class BlinkStreamTableJobExample1 {
                 .build();
         StreamTableEnvironment blinkStreamTableEnv = StreamTableEnvironment.create(blinkStreamEnv, blinkStreamSettings);
 
-        String path = BlinkStreamTableJobExample1.class.getClassLoader().getResource("list.txt").getPath();
+        String path = BlinkStreamTableJobExample1.class.getClassLoader().getResource("words.txt").getPath();
         blinkStreamTableEnv
                 .connect(new FileSystem().path(path))
                 .withFormat(new OldCsv().field("word", Types.STRING).lineDelimiter("\n"))
@@ -39,6 +39,9 @@ public class BlinkStreamTableJobExample1 {
                 .groupBy("word")
                 .select("word,count(word) as _count");
         blinkStreamTableEnv.toRetractStream(wordWithCount, Row.class).print();
+
+        //打印结果中的 true 和 false，可能会有点疑问，为啥会多出一个字段。
+        //Sink 做的事情是先删除再插入，false 表示删除上一条数据，true 表示插入该条数据
 
         blinkStreamTableEnv.execute("Blink Stream SQL Job");
     }

@@ -1,4 +1,4 @@
-package com.zhisheng.sql.blink.stream;
+package com.zhisheng.sql.blink.stream.example;
 
 import org.apache.flink.api.common.typeinfo.Types;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
