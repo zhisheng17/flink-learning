@@ -15,6 +15,12 @@
         <module>flink-learning-project-deduplication</module>
         <module>flink-learning-project-common</module>
 		<module>flink-learning-project-monitor-alert</module>
+		<module>flink-learning-project-real-time-data-warehouse</module>
+		<module>flink-learning-project-log</module>
+		<module>flink-learning-project-risk-management</module>
+		<module>flink-learning-project-monitor-dashboard</module>
+		<module>flink-learning-project-flink-job-scaffold</module>
+		<module>flink-learning-project-real-time-computing-platform</module>
 	</modules>
 
 
