@@ -10,7 +10,7 @@
 
 ## 本项目结构
 
-![](./pics/Flink-learning.png)
+![](http://zhisheng-blog.oss-cn-hangzhou.aliyuncs.com/2020-01-11-064410.png)
 
 
 ## How to build
