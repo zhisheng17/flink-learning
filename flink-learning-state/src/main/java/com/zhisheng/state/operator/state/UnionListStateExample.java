@@ -31,7 +31,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class UnionListStateExample {
 
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
 
         final StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
         // 1 分钟一次CheckPoint
@@ -67,15 +67,13 @@ public class UnionListStateExample {
  * 将 ListState 中保存的所有元素均匀地分配到所有并行度中，每个 subtask 获取到其中一部分状态信息。
  * getUnionListState 策略是将所有的状态信息合并后，每个 subtask 都获取到全量的状态信息。
  */
-class MySink extends RichSinkFunction implements CheckpointedFunction{
+class MySink extends RichSinkFunction implements CheckpointedFunction {
 
-    ListState<Tuple2<Integer, Long>> unionListState;
-    TreeMap<Integer, Long> restoredUnionListState;
+    private ListState<Tuple2<Integer, Long>> unionListState;
 
-    ListState<Tuple2<Integer, Long>> listState;
-    TreeMap<Integer, Long> restoredListState;
-    
-    int subtaskIndex = 0;
+    private ListState<Tuple2<Integer, Long>> listState;
+
+    private int subtaskIndex = 0;
 
     @Override
     public void open(Configuration parameters) throws Exception {
@@ -107,25 +105,25 @@ class MySink extends RichSinkFunction implements CheckpointedFunction{
         unionListState = context.getOperatorStateStore().getUnionListState(
                 new ListStateDescriptor<>("unionListState",
                         TypeInformation.of(new TypeHint<Tuple2<Integer, Long>>() {
-                })));
+                        })));
 
         // 通过 getListState 获取 ListState
         listState = context.getOperatorStateStore().getListState(
                 new ListStateDescriptor<>("listState",
                         TypeInformation.of(new TypeHint<Tuple2<Integer, Long>>() {
-                })));
+                        })));
 
         System.out.println("subtask: " + subtaskIndex + "  start restore state");
 
-        if(context.isRestored()){
-            restoredUnionListState = new TreeMap<>();
+        if (context.isRestored()) {
+            TreeMap<Integer, Long> restoredUnionListState = new TreeMap<>();
             for (Tuple2<Integer, Long> indexOfSubtaskState : unionListState.get()) {
                 restoredUnionListState.put(indexOfSubtaskState.f0, indexOfSubtaskState.f1);
                 System.out.println("restore UnionListState  currentSubtask: " + subtaskIndex + " restoreSubtask "
                         + indexOfSubtaskState.f0 + " restoreCheckPointId " + indexOfSubtaskState.f1);
             }
 
-            restoredListState = new TreeMap<>();
+            TreeMap<Integer, Long> restoredListState = new TreeMap<>();
             for (Tuple2<Integer, Long> indexOfSubtaskState : listState.get()) {
                 restoredListState.put(indexOfSubtaskState.f0, indexOfSubtaskState.f1);
                 System.out.println("restore ListState  currentSubtask: " + subtaskIndex + " restoreSubtask "
