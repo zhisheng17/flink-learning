@@ -1,16 +1,14 @@
-package com.zhisheng.sql.blink.stream.customTableSink;
+package com.zhisheng.sql.blink.stream.tableSink;
 
 import com.zhisheng.sql.blink.stream.example.BlinkStreamSQLJobExample1;
 import org.apache.flink.api.common.typeinfo.TypeInformation;
 import org.apache.flink.api.common.typeinfo.Types;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
-import org.apache.flink.table.api.DataTypes;
 import org.apache.flink.table.api.EnvironmentSettings;
 import org.apache.flink.table.api.Table;
 import org.apache.flink.table.api.java.StreamTableEnvironment;
 import org.apache.flink.table.sinks.RetractStreamTableSink;
 import org.apache.flink.table.sources.CsvTableSource;
-import org.apache.flink.table.types.DataType;
 import org.apache.flink.types.Row;
 
 /**

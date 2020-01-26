@@ -1,12 +1,9 @@
-package com.zhisheng.sql.blink.stream.customTableSink;
+package com.zhisheng.sql.blink.stream.tableSink;
 
 import org.apache.flink.api.common.typeinfo.TypeInformation;
 import org.apache.flink.streaming.api.datastream.DataStream;
-import org.apache.flink.streaming.api.datastream.DataStreamSink;
-import org.apache.flink.table.api.TableSchema;
 import org.apache.flink.table.sinks.AppendStreamTableSink;
 import org.apache.flink.table.sinks.TableSink;
-import org.apache.flink.table.types.DataType;
 import org.apache.flink.types.Row;
 
 /**

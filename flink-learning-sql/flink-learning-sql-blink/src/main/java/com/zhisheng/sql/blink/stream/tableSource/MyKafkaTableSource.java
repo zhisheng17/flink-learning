@@ -1,4 +1,4 @@
-package com.zhisheng.sql.blink.stream.customTableSource;
+package com.zhisheng.sql.blink.stream.tableSource;
 
 import com.zhisheng.common.utils.KafkaConfigUtil;
 import org.apache.flink.api.common.serialization.SimpleStringSchema;

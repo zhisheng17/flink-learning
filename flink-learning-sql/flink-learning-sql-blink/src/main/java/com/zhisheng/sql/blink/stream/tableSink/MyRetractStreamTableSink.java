@@ -1,4 +1,4 @@
-package com.zhisheng.sql.blink.stream.customTableSink;
+package com.zhisheng.sql.blink.stream.tableSink;
 
 import org.apache.flink.api.common.typeinfo.TypeInformation;
 import org.apache.flink.api.java.tuple.Tuple2;
