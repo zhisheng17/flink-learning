@@ -29,6 +29,11 @@
             <version>${flink.version}</version>
             <!--<scope>provided</scope>-->
         </dependency>
+        <!--<dependency>
+            <groupId>org.apache.hive</groupId>
+            <artifactId>hive-exec</artifactId>
+            <version>${hive.version}</version>
+        </dependency>-->
     </dependencies>
 
     <build>

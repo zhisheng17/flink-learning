@@ -26,8 +26,8 @@ public class CatalogTypes {
         //GenericInMemoryCatalog，默认的 catalog
 
 
-        //HiveCatalog，这个需要添加 hive connector 的依赖
-        blinkStreamTableEnv.registerCatalog("zhisheng", new HiveCatalog("zhisheng", "zhisheng", "~/zhisheng/hive/conf", "2.3.4"));
+        //HiveCatalog，这个需要添加 Hive connector 和 Hive 的依赖
+//        blinkStreamTableEnv.registerCatalog("zhisheng", new HiveCatalog("zhisheng", "zhisheng", "~/zhisheng/hive/conf", "2.3.4"));
 
 
         //User-Defined Catalog，自定义的 catalog
