@@ -12,4 +12,11 @@
     <artifactId>flink-learning-configration-center-apollo</artifactId>
 
 
+    <dependencies>
+        <dependency>
+            <groupId>com.ctrip.framework.apollo</groupId>
+            <artifactId>apollo-client</artifactId>
+            <version>1.5.1</version>
+        </dependency>
+    </dependencies>
 </project>
