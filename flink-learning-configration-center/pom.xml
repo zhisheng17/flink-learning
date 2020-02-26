@@ -16,5 +16,11 @@
         <module>flink-learning-configration-center-apollo</module>
     </modules>
 
-
+    <dependencies>
+        <dependency>
+            <groupId>com.zhisheng.flink</groupId>
+            <artifactId>flink-learning-common</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
 </project>

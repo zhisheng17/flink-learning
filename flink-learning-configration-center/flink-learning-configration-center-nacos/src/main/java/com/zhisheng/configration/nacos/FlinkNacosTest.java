@@ -33,7 +33,6 @@ public class FlinkNacosTest {
         System.out.println("main " + content);
 
         env.addSource(new RichSourceFunction<String>() {
-            Properties properties = new Properties();
             ConfigService configService;
             String config;
             String dataId = "test";
@@ -43,6 +42,7 @@ public class FlinkNacosTest {
             public void open(Configuration parameters) throws Exception {
                 super.open(parameters);
                 String serverAddr = "localhost";
+                Properties properties = new Properties();
                 properties.put("serverAddr", serverAddr);
                 configService = NacosFactory.createConfigService(properties);
                 config = configService.getConfig(dataId, group, 5000);
