@@ -12,12 +12,9 @@
     <artifactId>flink-learning-connectors-es7</artifactId>
 
     <dependencies>
-        <!--在 1.9 版本中暂时无 ES7 Connector，所以使用最新的 ES6 Connector 代替，然后 Sink 数据到 ES7，验证写入数据是否会有问题
-        //todo：后面 Flink 版本升级的话，记得将该依赖也升级
-        -->
         <dependency>
             <groupId>org.apache.flink</groupId>
-            <artifactId>flink-connector-elasticsearch6_${scala.binary.version}</artifactId>
+            <artifactId>flink-connector-elasticsearch7_${scala.binary.version}</artifactId>
             <version>${flink.version}</version>
         </dependency>
     </dependencies>
