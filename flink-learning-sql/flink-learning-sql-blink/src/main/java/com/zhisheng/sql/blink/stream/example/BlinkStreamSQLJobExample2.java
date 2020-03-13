@@ -31,7 +31,7 @@ public class BlinkStreamSQLJobExample2 {
                 "    'connector.type' = 'kafka',\n" +
                 "    'connector.version' = '0.11',\n" +
                 "    'connector.topic' = 'user_behavior',\n" +
-                "    'connector.startup-mode' = 'earliest-offset',\n" +
+                "    'connector.startup-mode' = 'latest-offset',\n" +
                 "    'connector.properties.zookeeper.connect' = 'localhost:2181',\n" +
                 "    'connector.properties.bootstrap.servers' = 'localhost:9092',\n" +
                 "    'format.type' = 'json'\n" +
@@ -58,7 +58,6 @@ public class BlinkStreamSQLJobExample2 {
         blinkStreamTableEnv.sqlUpdate(ddlSource);
         blinkStreamTableEnv.sqlUpdate(ddlSink);
         blinkStreamTableEnv.sqlUpdate(sql);
-        blinkStreamTableEnv.sqlQuery(sql);
 
         blinkStreamTableEnv.execute("Blink Stream SQL Job2");
     }
