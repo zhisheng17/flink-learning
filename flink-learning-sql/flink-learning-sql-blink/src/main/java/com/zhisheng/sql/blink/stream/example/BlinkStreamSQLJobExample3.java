@@ -2,7 +2,9 @@ package com.zhisheng.sql.blink.stream.example;
 
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.table.api.EnvironmentSettings;
+import org.apache.flink.table.api.Table;
 import org.apache.flink.table.api.java.StreamTableEnvironment;
+import org.apache.flink.types.Row;
 
 
 /**
@@ -42,12 +44,13 @@ public class BlinkStreamSQLJobExample3 {
                 "    item_id BIGINT\n" +
                 ") WITH (\n" +
                 "    'connector.type' = 'elasticsearch',\n" +
-                "    'connector.version' = '6',\n" +        //使用 6 也可以写入数据到 es 7，但是使用 7 写不进去 es 7
+                "    'connector.version' = '6',\n" +
                 "    'connector.hosts' = 'http://localhost:9200',\n" +
                 "    'connector.index' = 'user_behavior_es',\n" +
                 "    'connector.document-type' = 'user_behavior_es',\n" +
                 "    'format.type' = 'json',\n" +
-                "    'update-mode' = 'upsert'\n" +
+                "    'update-mode' = 'append',\n" +
+                "    'connector.bulk-flush.max-actions' = '10'\n" +
                 ")";
 
         //提取读取到的数据，然后只要两个字段，写入到 ES
