@@ -4,14 +4,11 @@ import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.table.api.EnvironmentSettings;
 import org.apache.flink.table.api.java.StreamTableEnvironment;
 
-
 /**
- * Desc: Blink Stream SQL Job, 读取 Kafka 数据，然后写入到 HBase
- * Created by zhisheng on 2019/11/3 下午1:14
- * blog：http://www.54tianzhisheng.cn/
- * 微信公众号：zhisheng
+ * Desc: sink in PG
+ * Created by zhisheng on 2020-03-19 08:36
  */
-public class BlinkStreamSQLJobExample5 {
+public class SQLExampleData2PG {
     public static void main(String[] args) throws Exception {
         StreamExecutionEnvironment blinkStreamEnv = StreamExecutionEnvironment.getExecutionEnvironment();
         blinkStreamEnv.setParallelism(1);
@@ -22,11 +19,7 @@ public class BlinkStreamSQLJobExample5 {
         StreamTableEnvironment blinkStreamTableEnv = StreamTableEnvironment.create(blinkStreamEnv, blinkStreamSettings);
 
         String ddlSource = "CREATE TABLE user_behavior (\n" +
-                "    user_id BIGINT,\n" +
-                "    item_id BIGINT,\n" +
-                "    category_id BIGINT,\n" +
-                "    behavior STRING,\n" +
-                "    ts TIMESTAMP(3)\n" +
+                "    score numeric(38, 18)\n" +
                 ") WITH (\n" +
                 "    'connector.type' = 'kafka',\n" +
                 "    'connector.version' = '0.11',\n" +
@@ -37,29 +30,24 @@ public class BlinkStreamSQLJobExample5 {
                 "    'format.type' = 'json'\n" +
                 ")";
 
-        String ddlSink = "CREATE TABLE user_behavior_hbase (\n" +
-                "  rowkey BIGINT,\n" +
-                "  cf ROW<item_id BIGINT, category_id BIGINT>\n" +
+        String ddlSink = "CREATE TABLE user_behavior_aggregate (\n" +
+                "    score numeric(38, 18)\n" +
                 ") WITH (\n" +
-                "  'connector.type' = 'hbase',\n" +
-                "  'connector.version' = '1.4.3',\n" +
-                "  'connector.table-name' = 'zhisheng01',\n" +
-                "  'connector.zookeeper.quorum' = 'localhost:2181',\n" +
-                "  'connector.zookeeper.znode.parent' = '/hbase',\n" +
-                "  'connector.write.buffer-flush.max-size' = '2mb',\n" +
-                "  'connector.write.buffer-flush.max-rows' = '1000',\n" +
-                "  'connector.write.buffer-flush.interval' = '2s'\n" +
+                "    'connector.type' = 'jdbc',\n" +
+                "    'connector.driver' = 'org.postgresql.Driver',\n" +
+                "    'connector.url' = 'jdbc:postgresql://localhost:3600/hello_hitch_user',\n" +
+                "    'connector.table' = 't_hitch_user_ltv_aggregate', \n" +
+                "    'connector.username' = 'hello_hitch_user', \n" +
+                "    'connector.password' = 'hello_hitch_user',\n" +
+                "    'connector.write.flush.max-rows' = '1' \n" +
                 ")";
 
-        //提取读取到的数据，然后只要两个字段，写入到 HBase
-        String sql = "insert into user_behavior_hbase select user_id, ROW(item_id, category_id) from user_behavior";
+        String sql = "insert into user_behavior_aggregate select yidun_score from user_behavior";
 
-        System.out.println(ddlSource);
-        System.out.println(ddlSink);
         blinkStreamTableEnv.sqlUpdate(ddlSource);
         blinkStreamTableEnv.sqlUpdate(ddlSink);
         blinkStreamTableEnv.sqlUpdate(sql);
 
-        blinkStreamTableEnv.execute("Blink Stream SQL Job5 —— read data from kafka，sink to HBase");
+        blinkStreamTableEnv.execute("Blink Stream SQL demo PG");
     }
 }

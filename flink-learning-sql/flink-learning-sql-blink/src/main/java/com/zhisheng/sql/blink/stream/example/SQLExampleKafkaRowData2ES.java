@@ -2,18 +2,31 @@ package com.zhisheng.sql.blink.stream.example;
 
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.table.api.EnvironmentSettings;
-import org.apache.flink.table.api.Table;
 import org.apache.flink.table.api.java.StreamTableEnvironment;
-import org.apache.flink.types.Row;
 
 
 /**
- * Desc: Blink Stream SQL Job, 读取 Kafka 数据，然后写入到 ES 6  和 ES 7
+ * Desc: Blink Stream SQL Job, 读取 Kafka 嵌套 JSON 数据，然后写入到 ES 6  和 ES 7
+ * <p>
  * Created by zhisheng on 2019/11/3 下午1:14
  * blog：http://www.54tianzhisheng.cn/
  * 微信公众号：zhisheng
  */
-public class BlinkStreamSQLJobExample3 {
+
+/*
+    嵌套 JSON 数据如下：
+    {
+        "userDetail": {
+            "userId": 666,
+            "name": "zhisheng",
+            "age": 18
+        },
+        "item_id": 890,
+        "category_id": 210,
+        "behavior": "pv"
+    }
+*/
+public class SQLExampleKafkaRowData2ES {
     public static void main(String[] args) throws Exception {
         StreamExecutionEnvironment blinkStreamEnv = StreamExecutionEnvironment.getExecutionEnvironment();
         blinkStreamEnv.setParallelism(1);
@@ -24,11 +37,10 @@ public class BlinkStreamSQLJobExample3 {
         StreamTableEnvironment blinkStreamTableEnv = StreamTableEnvironment.create(blinkStreamEnv, blinkStreamSettings);
 
         String ddlSource = "CREATE TABLE user_behavior (\n" +
-                "    user_id BIGINT,\n" +
+                "    userDetail  Row<userId BIGINT, name STRING, age BIGINT>,\n" +
                 "    item_id BIGINT,\n" +
                 "    category_id BIGINT,\n" +
-                "    behavior STRING,\n" +
-                "    ts TIMESTAMP(3)\n" +
+                "    behavior STRING\n" +
                 ") WITH (\n" +
                 "    'connector.type' = 'kafka',\n" +
                 "    'connector.version' = '0.11',\n" +
@@ -54,8 +66,7 @@ public class BlinkStreamSQLJobExample3 {
                 ")";
 
         //提取读取到的数据，然后只要两个字段，写入到 ES
-        String sql = "insert into user_behavior_es select user_id, item_id from user_behavior";
-
+        String sql = "insert into user_behavior_es select userDetail.userId, item_id from user_behavior";
         System.out.println(ddlSource);
         System.out.println(ddlSink);
         blinkStreamTableEnv.sqlUpdate(ddlSource);
