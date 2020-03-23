@@ -26,8 +26,8 @@ public class WordCountSQL {
 
         tEnv.registerDataSet("WordCount", input, "word, count");
 
-        Table table = tEnv.sqlQuery(
-                "SELECT word, SUM(count) as count FROM WordCount GROUP BY word");
+        Table table = tEnv.sqlQuery
+                ("SELECT word,SUM(`count`) as `count` FROM WordCount GROUP BY word");
 
         DataSet<WC> result = tEnv.toDataSet(table, WC.class);
 
