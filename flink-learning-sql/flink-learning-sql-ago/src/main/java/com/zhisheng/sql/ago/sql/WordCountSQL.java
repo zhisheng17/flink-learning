@@ -24,10 +24,10 @@ public class WordCountSQL {
                 new WC("zhisheng", 1),
                 new WC("Hello", 1));
 
-        tEnv.registerDataSet("WordCount", input, "word, count");
+        tEnv.registerDataSet("WordCount", input, "word, c");
 
         Table table = tEnv.sqlQuery(
-                "SELECT word, SUM(count) as count FROM WordCount GROUP BY word");
+                "SELECT word, SUM(c) as c FROM WordCount GROUP BY word");   //注意，之前 WC 定义的是 count，但在 1.9 中 count 是关键字，所以会抛异常，改成 c ok
 
         DataSet<WC> result = tEnv.toDataSet(table, WC.class);
 

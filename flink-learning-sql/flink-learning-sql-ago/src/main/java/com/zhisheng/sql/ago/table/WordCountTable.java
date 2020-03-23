@@ -20,15 +20,15 @@ public class WordCountTable {
 
         DataSet<WC> input = env.fromElements(
                 new WC("Hello", 1),
-                new WC("zhisheng", 1),
+                new WC("zhisheng", 2),
                 new WC("Hello", 1));
 
         Table table = tEnv.fromDataSet(input);
 
         Table filtered = table
                 .groupBy("word")
-                .select("word, count.sum as count")
-                .filter("count = 2");
+                .select("word, c.sum as c")
+                .filter("c = 2");
 
         DataSet<WC> result = tEnv.toDataSet(filtered, WC.class);
 

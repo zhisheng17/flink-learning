@@ -5,9 +5,7 @@ import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.table.api.java.BatchTableEnvironment;
 import org.apache.flink.table.api.java.StreamTableEnvironment;
 import org.apache.flink.table.catalog.Catalog;
-import org.apache.flink.table.catalog.ExternalCatalog;
 import org.apache.flink.table.catalog.GenericInMemoryCatalog;
-import org.apache.flink.table.catalog.InMemoryExternalCatalog;
 
 /**
  * Desc: flink old planner TableEnvironment
@@ -22,7 +20,6 @@ public class TableEnvironmentExample1 {
 
         Catalog catalog = new GenericInMemoryCatalog("zhisheng");
         sEnv.registerCatalog("InMemCatalog", catalog);
-        ExternalCatalog catalog1 = new InMemoryExternalCatalog("zhisheng");
 
 
         //批作业
