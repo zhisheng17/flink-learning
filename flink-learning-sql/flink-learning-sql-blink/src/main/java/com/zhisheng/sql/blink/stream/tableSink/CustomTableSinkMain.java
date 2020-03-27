@@ -1,6 +1,6 @@
 package com.zhisheng.sql.blink.stream.tableSink;
 
-import com.zhisheng.sql.blink.stream.example.BlinkStreamSQLJobExample1;
+import com.zhisheng.sql.blink.stream.example.SQLExampleWordCount;
 import org.apache.flink.api.common.typeinfo.TypeInformation;
 import org.apache.flink.api.common.typeinfo.Types;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
@@ -27,7 +27,7 @@ public class CustomTableSinkMain {
                 .build();
         StreamTableEnvironment blinkStreamTableEnv = StreamTableEnvironment.create(blinkStreamEnv, blinkStreamSettings);
 
-        String path = BlinkStreamSQLJobExample1.class.getClassLoader().getResource("words.txt").getPath();
+        String path = SQLExampleWordCount.class.getClassLoader().getResource("words.txt").getPath();
 
         CsvTableSource csvTableSource = CsvTableSource.builder()
                 .field("word", Types.STRING)
