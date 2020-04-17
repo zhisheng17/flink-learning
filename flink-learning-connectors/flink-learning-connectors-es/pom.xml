@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<parent>
+		<artifactId>flink-learning-connectors</artifactId>
+		<groupId>com.zhisheng.flink</groupId>
+		<version>1.0-SNAPSHOT</version>
+	</parent>
+	<modelVersion>4.0.0</modelVersion>
+
+	<artifactId>flink-learning-connectors-es</artifactId>
+	<packaging>pom</packaging>
+	<modules>
+		<module>flink-learning-connectors-es-common</module>
+		<module>flink-learning-connectors-es5</module>
+		<module>flink-learning-connectors-es6</module>
+		<module>flink-learning-connectors-es7</module>
+		<module>flink-learning-connectors-es-universal</module>
+	</modules>
+
+
+</project>

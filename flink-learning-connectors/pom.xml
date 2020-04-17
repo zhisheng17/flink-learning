@@ -12,7 +12,6 @@
     <artifactId>flink-learning-connectors</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>flink-learning-connectors-es6</module>
         <module>flink-learning-connectors-kafka</module>
         <module>flink-learning-connectors-cassandra</module>
         <module>flink-learning-connectors-mysql</module>
@@ -28,14 +27,13 @@
         <module>flink-learning-connectors-akka</module>
         <module>flink-learning-connectors-kudu</module>
         <module>flink-learning-connectors-clickhouse</module>
-        <module>flink-learning-connectors-es2</module>
-        <module>flink-learning-connectors-es5</module>
-        <module>flink-learning-connectors-es7</module>
         <module>flink-learning-connectors-hive</module>
         <module>flink-learning-connectors-gcp-pubsub</module>
         <module>flink-learning-connectors-nifi</module>
         <module>flink-learning-connectors-pulsar</module>
-        <!--<module>flink-learning-connectors-kinesis</module>-->
+		<module>flink-learning-connectors-jdbc</module>
+		<module>flink-learning-connectors-es</module>
+		<!--<module>flink-learning-connectors-kinesis</module>-->
     </modules>
 
     <dependencies>

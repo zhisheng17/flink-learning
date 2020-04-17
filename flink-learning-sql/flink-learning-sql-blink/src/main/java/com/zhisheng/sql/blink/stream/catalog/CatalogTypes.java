@@ -30,9 +30,5 @@ public class CatalogTypes {
 //        blinkStreamTableEnv.registerCatalog("zhisheng", new HiveCatalog("zhisheng", "zhisheng", "~/zhisheng/hive/conf", "2.3.4"));
 
 
-        //User-Defined Catalog，自定义的 catalog
-        blinkStreamTableEnv.registerCatalog("zhisheng", new CustomMyCatalog("zhisheng", "zhisheng"));
-
-
     }
 }

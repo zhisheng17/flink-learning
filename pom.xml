@@ -28,7 +28,7 @@
 
     <properties>
         <compiler.version>1.8</compiler.version>
-        <flink.version>1.9.0</flink.version>
+        <flink.version>1.10.0</flink.version>
         <java.version>1.8</java.version>
         <hive.version>1.2.1</hive.version>
         <scala.binary.version>2.11</scala.binary.version>

@@ -22,5 +22,5 @@ public class WC {
     /**
      * 出现的次数
      */
-    public long count;
+    public long c;
 }

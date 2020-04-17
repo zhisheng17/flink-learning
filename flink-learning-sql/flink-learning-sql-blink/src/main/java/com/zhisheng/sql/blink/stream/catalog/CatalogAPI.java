@@ -20,9 +20,6 @@ public class CatalogAPI {
                 .build();
         StreamTableEnvironment blinkStreamTableEnv = StreamTableEnvironment.create(blinkStreamEnv, blinkStreamSettings);
 
-        //register catalog
-        blinkStreamTableEnv.registerCatalog("zhisheng", new CustomMyCatalog("zhisheng", "zhisheng"));
-
         //Changing the Current Catalog And Database
         blinkStreamTableEnv.useCatalog("zhisheng");
         blinkStreamTableEnv.useDatabase("zhisheng");
