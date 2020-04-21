@@ -18,12 +18,14 @@ import org.apache.flink.util.Collector;
 public class Main3 {
     public static void main(String[] args) throws Exception {
         final StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
+        env.setParallelism(1);
         env.addSource(new CustomSource())
                 .keyBy(WordEvent::getWord)
                 .window(TumblingProcessingTimeWindows.of(Time.seconds(10)))
                 .apply(new WindowFunction<WordEvent, WordEvent, String, TimeWindow>() {
                     @Override
                     public void apply(String s, TimeWindow window, Iterable<WordEvent> input, Collector<WordEvent> out) throws Exception {
+                        System.out.println(window.getStart() + " " + window.getEnd());
                         for (WordEvent word : input) {
                             out.collect(word);
                         }
