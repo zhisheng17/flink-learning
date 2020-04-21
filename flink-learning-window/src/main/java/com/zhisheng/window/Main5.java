@@ -46,7 +46,7 @@ public class Main5 {
             }
         });
 
-        SingleOutputStreamOperator<String> window1 = source1.timeWindowAll(Time.minutes(1))
+        SingleOutputStreamOperator<String> window1 = source1.timeWindowAll(Time.seconds(10))
                 .process(new ProcessAllWindowFunction<String, String, TimeWindow>() {
                     @Override
                     public void process(Context context, Iterable<String> iterable, Collector<String> collector) throws Exception {
@@ -56,7 +56,7 @@ public class Main5 {
                     }
                 });
 
-        SingleOutputStreamOperator<String> window2 = source2.timeWindowAll(Time.minutes(1))
+        SingleOutputStreamOperator<String> window2 = source2.timeWindowAll(Time.seconds(10))
                 .process(new ProcessAllWindowFunction<String, String, TimeWindow>() {
                     @Override
                     public void process(Context context, Iterable<String> iterable, Collector<String> collector) throws Exception {
@@ -66,15 +66,15 @@ public class Main5 {
                     }
                 });
 
-        window1.union(window2).print();
+//        window1.union(window2).print();
 
         window1.union(window2)
-                .windowAll(TumblingProcessingTimeWindows.of(Time.minutes(1)))
+                .windowAll(TumblingProcessingTimeWindows.of(Time.seconds(10)))
                 .process(new ProcessAllWindowFunction<String, String, TimeWindow>() {
                     @Override
                     public void process(Context context, Iterable<String> iterable, Collector<String> collector) throws Exception {
                         for (String s : iterable) {
-                            System.out.println(s);
+//                            System.out.println(s);
                             collector.collect(s);
                         }
                     }
