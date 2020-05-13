@@ -1,8 +1,6 @@
 
 Flink Forward 2020 是在线上举办的一次会议
 
-![](https://ververica.cn/developers/flink-forward-virtual-conference/)
-
 1、《Keynote:Introducing Stateful Functions 2.0: Stream Processing meets Serverless Applications》
 Stephan Ewen – Apache Flink PMC,Ververica Co-founder, CTO
 
