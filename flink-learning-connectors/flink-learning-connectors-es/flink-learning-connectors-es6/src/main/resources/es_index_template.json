@@ -1,0 +1,55 @@
+{
+  "index_patterns": ["zhisheng-*"],
+  "settings": {
+    "refresh_interval": "30s",
+    "index.translog.durability": "async",
+    "index.translog.sync_interval": "20s",
+    "index.translog.flush_threshold_size": "1024mb",
+    "number_of_shards": 5,
+    "number_of_replicas": 1
+  },
+  "mappings": {
+    "zhisheng": {
+      "date_detection": false,
+      "dynamic_templates": [
+        {
+          "timestamp": {
+            "match": "timestamp",
+            "match_mapping_type": "long",
+            "mapping": {
+              "type": "long"
+            }
+          }
+        },
+        {
+          "tags": {
+            "match": "*",
+            "match_mapping_type": "string",
+            "mapping": {
+              "type": "keyword",
+              "ignore_above": 10240
+            }
+          }
+        },
+        {
+          "fields_float": {
+            "match": "*",
+            "match_mapping_type": "double",
+            "mapping": {
+              "type": "double"
+            }
+          }
+        },
+        {
+          "fields_long": {
+            "match": "*",
+            "match_mapping_type": "long",
+            "mapping": {
+              "type": "double"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
