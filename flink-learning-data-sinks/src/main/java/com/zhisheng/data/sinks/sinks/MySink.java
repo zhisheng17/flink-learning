@@ -12,17 +12,10 @@ import org.apache.flink.streaming.api.functions.sink.RichSinkFunction;
 public class MySink extends RichSinkFunction<String> {
     private String tx;
 
-    //这种情况下无问题
-    public MySink(String xxxx) {
-        System.out.println("+++++++++++++" + xxxx);
-        tx = xxxx;
+    public MySink(String tx) {
+        System.out.println("+++++++++++++" + tx);
+        this.tx = tx;
     }
-
-    //这种情况下有问题，他会将 tx 识别错误，导致下面赋值失败
-//    public MySink(String tx) {
-//        System.out.println("+++++++++++++" + tx);
-//        tx = tx;
-//    }
 
     @Override
     public void open(Configuration parameters) throws Exception {
