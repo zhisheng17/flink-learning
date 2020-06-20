@@ -11,11 +11,4 @@
 
     <artifactId>flink-learning-connectors-akka</artifactId>
 
-    <dependencies>
-        <dependency>
-            <groupId>com.zhisheng.flink</groupId>
-            <artifactId>flink-learning-common</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-    </dependencies>
 </project>

@@ -18,11 +18,6 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.zhisheng.flink</groupId>
-            <artifactId>flink-learning-common</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
             <groupId>org.apache.kudu</groupId>
             <artifactId>kudu-client</artifactId>
             <version>${kudu.version}</version>
