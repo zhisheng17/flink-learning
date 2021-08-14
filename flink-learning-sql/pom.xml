@@ -12,7 +12,6 @@
     <artifactId>flink-learning-sql</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>flink-learning-sql-ago</module>
         <module>flink-learning-sql-blink</module>
         <module>flink-learning-sql-common</module>
     </modules>
