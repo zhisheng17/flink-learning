@@ -12,13 +12,18 @@
     <artifactId>flink-learning-connectors-rocketmq</artifactId>
 
     <properties>
-        <rocketmq.version>4.2.0</rocketmq.version>
+        <rocketmq.version>4.7.1</rocketmq.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>org.apache.rocketmq</groupId>
             <artifactId>rocketmq-client</artifactId>
+            <version>${rocketmq.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.rocketmq</groupId>
+            <artifactId>rocketmq-acl</artifactId>
             <version>${rocketmq.version}</version>
         </dependency>
         <dependency>
