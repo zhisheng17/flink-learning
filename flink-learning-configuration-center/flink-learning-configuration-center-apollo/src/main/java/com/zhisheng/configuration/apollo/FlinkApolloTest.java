@@ -1,4 +1,4 @@
-package com.zhisheng.configration.apollo;
+package com.zhisheng.configuration.apollo;
 
 import com.ctrip.framework.apollo.Config;
 import com.ctrip.framework.apollo.ConfigChangeListener;

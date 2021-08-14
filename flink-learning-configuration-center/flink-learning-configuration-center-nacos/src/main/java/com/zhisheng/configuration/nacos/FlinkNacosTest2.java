@@ -1,4 +1,4 @@
-package com.zhisheng.configration.nacos;
+package com.zhisheng.configuration.nacos;
 
 import com.alibaba.nacos.api.NacosFactory;
 import com.alibaba.nacos.api.config.ConfigService;

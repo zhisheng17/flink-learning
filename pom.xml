@@ -23,7 +23,7 @@
         <module>flink-learning-libraries</module>
         <module>flink-learning-project</module>
         <module>flink-learning-metrics</module>
-        <module>flink-learning-configration-center</module>
+        <module>flink-learning-configuration-center</module>
     </modules>
 
     <properties>
