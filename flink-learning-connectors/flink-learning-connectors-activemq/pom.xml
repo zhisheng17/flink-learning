@@ -11,6 +11,12 @@
 
     <artifactId>flink-learning-connectors-activemq</artifactId>
 
+    <dependencies>
+
+        <!-- todo: add activemq dependency  -->
+
+    </dependencies>
+
     <build>
         <plugins>
             <plugin>
