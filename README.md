@@ -50,9 +50,13 @@ you can see following result if build success.
 
 ## Change
 
-2019/09/06 将该项目的 Flink 版本升级到 1.9.0，有一些变动，Flink 1.8.0 版本的代码经群里讨论保存在分支 [feature/flink-1.8.0](https://github.com/zhisheng17/flink-learning/tree/feature/flink-1.8.0) 以便部分同学需要。
+**2021/08/15** 将该项目的 Flink 版本升级至 1.13.2，API 发生重大改变，所以代码结构也做了相应的调整（部分代码在 master 分支已经删除，同时将之前的代码切到 [feature/flink-1.10.0](https://github.com/zhisheng17/flink-learning/tree/feature/flink-1.10.0) 上了，如果有需要可以去老的分支查看）。
 
-2019/06/08 四本 Flink 书籍：
+**2020/02/16** 将该项目的 Flink 版本升级至 1.10，该版本代码都是经过测试成功运行的，尽量以该版本作为参考，如果代码在你们集群测试不成功，麻烦检查 Flink 版本是否一致，或者是否有包冲突问题。 
+
+**2019/09/06** 将该项目的 Flink 版本升级到 1.9.0，有一些变动，Flink 1.8.0 版本的代码经群里讨论保存在分支 [feature/flink-1.8.0](https://github.com/zhisheng17/flink-learning/tree/feature/flink-1.8.0) 以便部分同学需要。
+
+**2019/06/08** 四本 Flink 书籍：
 
 + [Introduction_to_Apache_Flink_book.pdf]()    这本书比较薄，处于介绍阶段，国内有这本的翻译书籍
 
@@ -62,9 +66,11 @@ you can see following result if build success.
 
 + [Streaming System.pdf]()  这本书评价不是一般的高
 
-2019/06/09 新增流处理引擎相关的 Paper，在 paper 目录下：
+**2019/06/09** 新增流处理引擎相关的 Paper，在 paper 目录下：
 
 + [流处理引擎相关的 Paper](./paper/paper.md)
+
+**【提示】**：关于书籍的下载，因版权问题，不方便提供，所以已经删除，需要的话可以切换到老分支去下载。
 
 ## 博客
 
