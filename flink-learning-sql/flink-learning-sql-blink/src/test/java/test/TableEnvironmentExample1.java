@@ -1,11 +1,9 @@
 package test;
 
-import org.apache.flink.api.java.ExecutionEnvironment;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.table.api.EnvironmentSettings;
 import org.apache.flink.table.api.TableConfig;
-import org.apache.flink.table.api.java.BatchTableEnvironment;
-import org.apache.flink.table.api.java.StreamTableEnvironment;
+import org.apache.flink.table.api.bridge.java.StreamTableEnvironment;
 
 /**
  * Desc: blink planner TableEnvironment
@@ -17,8 +15,6 @@ public class TableEnvironmentExample1 {
     public static void main(String[] args) {
         //流作业
         StreamTableEnvironment.create(StreamExecutionEnvironment.getExecutionEnvironment());
-        //批作业
-        BatchTableEnvironment.create(ExecutionEnvironment.getExecutionEnvironment());
         //use EnvironmentSettings
         StreamTableEnvironment.create(StreamExecutionEnvironment.getExecutionEnvironment(), EnvironmentSettings.newInstance().useBlinkPlanner().inStreamingMode().build());
         StreamTableEnvironment.create(StreamExecutionEnvironment.getExecutionEnvironment(), EnvironmentSettings.newInstance().useBlinkPlanner().inStreamingMode().build());
