@@ -5,7 +5,7 @@ import org.apache.flink.api.common.serialization.SimpleStringSchema;
 import org.apache.flink.api.java.utils.ParameterTool;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.streaming.api.functions.source.SourceFunction;
-import org.apache.flink.streaming.connectors.kafka.FlinkKafkaProducer011;
+import org.apache.flink.streaming.connectors.kafka.FlinkKafkaProducer;
 
 import java.time.Instant;
 import java.util.Random;
@@ -50,7 +50,7 @@ public class FlinkKafkaProducerTest1 {
 
             }
         })
-                .addSink(new FlinkKafkaProducer011<>(
+                .addSink(new FlinkKafkaProducer<>(
                         "localhost:9092",
                         "user_behavior",
                         new SimpleStringSchema()

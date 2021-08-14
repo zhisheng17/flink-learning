@@ -8,7 +8,7 @@ import com.zhisheng.common.utils.KafkaConfigUtil;
 import org.apache.flink.api.java.utils.ParameterTool;
 import org.apache.flink.streaming.api.datastream.DataStreamSource;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
-import org.apache.flink.streaming.connectors.kafka.FlinkKafkaProducer011;
+import org.apache.flink.streaming.connectors.kafka.FlinkKafkaProducer;
 
 /**
  * blog：http://www.54tianzhisheng.cn/
@@ -20,7 +20,7 @@ public class Main {
         StreamExecutionEnvironment env = ExecutionEnvUtil.prepare(parameterTool);
         DataStreamSource<MetricEvent> data = KafkaConfigUtil.buildSource(env);
 
-        data.addSink(new FlinkKafkaProducer011<>(
+        data.addSink(new FlinkKafkaProducer<>(
                 parameterTool.get("kafka.sink.brokers"),
                 parameterTool.get("kafka.sink.topic"),
                 new MetricSchema()
