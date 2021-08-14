@@ -8,6 +8,7 @@
     <artifactId>flink-learning</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+
     <modules>
         <module>flink-learning-common</module>
         <module>flink-learning-connectors</module>
@@ -27,21 +28,19 @@
     </modules>
 
     <properties>
-        <compiler.version>1.8</compiler.version>
-        <flink.version>1.10.0</flink.version>
-        <java.version>1.8</java.version>
-        <hive.version>1.2.1</hive.version>
-        <scala.binary.version>2.11</scala.binary.version>
-
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <target.java.version>1.8</target.java.version>
+        <maven.compiler.source>${target.java.version}</maven.compiler.source>
+        <maven.compiler.target>${target.java.version}</maven.compiler.target>
+        <flink.version>1.13.2</flink.version>
+        <scala.binary.version>2.11</scala.binary.version>
+        <log4j.version>2.14.1</log4j.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>org.apache.flink</groupId>
-            <artifactId>flink-connector-kafka-0.11_${scala.binary.version}</artifactId>
+            <artifactId>flink-connector-kafka_${scala.binary.version}</artifactId>
             <version>${flink.version}</version>
         </dependency>
         <dependency>
@@ -50,26 +49,36 @@
             <version>${flink.version}</version>
             <scope>provided</scope>
         </dependency>
-        <!--加入下面两个依赖才会出现 Flink 的日志出来-->
         <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>1.7.25</version>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-clients_${scala.binary.version}</artifactId>
+            <version>${flink.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-slf4j-impl</artifactId>
+            <version>${log4j.version}</version>
+            <scope>runtime</scope>
         </dependency>
         <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-simple</artifactId>
-            <version>1.7.25</version>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>${log4j.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${log4j.version}</version>
+            <scope>runtime</scope>
         </dependency>
     </dependencies>
 
-    <!-- This profile helps to make things run out of the box in IntelliJ -->
-    <!-- Its adds Flink's core classes to the runtime class path. -->
-    <!-- Otherwise they are missing in IntelliJ, because the dependency is 'provided' -->
     <profiles>
         <profile>
             <id>add-dependencies-for-IDEA</id>
-
             <activation>
                 <property>
                     <name>idea.version</name>
@@ -80,6 +89,12 @@
                 <dependency>
                     <groupId>org.apache.flink</groupId>
                     <artifactId>flink-streaming-java_${scala.binary.version}</artifactId>
+                    <version>${flink.version}</version>
+                    <scope>compile</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.apache.flink</groupId>
+                    <artifactId>flink-clients_${scala.binary.version}</artifactId>
                     <version>${flink.version}</version>
                     <scope>compile</scope>
                 </dependency>
