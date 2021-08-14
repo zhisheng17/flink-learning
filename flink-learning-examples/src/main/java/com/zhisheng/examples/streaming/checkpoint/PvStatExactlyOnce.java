@@ -15,7 +15,7 @@ import org.apache.flink.streaming.api.CheckpointingMode;
 import org.apache.flink.streaming.api.datastream.DataStreamSource;
 import org.apache.flink.streaming.api.environment.CheckpointConfig;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
-import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer011;
+import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import scala.Tuple2;
 
@@ -57,7 +57,7 @@ public class PvStatExactlyOnce {
         props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
         props.put(ConsumerConfig.GROUP_ID_CONFIG, "app-pv-stat");
 
-        DataStreamSource<String> appInfoSource = env.addSource(new FlinkKafkaConsumer011<>(
+        DataStreamSource<String> appInfoSource = env.addSource(new FlinkKafkaConsumer<>(
                 // kafka topic， String 序列化
                 PvStatExactlyOnceKafkaUtil.topic, new SimpleStringSchema(), props));
 

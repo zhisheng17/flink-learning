@@ -6,10 +6,11 @@ import com.zhisheng.common.utils.ExecutionEnvUtil;
 import org.apache.flink.api.java.utils.ParameterTool;
 import org.apache.flink.streaming.api.datastream.DataStreamSource;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
-import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer011;
+import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer;
 import org.apache.flink.streaming.connectors.kafka.internals.KafkaDeserializationSchemaWrapper;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Properties;
 
@@ -27,8 +28,8 @@ public class FlinkKafkaSchemaTest1 {
         StreamExecutionEnvironment env = ExecutionEnvUtil.prepare(parameterTool);
         Properties props = buildKafkaProps(parameterTool);
         //kafka topic list
-        List<String> topics = Arrays.asList(parameterTool.get("metrics.topic"));
-        FlinkKafkaConsumer011<MetricEvent> consumer = new FlinkKafkaConsumer011<>(topics, new KafkaDeserializationSchemaWrapper<>(new MetricSchema()), props);
+        List<String> topics = Collections.singletonList(parameterTool.get("metrics.topic"));
+        FlinkKafkaConsumer<MetricEvent> consumer = new FlinkKafkaConsumer<>(topics, new KafkaDeserializationSchemaWrapper<>(new MetricSchema()), props);
 
         DataStreamSource<MetricEvent> data = env.addSource(consumer);
 

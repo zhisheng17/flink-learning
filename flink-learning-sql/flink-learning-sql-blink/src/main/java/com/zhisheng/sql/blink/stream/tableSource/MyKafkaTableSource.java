@@ -5,7 +5,7 @@ import org.apache.flink.api.common.serialization.SimpleStringSchema;
 import org.apache.flink.api.java.utils.ParameterTool;
 import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
-import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer011;
+import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer;
 import org.apache.flink.table.api.DataTypes;
 import org.apache.flink.table.api.TableSchema;
 import org.apache.flink.table.sources.StreamTableSource;
@@ -35,7 +35,7 @@ public class MyKafkaTableSource implements StreamTableSource<String> {
     @Override
     public DataStream<String> getDataStream(StreamExecutionEnvironment env) {
         Properties properties = KafkaConfigUtil.buildKafkaProps(parameterTool);
-        return env.addSource(new FlinkKafkaConsumer011<>(parameterTool.get("kafka.topic"), new SimpleStringSchema(), properties));
+        return env.addSource(new FlinkKafkaConsumer<>(parameterTool.get("kafka.topic"), new SimpleStringSchema(), properties));
     }
 
     @Override

@@ -7,7 +7,7 @@ import com.zhisheng.log.schema.OriginalLogEventSchema;
 import org.apache.flink.api.java.utils.ParameterTool;
 import org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
-import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer011;
+import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer;
 
 import static com.zhisheng.common.utils.KafkaConfigUtil.buildKafkaProps;
 
@@ -20,7 +20,7 @@ public class LogMain {
     public static void main(String[] args) throws Exception {
         final ParameterTool parameterTool = ExecutionEnvUtil.createParameterTool(args);
         StreamExecutionEnvironment env = ExecutionEnvUtil.prepare(parameterTool);
-        SingleOutputStreamOperator<LogEvent> logDataStream = env.addSource(new FlinkKafkaConsumer011<>("zhisheng_log",
+        SingleOutputStreamOperator<LogEvent> logDataStream = env.addSource(new FlinkKafkaConsumer<>("zhisheng_log",
                 new OriginalLogEventSchema(),
                 buildKafkaProps(parameterTool)))
                 .flatMap(new OriLog2LogEventFlatMapFunction());

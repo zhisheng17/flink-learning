@@ -11,9 +11,8 @@ import org.apache.flink.api.java.utils.ParameterTool;
 import org.apache.flink.streaming.api.datastream.AsyncDataStream;
 import org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
-import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer011;
+import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
@@ -31,7 +30,7 @@ public class AsyncIOAlert {
         StreamExecutionEnvironment env = ExecutionEnvUtil.prepare(parameterTool);
 
         Properties properties = KafkaConfigUtil.buildKafkaProps(parameterTool);
-        FlinkKafkaConsumer011<MetricEvent> consumer = new FlinkKafkaConsumer011<>(
+        FlinkKafkaConsumer<MetricEvent> consumer = new FlinkKafkaConsumer<>(
                 parameterTool.get("metrics.topic"),
                 new MetricSchema(),
                 properties);
@@ -45,7 +44,7 @@ public class AsyncIOAlert {
                     alertEvent.setType(metricEvent.getName());
                     alertEvent.setTrigerTime(metricEvent.getTimestamp());
                     alertEvent.setMetricEvent(metricEvent);
-                    if (metricEvent.getTags().get("recover") != null && Boolean.valueOf(metricEvent.getTags().get("recover"))) {
+                    if (metricEvent.getTags().get("recover") != null && Boolean.parseBoolean(metricEvent.getTags().get("recover"))) {
                         alertEvent.setRecover(true);
                         alertEvent.setRecoverTime(metricEvent.getTimestamp());
                     } else {

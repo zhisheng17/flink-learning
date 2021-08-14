@@ -1,13 +1,12 @@
 package com.zhisheng.alert.alert;
 
 import com.zhisheng.common.model.LogEvent;
-import com.zhisheng.common.model.MetricEvent;
 import com.zhisheng.common.schemas.LogSchema;
 import com.zhisheng.common.utils.ExecutionEnvUtil;
 import com.zhisheng.common.utils.KafkaConfigUtil;
 import org.apache.flink.api.java.utils.ParameterTool;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
-import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer011;
+import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer;
 
 import java.util.Properties;
 
@@ -23,7 +22,7 @@ public class LogEventAlert {
         StreamExecutionEnvironment env = ExecutionEnvUtil.prepare(parameterTool);
 
         Properties properties = KafkaConfigUtil.buildKafkaProps(parameterTool);
-        FlinkKafkaConsumer011<LogEvent> consumer = new FlinkKafkaConsumer011<>(
+        FlinkKafkaConsumer<LogEvent> consumer = new FlinkKafkaConsumer<>(
                 parameterTool.get("log.topic"),
                 new LogSchema(),
                 properties);

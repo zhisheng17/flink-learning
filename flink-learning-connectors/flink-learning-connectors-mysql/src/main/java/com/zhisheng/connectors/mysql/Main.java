@@ -15,7 +15,7 @@ import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.streaming.api.functions.windowing.AllWindowFunction;
 import org.apache.flink.streaming.api.windowing.time.Time;
 import org.apache.flink.streaming.api.windowing.windows.TimeWindow;
-import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer011;
+import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer;
 import org.apache.flink.util.Collector;
 
 import java.util.ArrayList;
@@ -35,7 +35,7 @@ public class Main {
         ParameterTool parameterTool = ExecutionEnvUtil.PARAMETER_TOOL;
         Properties props = KafkaConfigUtil.buildKafkaProps(parameterTool);
 
-        SingleOutputStreamOperator<Student> student = env.addSource(new FlinkKafkaConsumer011<>(
+        SingleOutputStreamOperator<Student> student = env.addSource(new FlinkKafkaConsumer<>(
                 parameterTool.get(METRICS_TOPIC),   //这个 kafka topic 需要和上面的工具类的 topic 一致
                 new SimpleStringSchema(),
                 props)).setParallelism(parameterTool.getInt(STREAM_PARALLELISM, 1))

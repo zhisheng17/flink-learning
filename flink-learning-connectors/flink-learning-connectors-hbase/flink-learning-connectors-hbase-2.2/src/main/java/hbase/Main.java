@@ -10,7 +10,7 @@ import org.apache.flink.api.common.serialization.SimpleStringSchema;
 import org.apache.flink.api.java.utils.ParameterTool;
 import org.apache.flink.streaming.api.datastream.DataStreamSource;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
-import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer011;
+import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.hbase.HBaseConfiguration;
 import org.apache.hadoop.hbase.HColumnDescriptor;
@@ -44,7 +44,7 @@ public class Main {
         StreamExecutionEnvironment env = ExecutionEnvUtil.prepare(parameterTool);
         Properties props = KafkaConfigUtil.buildKafkaProps(parameterTool);
 
-        DataStreamSource<String> data = env.addSource(new FlinkKafkaConsumer011<>(
+        DataStreamSource<String> data = env.addSource(new FlinkKafkaConsumer<>(
                 parameterTool.get(METRICS_TOPIC),   //这个 kafka topic 需要和上面的工具类的 topic 一致
                 new SimpleStringSchema(),
                 props));

@@ -18,7 +18,7 @@ import org.apache.flink.streaming.api.datastream.DataStreamSource;
 import org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.streaming.api.functions.co.BroadcastProcessFunction;
-import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer011;
+import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer;
 import org.apache.flink.util.Collector;
 
 import java.util.List;
@@ -42,7 +42,7 @@ public class BroadcastUpdateAlertRule {
         StreamExecutionEnvironment env = ExecutionEnvUtil.prepare(parameterTool);
 
         Properties properties = KafkaConfigUtil.buildKafkaProps(parameterTool);
-        FlinkKafkaConsumer011<MetricEvent> consumer = new FlinkKafkaConsumer011<>(
+        FlinkKafkaConsumer<MetricEvent> consumer = new FlinkKafkaConsumer<>(
                 parameterTool.get("metrics.topic"),
                 new MetricSchema(),
                 properties);
@@ -58,7 +58,7 @@ public class BroadcastUpdateAlertRule {
                         if (broadcastState.contains(value.getName())) {
                             AlertRule alertRule = broadcastState.get(value.getName());
                             double used = (double) value.getFields().get(alertRule.getMeasurement());
-                            if (used > Double.valueOf(alertRule.getThresholds())) {
+                            if (used > Double.parseDouble(alertRule.getThresholds())) {
                                 log.info("AlertRule = {}, MetricEvent = {}", alertRule, value);
                                 out.collect(value);
                             }

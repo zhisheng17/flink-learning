@@ -9,7 +9,7 @@ import org.apache.flink.api.common.functions.FlatMapFunction;
 import org.apache.flink.api.java.utils.ParameterTool;
 import org.apache.flink.shaded.jackson2.com.fasterxml.jackson.databind.node.ObjectNode;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
-import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer011;
+import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer;
 import org.apache.flink.util.Collector;
 
 import java.util.Properties;
@@ -29,7 +29,7 @@ public class KafkaDeserializationSchemaTest {
         StreamExecutionEnvironment env = ExecutionEnvUtil.prepare(parameterTool);
         Properties props = buildKafkaProps(parameterTool);
 
-        FlinkKafkaConsumer011<ObjectNode> kafkaConsumer = new FlinkKafkaConsumer011<>("zhisheng",
+        FlinkKafkaConsumer<ObjectNode> kafkaConsumer = new FlinkKafkaConsumer<>("zhisheng",
                 new KafkaMetricSchema(true),
                 props);
 

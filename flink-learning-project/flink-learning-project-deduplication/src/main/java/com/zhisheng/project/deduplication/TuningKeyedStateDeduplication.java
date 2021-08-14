@@ -12,7 +12,7 @@ import org.apache.flink.contrib.streaming.state.RocksDBStateBackend;
 import org.apache.flink.streaming.api.CheckpointingMode;
 import org.apache.flink.streaming.api.environment.CheckpointConfig;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
-import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer011;
+import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer;
 import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumerBase;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 
@@ -37,7 +37,6 @@ public class TuningKeyedStateDeduplication {
         RocksDBStateBackend rocksDBStateBackend = new RocksDBStateBackend("hdfs:///flink/checkpoints", enableIncrementalCheckpointing);
         rocksDBStateBackend.setNumberOfTransferingThreads(numberOfTransferingThreads);
         rocksDBStateBackend.setPredefinedOptions(PredefinedOptions.SPINNING_DISK_OPTIMIZED_HIGH_MEM);
-        rocksDBStateBackend.enableTtlCompactionFilter();
         env.setStateBackend(rocksDBStateBackend);
 
         CheckpointConfig checkpointConf = env.getCheckpointConfig();
@@ -49,7 +48,7 @@ public class TuningKeyedStateDeduplication {
         Properties props = new Properties();
         props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, DeduplicationExampleUtil.broker_list);
         props.put(ConsumerConfig.GROUP_ID_CONFIG, "keyed-state-deduplication");
-        FlinkKafkaConsumerBase<String> kafkaConsumer = new FlinkKafkaConsumer011<>(
+        FlinkKafkaConsumerBase<String> kafkaConsumer = new FlinkKafkaConsumer<>(
                 DeduplicationExampleUtil.topic, new SimpleStringSchema(), props)
                 .setStartFromLatest();
 

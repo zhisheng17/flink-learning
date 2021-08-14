@@ -19,7 +19,7 @@ import org.apache.flink.streaming.api.CheckpointingMode;
 import org.apache.flink.streaming.api.environment.CheckpointConfig;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.streaming.api.functions.sink.RichSinkFunction;
-import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer011;
+import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer;
 import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumerBase;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 
@@ -32,7 +32,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class KeyedStateDeduplication {
 
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
 
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
         env.setParallelism(6);
@@ -44,7 +44,6 @@ public class KeyedStateDeduplication {
         // 设置为机械硬盘+内存模式，强烈建议为 RocksDB 配备 SSD
         rocksDBStateBackend.setPredefinedOptions(
                 PredefinedOptions.SPINNING_DISK_OPTIMIZED_HIGH_MEM);
-        rocksDBStateBackend.enableTtlCompactionFilter();
         env.setStateBackend(rocksDBStateBackend);
 
         // Checkpoint 间隔为 10 分钟
@@ -61,14 +60,14 @@ public class KeyedStateDeduplication {
         Properties props = new Properties();
         props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, DeduplicationExampleUtil.broker_list);
         props.put(ConsumerConfig.GROUP_ID_CONFIG, "keyed-state-deduplication");
-        FlinkKafkaConsumerBase<String> kafkaConsumer = new FlinkKafkaConsumer011<>(
+        FlinkKafkaConsumerBase<String> kafkaConsumer = new FlinkKafkaConsumer<>(
                 DeduplicationExampleUtil.topic, new SimpleStringSchema(), props)
                 .setStartFromGroupOffsets();
 
         env.addSource(kafkaConsumer)
-            .map(log -> GsonUtil.fromJson(log, UserVisitWebEvent.class))  // 反序列化 JSON
-            .keyBy((KeySelector<UserVisitWebEvent, String>) UserVisitWebEvent::getId)
-            .addSink(new KeyedStateSink());
+                .map(log -> GsonUtil.fromJson(log, UserVisitWebEvent.class))  // 反序列化 JSON
+                .keyBy((KeySelector<UserVisitWebEvent, String>) UserVisitWebEvent::getId)
+                .addSink(new KeyedStateSink());
 
         env.execute("KeyedStateDeduplication");
     }
@@ -83,7 +82,8 @@ public class KeyedStateDeduplication {
             super.open(parameters);
             ValueStateDescriptor<Boolean> keyedStateDuplicated =
                     new ValueStateDescriptor<>("KeyedStateDeduplication",
-                            TypeInformation.of(new TypeHint<Boolean>() {}));
+                            TypeInformation.of(new TypeHint<Boolean>() {
+                            }));
             // 状态 TTL 相关配置，过期时间设定为 36 小时
             StateTtlConfig ttlConfig = StateTtlConfig
                     .newBuilder(Time.hours(36))
@@ -104,7 +104,7 @@ public class KeyedStateDeduplication {
             // key 第一次出现，说明当前 key 在之前没有被处理过，
             // 此时应该执行正常处理代码的逻辑，并给状态 isExist 赋值，标识当前 key 已经处理过了，
             // 下次再有相同的主键 时，isExist.value() 就不会为 null 了
-            if ( null == isExist.value()) {
+            if (null == isExist.value()) {
                 // ... 这里执行代码处理的逻辑
                 // 执行完处理逻辑后，更新状态值
                 isExist.update(true);

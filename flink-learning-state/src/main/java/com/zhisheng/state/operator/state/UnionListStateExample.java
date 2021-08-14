@@ -16,7 +16,7 @@ import org.apache.flink.streaming.api.checkpoint.CheckpointedFunction;
 import org.apache.flink.streaming.api.environment.CheckpointConfig;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.streaming.api.functions.sink.RichSinkFunction;
-import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer011;
+import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 
 import java.util.Properties;
@@ -47,7 +47,7 @@ public class UnionListStateExample {
         props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, UnionListStateUtil.broker_list);
         props.put(ConsumerConfig.GROUP_ID_CONFIG, "app-pv-stat");
 
-        FlinkKafkaConsumer011<String> kafkaConsumer011 = new FlinkKafkaConsumer011<>(
+        FlinkKafkaConsumer<String> kafkaConsumer011 = new FlinkKafkaConsumer<>(
                 // kafka topic， String 序列化
                 UnionListStateUtil.topic, new SimpleStringSchema(), props);
 

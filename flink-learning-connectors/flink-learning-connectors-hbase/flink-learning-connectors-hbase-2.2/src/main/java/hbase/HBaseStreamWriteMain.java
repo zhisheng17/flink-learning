@@ -4,13 +4,11 @@ import com.zhisheng.common.utils.ExecutionEnvUtil;
 import com.zhisheng.common.utils.KafkaConfigUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.flink.api.common.io.OutputFormat;
-import org.apache.flink.api.common.serialization.SimpleStringSchema;
 import org.apache.flink.api.java.utils.ParameterTool;
 import org.apache.flink.configuration.Configuration;
 import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.streaming.api.functions.source.SourceFunction;
-import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer011;
 import org.apache.hadoop.hbase.HBaseConfiguration;
 import org.apache.hadoop.hbase.HColumnDescriptor;
 import org.apache.hadoop.hbase.HTableDescriptor;
@@ -21,7 +19,6 @@ import org.apache.hadoop.hbase.util.Bytes;
 import java.io.IOException;
 import java.util.Properties;
 
-import static com.zhisheng.common.constant.PropertiesConstants.METRICS_TOPIC;
 import static com.zhisheng.connectors.hbase.constant.HBaseConstant.*;
 
 /**
@@ -38,7 +35,7 @@ public class HBaseStreamWriteMain {
         StreamExecutionEnvironment env = ExecutionEnvUtil.prepare(parameterTool);
         Properties props = KafkaConfigUtil.buildKafkaProps(parameterTool);
 
-        /*env.addSource(new FlinkKafkaConsumer011<>(
+        /*env.addSource(new FlinkKafkaConsumer<>(
                 parameterTool.get(METRICS_TOPIC),   //这个 kafka topic 需要和上面的工具类的 topic 一致
                 new SimpleStringSchema(),
                 props))

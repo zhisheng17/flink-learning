@@ -6,7 +6,7 @@ import com.zhisheng.common.utils.ExecutionEnvUtil;
 import org.apache.flink.api.java.utils.ParameterTool;
 import org.apache.flink.streaming.api.datastream.DataStreamSource;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
-import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer011;
+import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer;
 
 import java.util.Arrays;
 import java.util.List;
@@ -27,9 +27,9 @@ public class FlinkKafkaConsumerTest1 {
         Properties props = buildKafkaProps(parameterTool);
         //kafka topic list
         List<String> topics = Arrays.asList(parameterTool.get("metrics.topic"), parameterTool.get("logs.topic"));
-        FlinkKafkaConsumer011<MetricEvent> consumer = new FlinkKafkaConsumer011<>(topics, new MetricSchema(), props);
+        FlinkKafkaConsumer<MetricEvent> consumer = new FlinkKafkaConsumer<>(topics, new MetricSchema(), props);
         //kafka topic Pattern
-        //FlinkKafkaConsumer011<MetricEvent> consumer = new FlinkKafkaConsumer011<>(java.utils.regex.Pattern.compile("test-topic-[0-9]"), new MetricSchema(), props);
+        //FlinkKafkaConsumer<MetricEvent> consumer = new FlinkKafkaConsumer<>(java.utils.regex.Pattern.compile("test-topic-[0-9]"), new MetricSchema(), props);
 
 
 //        consumer.setStartFromLatest();

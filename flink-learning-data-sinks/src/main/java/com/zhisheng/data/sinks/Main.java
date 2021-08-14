@@ -10,7 +10,7 @@ import org.apache.flink.api.common.serialization.SimpleStringSchema;
 import org.apache.flink.api.java.utils.ParameterTool;
 import org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
-import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer011;
+import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer;
 
 import java.util.Properties;
 
@@ -26,7 +26,7 @@ public class Main {
         ParameterTool parameterTool = ExecutionEnvUtil.PARAMETER_TOOL;
         Properties props = KafkaConfigUtil.buildKafkaProps(parameterTool);
 
-        SingleOutputStreamOperator<Student> student = env.addSource(new FlinkKafkaConsumer011<>(
+        SingleOutputStreamOperator<Student> student = env.addSource(new FlinkKafkaConsumer<>(
                 parameterTool.get(METRICS_TOPIC),   //这个 kafka topic 需要和上面的工具类的 topic 一致
                 new SimpleStringSchema(),
                 props)).setParallelism(1)
