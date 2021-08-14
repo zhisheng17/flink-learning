@@ -13,8 +13,8 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>flink-learning-connectors-hbase1.4</module>
-        <module>flink-learning-connectors-hbase2.2</module>
+        <module>flink-learning-connectors-hbase-1.4</module>
+        <module>flink-learning-connectors-hbase-2.2</module>
     </modules>
 
     <dependencies>
