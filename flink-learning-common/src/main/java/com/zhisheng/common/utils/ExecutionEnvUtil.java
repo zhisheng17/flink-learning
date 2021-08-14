@@ -36,7 +36,6 @@ public class ExecutionEnvUtil {
     public static StreamExecutionEnvironment prepare(ParameterTool parameterTool) throws Exception {
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
         env.setParallelism(parameterTool.getInt(PropertiesConstants.STREAM_PARALLELISM, 5));
-        env.getConfig().disableSysoutLogging();
         env.getConfig().setRestartStrategy(RestartStrategies.fixedDelayRestart(4, 60000));
         if (parameterTool.getBoolean(PropertiesConstants.STREAM_CHECKPOINT_ENABLE, true)) {
             env.enableCheckpointing(parameterTool.getLong(PropertiesConstants.STREAM_CHECKPOINT_INTERVAL, 10000));
