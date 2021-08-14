@@ -44,7 +44,7 @@
         <!--for HBase Sink -->
         <dependency>
             <groupId>org.apache.flink</groupId>
-            <artifactId>flink-hbase_${scala.binary.version}</artifactId>
+            <artifactId>flink-connector-hbase-2.2_${scala.binary.version}</artifactId>
             <version>${flink.version}</version>
         </dependency>
         <dependency>
@@ -55,7 +55,7 @@
 
         <dependency>
             <groupId>org.apache.flink</groupId>
-            <artifactId>flink-jdbc_${scala.binary.version}</artifactId>
+            <artifactId>flink-connector-jdbc_${scala.binary.version}</artifactId>
             <version>${flink.version}</version>
         </dependency>
         <dependency>
