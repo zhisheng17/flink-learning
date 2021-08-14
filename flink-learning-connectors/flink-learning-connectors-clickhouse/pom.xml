@@ -17,6 +17,7 @@
     </properties>
 
     <dependencies>
+        <!--        todo: add flink clickhouse dependency -->
         <dependency>
             <groupId>org.asynchttpclient</groupId>
             <artifactId>async-http-client</artifactId>
@@ -29,5 +30,8 @@
         </dependency>
     </dependencies>
 
+    <build>
+        <!--        todo: add flink clickhouse build-->
+    </build>
 
 </project>
