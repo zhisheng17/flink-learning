@@ -7,6 +7,7 @@
 ## Stargazers over time
 
 ![Stargazers over time](https://starchart.cc/zhisheng17/flink-learning.svg)
+[![Maintainability](https://cloud.quality-gate.com/dashboard/api/badge?projectName=zhisheng17_flink-learning&branchName=master)](https://cloud.quality-gate.com/dashboard/branches/266624#overview)
 
 ## 本项目结构
 
