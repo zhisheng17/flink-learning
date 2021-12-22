@@ -42,7 +42,11 @@ public class CEPMain {
                             }
                         }
                     }
-                });
+                }).assignTimestampsAndWatermarks(
+                        WatermarkStrategy
+                                .<Event>forBoundedOutOfOrderness(Duration.ofSeconds(5))
+                                .withTimestampAssigner((element, recordTimestamp) -> new Date().getTime())
+                );
 
         //42,zhisheng
         //20,zhisheng
