@@ -1,2 +1,0 @@
-### Flink connector akka
-
