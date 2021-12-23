@@ -12,7 +12,6 @@
     <artifactId>flink-learning-libraries</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>flink-learning-libraries-gelly</module>
         <module>flink-learning-libraries-cep</module>
         <module>flink-learning-libraries-state-processor-api</module>
         <module>flink-learning-libraries-machine-learning</module>
