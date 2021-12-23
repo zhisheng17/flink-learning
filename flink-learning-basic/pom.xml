@@ -9,14 +9,15 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>flink-learning-window</artifactId>
+    <artifactId>flink-learning-basic</artifactId>
+    <packaging>pom</packaging>
 
-    <dependencies>
-        <dependency>
-            <groupId>com.zhisheng.flink</groupId>
-            <artifactId>flink-learning-common</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-    </dependencies>
-
+    <modules>
+        <module>flink-learning-data-sources</module>
+        <module>flink-learning-data-sinks</module>
+        <module>flink-learning-window</module>
+        <module>flink-learning-state</module>
+        <module>flink-learning-metrics</module>
+        <module>flink-learning-libraries</module>
+    </modules>
 </project>

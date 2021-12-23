@@ -3,13 +3,13 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>flink-learning</artifactId>
+        <artifactId>flink-learning-basic</artifactId>
         <groupId>com.zhisheng.flink</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>flink-learning-metrics</artifactId>
+    <artifactId>flink-learning-data-sources</artifactId>
 
     <dependencies>
         <dependency>
@@ -18,9 +18,9 @@
             <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.apache.flink</groupId>
-            <artifactId>flink-metrics-dropwizard</artifactId>
-            <version>${flink.version}</version>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.34</version>
         </dependency>
     </dependencies>
 
@@ -45,7 +45,8 @@
 
                                 <transformer
                                         implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>com.zhisheng.metrics.custom.CustomCounterMetrics</mainClass>
+                                    <!--如果要打包的话，这里要换成对应的 main class-->
+                                    <mainClass>com.zhisheng.data.sources.Main</mainClass>
                                 </transformer>
                                 <transformer
                                         implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
