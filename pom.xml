@@ -12,18 +12,13 @@
     <modules>
         <module>flink-learning-common</module>
         <module>flink-learning-connectors</module>
-        <module>flink-learning-data-sources</module>
-        <module>flink-learning-data-sinks</module>
         <module>flink-learning-sql</module>
         <module>flink-learning-examples</module>
         <module>flink-learning-monitor</module>
-        <module>flink-learning-window</module>
-        <module>flink-learning-state</module>
         <module>flink-learning-core</module>
-        <module>flink-learning-libraries</module>
         <module>flink-learning-project</module>
-        <module>flink-learning-metrics</module>
         <module>flink-learning-configuration-center</module>
+        <module>flink-basic</module>
     </modules>
 
     <properties>
