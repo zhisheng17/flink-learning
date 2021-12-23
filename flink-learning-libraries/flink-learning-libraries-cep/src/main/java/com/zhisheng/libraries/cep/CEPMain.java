@@ -5,6 +5,7 @@ import com.zhisheng.common.utils.ExecutionEnvUtil;
 import com.zhisheng.common.utils.StringUtil;
 import com.zhisheng.libraries.cep.model.Event;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.flink.api.common.eventtime.WatermarkStrategy;
 import org.apache.flink.api.common.functions.FlatMapFunction;
 import org.apache.flink.api.java.utils.ParameterTool;
 import org.apache.flink.cep.CEP;
@@ -16,6 +17,8 @@ import org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.util.Collector;
 
+import java.time.Duration;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
