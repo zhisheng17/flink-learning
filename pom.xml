@@ -19,6 +19,8 @@
         <module>flink-learning-project</module>
         <module>flink-learning-configuration-center</module>
         <module>flink-basic</module>
+        <module>flink-learning-cdc</module>
+        <module>flink-learning-datalake</module>
     </modules>
 
     <properties>
