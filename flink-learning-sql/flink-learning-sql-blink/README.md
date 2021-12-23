@@ -5,7 +5,7 @@
 ```xml
  <dependency>
     <groupId>org.apache.flink</groupId>
-    <artifactId>flink-table-planner-blink_${scala.binary.version}</artifactId>
+    <artifactId>flink-table-planner_${scala.binary.version}</artifactId>
     <version>${flink.version}</version>
 </dependency>
 ```
