@@ -21,6 +21,7 @@
         <module>flink-learning-basic</module>
         <module>flink-learning-cdc</module>
         <module>flink-learning-datalake</module>
+        <module>flink-learning-extends</module>
     </modules>
 
     <properties>
