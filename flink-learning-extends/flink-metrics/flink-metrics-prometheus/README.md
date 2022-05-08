@@ -26,4 +26,4 @@ metrics.reporter.promgateway.interval: 5 SECONDS
 
 ```
 
-![](http://zhisheng-blog.oss-cn-hangzhou.aliyuncs.com/2022-05-08-072327.png)
+![](http://zhisheng-blog.oss-cn-hangzhou.aliyuncs.com/2022-05-08-074128.png)
