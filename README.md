@@ -1,3 +1,5 @@
+[![](https://tokei.rs/b1/github/zhisheng17/flink-learning)](https://github.com/zhisheng17/flink-learning) [![](https://tokei.rs/b1/github/zhisheng17/flink-learning?category=files)](https://github.com/zhisheng17/flink-learning)
+
 # Flink 学习
 
 麻烦路过的各位亲给这个项目点个 star，太不易了，写了这么多，算是对我坚持下来的一种鼓励吧！另外特别感谢 [JetBrains](https://jb.gg/OpenSourceSupport) 公司提供的免费全家桶工具，🙏🙏🙏！
