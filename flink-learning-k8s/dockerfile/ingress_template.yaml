@@ -10,9 +10,9 @@ metadata:
     nginx.ingress.kubernetes.io/proxy-http-version: "1.0"
   labels:
     app.kubernetes.io/managed-by: Helm
-    hellobike.com/deployResource: HKE-FLINK-A-PROD-SH01
-    hellobike.com/env: PRO
-    hellobike.com/provider: hellobike
+    xxx.com/deployResource: HKE-FLINK-A-PROD-SH01
+    xxx.com/env: PRO
+    xxx.com/provider: xxx
     hke-app: $K8S_CLUSTER_ID
   name: $K8S_CLUSTER_ID
   namespace: $K8S_NAMESPACE
