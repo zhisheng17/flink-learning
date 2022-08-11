@@ -1,0 +1,61 @@
+# use openjdk for more java tools
+FROM openjdk:8u181
+
+# Install dependencies
+RUN set -ex; \
+  apt-get update; \
+  apt-get -y install vim net-tools iputils-ping telnet procps libsnappy1v5 gettext-base libjemalloc-dev; \
+  rm -rf /var/lib/apt/lists/*; \
+  mkdir -p /opt/flink; \
+  mkdir -p /opt/hadoop; \
+  mkdir -p /app/hive;
+
+# Grab gosu for easy step-down from root
+ENV GOSU_VERSION 1.11
+RUN set -ex; \
+  wget -nv -O /usr/local/bin/gosu "https://github.com/tianon/gosu/releases/download/$GOSU_VERSION/gosu-$(dpkg --print-architecture)"; \
+  wget -nv -O /usr/local/bin/gosu.asc "https://github.com/tianon/gosu/releases/download/$GOSU_VERSION/gosu-$(dpkg --print-architecture).asc"; \
+  export GNUPGHOME="$(mktemp -d)"; \
+  for server in ha.pool.sks-keyservers.net $(shuf -e \
+                          hkp://p80.pool.sks-keyservers.net:80 \
+                          keyserver.ubuntu.com \
+                          hkp://keyserver.ubuntu.com:80 \
+                          pgp.mit.edu) ; do \
+      gpg --batch --keyserver "$server" --recv-keys B42F6819007F00F88E364FD4036A9C25BF357DD4 && break || : ; \
+  done && \
+  gpg --batch --verify /usr/local/bin/gosu.asc /usr/local/bin/gosu; \
+  gpgconf --kill all; \
+  rm -rf "$GNUPGHOME" /usr/local/bin/gosu.asc; \
+  chmod +x /usr/local/bin/gosu; \
+  gosu nobody true
+
+
+# Install Flink、Hadoop、Hive
+ENV FLINK_HOME=/opt/flink
+ENV FLINK_CONF_DIR=$FLINK_HOME/conf
+ENV HADOOP_HOME=/opt/hadoop
+ENV HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop
+ENV HIVE_HOME=/app/hive
+ENV HIVE_CONF_DIR=$HIVE_HOME/conf
+ENV PATH=$FLINK_HOME/bin:$FLINK_CONF_DIR:$HADOOP_HOME/bin:$HADOOP_CONF_DIR:$HIVE_HOME/bin:$HIVE_CONF_DIR:$PATH
+
+WORKDIR $FLINK_HOME
+COPY hadoop-2.9.2-pro.tar.gz $HADOOP_HOME
+COPY hive-2.1.1-pro.tar.gz $HIVE_HOME
+COPY docker-entrypoint.sh /
+
+RUN set -ex; \
+    groupadd --system --gid=9999 flink; \
+    useradd --system --home-dir $FLINK_HOME --uid=9999 --gid=flink flink; \
+    tar -xf $HADOOP_HOME/hadoop-2.9.2-pro.tar.gz --strip-components=1 -C $HADOOP_HOME; \
+    rm $HADOOP_HOME/hadoop-2.9.2-pro.tar.gz;\
+    tar -xf $HIVE_HOME/hive-2.1.1-pro.tar.gz --strip-components=1 -C $HIVE_HOME; \
+    rm $HIVE_HOME/hive-2.1.1-pro.tar.gz;\
+    chown -R flink:flink /opt; \
+    chmod +x /docker-entrypoint.sh;
+
+
+# Configure container
+ENTRYPOINT ["/docker-entrypoint.sh"]
+EXPOSE 6123 8081
+CMD ["help"]

@@ -1,0 +1,16 @@
+FROM harbor.xxx.cn/flink/hadoop:2.9.2
+
+# 复制 Flink 1.12 SQL 客户端（含 SQL Connector 和 UDF）
+
+WORKDIR $FLINK_HOME
+COPY flink-1.12.0-sql.tar.gz $FLINK_HOME
+
+RUN set -ex; \
+    tar -xf $FLINK_HOME/flink-1.12.0-sql.tar.gz --strip-components=1 -C $FLINK_HOME; \
+    rm $FLINK_HOME/flink-1.12.0-sql.tar.gz; \
+    chmod 777 $FLINK_HOME/log;
+
+# Configure container
+ENTRYPOINT ["/docker-entrypoint.sh"]
+EXPOSE 6123 8081
+CMD ["help"]

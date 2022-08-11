@@ -1,0 +1,28 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: hke-nginx
+    meta.helm.sh/release-name: $K8S_CLUSTER_ID
+    meta.helm.sh/release-namespace: $K8S_NAMESPACE
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+    nginx.ingress.kubernetes.io/connection-proxy-header: close
+    nginx.ingress.kubernetes.io/proxy-http-version: "1.0"
+  labels:
+    app.kubernetes.io/managed-by: Helm
+    hellobike.com/deployResource: HKE-FLINK-A-PROD-SH01
+    hellobike.com/env: PRO
+    hellobike.com/provider: hellobike
+    hke-app: $K8S_CLUSTER_ID
+  name: $K8S_CLUSTER_ID
+  namespace: $K8S_NAMESPACE
+spec:
+  rules:
+    - host: zhisheng-proxy-k8s.xxx.cn
+      http:
+        paths:
+          - backend:
+              serviceName: $K8S_CLUSTER_ID-rest
+              servicePort: 8081
+            path: /proxy/$K8S_CLUSTER_ID(/|$)(.*)
+            pathType: Prefix%
