@@ -30,7 +30,7 @@
         <target.java.version>1.8</target.java.version>
         <maven.compiler.source>${target.java.version}</maven.compiler.source>
         <maven.compiler.target>${target.java.version}</maven.compiler.target>
-        <flink.version>1.14.2</flink.version>
+        <flink.version>1.14.4</flink.version>
         <scala.binary.version>2.11</scala.binary.version>
         <log4j.version>2.17.1</log4j.version>
     </properties>
