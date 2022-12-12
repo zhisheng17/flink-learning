@@ -2,9 +2,9 @@ package com.zhisheng.libraries.cep;
 
 
 import com.zhisheng.common.utils.ExecutionEnvUtil;
-import com.zhisheng.common.utils.StringUtil;
 import com.zhisheng.libraries.cep.model.Event;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.flink.api.common.eventtime.WatermarkStrategy;
 import org.apache.flink.api.common.functions.FlatMapFunction;
 import org.apache.flink.api.java.utils.ParameterTool;
@@ -38,7 +38,7 @@ public class CEPMain {
                 .flatMap(new FlatMapFunction<String, Event>() {
                     @Override
                     public void flatMap(String s, Collector<Event> collector) throws Exception {
-                        if (StringUtil.isNotEmpty(s)) {
+                        if (StringUtils.isNoneEmpty(s)) {
                             String[] split = s.split(",");
                             if (split.length == 2) {
                                 collector.collect(new Event(Integer.valueOf(split[0]), split[1]));

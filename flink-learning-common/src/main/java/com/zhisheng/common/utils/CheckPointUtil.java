@@ -11,7 +11,6 @@ import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import java.net.URI;
 
 import static com.zhisheng.common.constant.PropertiesConstants.*;
-import static com.zhisheng.common.constant.PropertiesConstants.STREAM_CHECKPOINT_INTERVAL;
 
 /**
  * Desc: Checkpoint 工具类
