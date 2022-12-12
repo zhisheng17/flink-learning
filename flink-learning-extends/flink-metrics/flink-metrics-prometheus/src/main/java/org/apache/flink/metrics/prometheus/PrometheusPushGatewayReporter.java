@@ -18,6 +18,9 @@
 
 package org.apache.flink.metrics.prometheus;
 
+import io.prometheus.client.Collector;
+import io.prometheus.client.CollectorRegistry;
+import io.prometheus.client.exporter.PushGateway;
 import org.apache.flink.annotation.PublicEvolving;
 import org.apache.flink.metrics.Metric;
 import org.apache.flink.metrics.MetricConfig;
@@ -28,27 +31,11 @@ import org.apache.flink.metrics.reporter.Scheduled;
 import org.apache.flink.util.AbstractID;
 import org.apache.flink.util.StringUtils;
 
-import io.prometheus.client.Collector;
-import io.prometheus.client.CollectorRegistry;
-import io.prometheus.client.exporter.PushGateway;
-
 import java.io.File;
 import java.io.IOException;
-import java.util.AbstractMap;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Properties;
+import java.util.*;
 
-import static org.apache.flink.metrics.prometheus.PrometheusPushGatewayReporterOptions.CLUSTER_MODE;
-import static org.apache.flink.metrics.prometheus.PrometheusPushGatewayReporterOptions.DELETE_ON_SHUTDOWN;
-import static org.apache.flink.metrics.prometheus.PrometheusPushGatewayReporterOptions.GROUPING_KEY;
-import static org.apache.flink.metrics.prometheus.PrometheusPushGatewayReporterOptions.HOST;
-import static org.apache.flink.metrics.prometheus.PrometheusPushGatewayReporterOptions.JOB_NAME;
-import static org.apache.flink.metrics.prometheus.PrometheusPushGatewayReporterOptions.PORT;
-import static org.apache.flink.metrics.prometheus.PrometheusPushGatewayReporterOptions.RANDOM_JOB_NAME_SUFFIX;
+import static org.apache.flink.metrics.prometheus.PrometheusPushGatewayReporterOptions.*;
 
 /**
  * {@link MetricReporter} that exports {@link Metric Metrics} via Prometheus {@link PushGateway}.

@@ -2,8 +2,8 @@ package com.zhisheng.alert.alert;
 
 import com.google.common.collect.Maps;
 import com.zhisheng.alert.function.OutageProcessFunction;
-import com.zhisheng.alert.model.OutageMetricEvent;
 import com.zhisheng.alert.model.AlertEvent;
+import com.zhisheng.alert.model.OutageMetricEvent;
 import com.zhisheng.alert.watermark.OutageMetricWaterMark;
 import com.zhisheng.common.model.MetricEvent;
 import com.zhisheng.common.schemas.MetricSchema;

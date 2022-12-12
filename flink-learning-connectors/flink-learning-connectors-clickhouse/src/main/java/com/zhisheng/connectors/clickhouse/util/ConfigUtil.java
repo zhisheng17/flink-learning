@@ -1,9 +1,9 @@
 package com.zhisheng.connectors.clickhouse.util;
 
-import java.util.*;
-
 import com.typesafe.config.Config;
 import com.typesafe.config.ConfigValue;
+
+import java.util.*;
 
 /**
  * Desc:

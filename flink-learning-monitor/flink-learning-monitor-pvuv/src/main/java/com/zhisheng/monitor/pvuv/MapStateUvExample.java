@@ -1,8 +1,8 @@
 package com.zhisheng.monitor.pvuv;
 
 
-import com.zhisheng.monitor.pvuv.model.UserVisitWebEvent;
 import com.zhisheng.common.utils.GsonUtil;
+import com.zhisheng.monitor.pvuv.model.UserVisitWebEvent;
 import com.zhisheng.monitor.pvuv.utils.UvExampleUtil;
 import org.apache.flink.api.common.functions.RichMapFunction;
 import org.apache.flink.api.common.serialization.SimpleStringSchema;

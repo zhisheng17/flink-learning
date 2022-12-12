@@ -18,6 +18,7 @@
 
 package org.apache.flink.metrics.prometheus;
 
+import io.prometheus.client.exporter.HTTPServer;
 import org.apache.flink.annotation.PublicEvolving;
 import org.apache.flink.annotation.VisibleForTesting;
 import org.apache.flink.metrics.Metric;
@@ -26,8 +27,6 @@ import org.apache.flink.metrics.reporter.InstantiateViaFactory;
 import org.apache.flink.metrics.reporter.MetricReporter;
 import org.apache.flink.util.NetUtils;
 import org.apache.flink.util.Preconditions;
-
-import io.prometheus.client.exporter.HTTPServer;
 
 import java.io.IOException;
 import java.util.Iterator;

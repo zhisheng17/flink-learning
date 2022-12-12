@@ -4,10 +4,10 @@ import com.google.common.collect.Lists;
 import com.zhisheng.connectors.clickhouse.model.ClickhouseRequestBlank;
 import com.zhisheng.connectors.clickhouse.model.ClickhouseSinkCommonParams;
 import com.zhisheng.connectors.clickhouse.util.ThreadUtil;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import io.netty.handler.codec.http.HttpHeaders;
 import org.asynchttpclient.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.io.PrintWriter;

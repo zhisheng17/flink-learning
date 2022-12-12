@@ -1,5 +1,4 @@
 import org.apache.flink.api.common.time.Time;
-import org.apache.flink.streaming.api.windowing.windows.TimeWindow;
 
 /**
  * Desc:

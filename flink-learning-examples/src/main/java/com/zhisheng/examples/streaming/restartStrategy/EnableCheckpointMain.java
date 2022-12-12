@@ -7,10 +7,6 @@ import org.apache.flink.runtime.state.memory.MemoryStateBackend;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.streaming.api.functions.source.SourceFunction;
 
-import java.util.concurrent.TimeUnit;
-
-import static com.zhisheng.common.constant.PropertiesConstants.STREAM_CHECKPOINT_INTERVAL;
-
 /**
  * Desc: NullPointerException application，default RestartStrategy enable checkpoint Test
  * Created by zhisheng on 2019/10/5 下午11:22

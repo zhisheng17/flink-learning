@@ -1,13 +1,11 @@
 package com.zhisheng.log;
 
 import com.zhisheng.common.model.LogEvent;
-import com.zhisheng.common.model.MetricEvent;
 import com.zhisheng.common.utils.GsonUtil;
 import com.zhisheng.log.utils.ESSinkUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.flink.api.common.functions.RuntimeContext;
 import org.apache.flink.api.java.utils.ParameterTool;
-import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator;
 import org.apache.flink.streaming.connectors.elasticsearch.RequestIndexer;
 import org.apache.http.HttpHost;
@@ -18,7 +16,6 @@ import java.net.MalformedURLException;
 import java.util.List;
 
 import static com.zhisheng.common.constant.PropertiesConstants.*;
-import static com.zhisheng.common.constant.PropertiesConstants.ZHISHENG;
 
 /**
  * Desc: sink log to es
