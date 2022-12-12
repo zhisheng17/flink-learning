@@ -7,7 +7,7 @@ import org.apache.flink.api.common.serialization.SerializationSchema;
 import org.apache.flink.api.common.typeinfo.TypeInformation;
 
 import java.io.IOException;
-import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 
 /**
  * Shop Schema ，支持序列化和反序列化
@@ -31,7 +31,7 @@ public class ShopSchema implements DeserializationSchema<ShopEvent>, Serializati
 
     @Override
     public byte[] serialize(ShopEvent shopEvent) {
-        return gson.toJson(shopEvent).getBytes(Charset.forName("UTF-8"));
+        return gson.toJson(shopEvent).getBytes(StandardCharsets.UTF_8);
     }
 
     @Override

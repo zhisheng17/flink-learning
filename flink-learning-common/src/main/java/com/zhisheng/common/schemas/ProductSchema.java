@@ -7,7 +7,7 @@ import org.apache.flink.api.common.serialization.SerializationSchema;
 import org.apache.flink.api.common.typeinfo.TypeInformation;
 
 import java.io.IOException;
-import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 
 /**
  * Product Schema ，支持序列化和反序列化
@@ -31,7 +31,7 @@ public class ProductSchema implements DeserializationSchema<ProductEvent>, Seria
 
     @Override
     public byte[] serialize(ProductEvent productEvent) {
-        return gson.toJson(productEvent).getBytes(Charset.forName("UTF-8"));
+        return gson.toJson(productEvent).getBytes(StandardCharsets.UTF_8);
     }
 
     @Override

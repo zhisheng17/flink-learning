@@ -17,7 +17,6 @@ public class PropertiesConstants {
     public static final String CONSUMER_FROM_TIME = "consumer.from.time";
     public static final String STREAM_PARALLELISM = "stream.parallelism";
     public static final String STREAM_SINK_PARALLELISM = "stream.sink.parallelism";
-    public static final String STREAM_DEFAULT_PARALLELISM = "stream.default.parallelism";
     public static final String STREAM_CHECKPOINT_ENABLE = "stream.checkpoint.enable";
     public static final String STREAM_CHECKPOINT_DIR = "stream.checkpoint.dir";
     public static final String STREAM_CHECKPOINT_TYPE = "stream.checkpoint.type";
