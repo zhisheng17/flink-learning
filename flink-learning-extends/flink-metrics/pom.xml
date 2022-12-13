@@ -14,5 +14,6 @@
 
     <modules>
         <module>flink-metrics-prometheus</module>
+        <module>flink-metrics-kafka</module>
     </modules>
 </project>
