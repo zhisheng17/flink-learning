@@ -14,5 +14,6 @@
 
     <modules>
         <module>flink-metrics</module>
+        <module>FlinkLogKafkaAppender</module>
     </modules>
 </project>
