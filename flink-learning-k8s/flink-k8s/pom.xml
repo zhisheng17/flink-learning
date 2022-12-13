@@ -14,7 +14,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <kubernetes.client.version>4.9.2</kubernetes.client.version>
+        <kubernetes.client.version>4.11.2</kubernetes.client.version>
     </properties>
 
     <!-- Set dependency version for transitive dependencies -->
