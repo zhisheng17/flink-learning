@@ -18,13 +18,12 @@
 
 package org.apache.flink.kubernetes.kubeclient.decorators;
 
-import org.apache.flink.kubernetes.kubeclient.FlinkPod;
-import org.apache.flink.kubernetes.kubeclient.parameters.AbstractKubernetesParameters;
-import org.apache.flink.kubernetes.kubeclient.resources.KubernetesSecretEnvVar;
-
 import io.fabric8.kubernetes.api.model.Container;
 import io.fabric8.kubernetes.api.model.ContainerBuilder;
 import io.fabric8.kubernetes.api.model.EnvVar;
+import org.apache.flink.kubernetes.kubeclient.FlinkPod;
+import org.apache.flink.kubernetes.kubeclient.parameters.AbstractKubernetesParameters;
+import org.apache.flink.kubernetes.kubeclient.resources.KubernetesSecretEnvVar;
 
 import java.util.List;
 import java.util.stream.Collectors;

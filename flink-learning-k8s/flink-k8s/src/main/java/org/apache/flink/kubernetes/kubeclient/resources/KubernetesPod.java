@@ -20,7 +20,6 @@ package org.apache.flink.kubernetes.kubeclient.resources;
 
 import io.fabric8.kubernetes.api.model.ContainerStateTerminated;
 import io.fabric8.kubernetes.api.model.Pod;
-
 import org.apache.flink.annotation.VisibleForTesting;
 
 import java.util.Objects;

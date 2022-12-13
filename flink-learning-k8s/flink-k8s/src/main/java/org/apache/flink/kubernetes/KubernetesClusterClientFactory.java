@@ -30,7 +30,6 @@ import org.apache.flink.kubernetes.utils.Constants;
 import org.apache.flink.util.AbstractID;
 
 import javax.annotation.Nullable;
-
 import java.util.Optional;
 
 import static org.apache.flink.util.Preconditions.checkNotNull;

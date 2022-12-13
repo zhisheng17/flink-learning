@@ -18,11 +18,10 @@
 
 package org.apache.flink.kubernetes.kubeclient.resources;
 
-import org.apache.flink.kubernetes.kubeclient.FlinkKubeClient;
-
 import io.fabric8.kubernetes.api.model.HasMetadata;
 import io.fabric8.kubernetes.client.KubernetesClientException;
 import io.fabric8.kubernetes.client.Watcher;
+import org.apache.flink.kubernetes.kubeclient.FlinkKubeClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

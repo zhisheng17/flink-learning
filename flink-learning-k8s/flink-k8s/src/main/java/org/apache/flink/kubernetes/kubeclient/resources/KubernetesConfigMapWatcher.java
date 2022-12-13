@@ -18,10 +18,8 @@
 
 package org.apache.flink.kubernetes.kubeclient.resources;
 
-import org.apache.flink.kubernetes.kubeclient.FlinkKubeClient;
-
 import io.fabric8.kubernetes.api.model.ConfigMap;
-
+import org.apache.flink.kubernetes.kubeclient.FlinkKubeClient;
 import org.apache.flink.kubernetes.utils.KubernetesUtils;
 
 import java.util.Collections;

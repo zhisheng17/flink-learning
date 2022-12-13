@@ -19,7 +19,6 @@
 package org.apache.flink.kubernetes.highavailability;
 
 import org.apache.flink.runtime.checkpoint.CheckpointStoreUtil;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

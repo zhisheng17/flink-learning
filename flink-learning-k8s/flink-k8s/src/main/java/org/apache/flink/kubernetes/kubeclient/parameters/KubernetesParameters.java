@@ -18,9 +18,8 @@
 
 package org.apache.flink.kubernetes.kubeclient.parameters;
 
-import org.apache.flink.kubernetes.configuration.KubernetesConfigOptions;
-
 import io.fabric8.kubernetes.api.model.LocalObjectReference;
+import org.apache.flink.kubernetes.configuration.KubernetesConfigOptions;
 
 import java.util.List;
 import java.util.Map;

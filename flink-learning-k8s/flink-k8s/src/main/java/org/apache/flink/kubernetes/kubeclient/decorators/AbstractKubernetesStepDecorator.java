@@ -18,9 +18,8 @@
 
 package org.apache.flink.kubernetes.kubeclient.decorators;
 
-import org.apache.flink.kubernetes.kubeclient.FlinkPod;
-
 import io.fabric8.kubernetes.api.model.HasMetadata;
+import org.apache.flink.kubernetes.kubeclient.FlinkPod;
 
 import java.io.IOException;
 import java.util.Collections;

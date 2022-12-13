@@ -18,14 +18,13 @@
 
 package org.apache.flink.kubernetes.kubeclient.parameters;
 
+import io.fabric8.kubernetes.api.model.LocalObjectReference;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.flink.configuration.Configuration;
 import org.apache.flink.configuration.DeploymentOptionsInternal;
 import org.apache.flink.kubernetes.configuration.KubernetesConfigOptions;
 import org.apache.flink.kubernetes.utils.Constants;
 import org.apache.flink.kubernetes.utils.KubernetesUtils;
-
-import io.fabric8.kubernetes.api.model.LocalObjectReference;
-import org.apache.commons.lang3.StringUtils;
 
 import java.io.File;
 import java.util.Collections;

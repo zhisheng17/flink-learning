@@ -18,29 +18,18 @@
 
 package org.apache.flink.kubernetes.kubeclient.decorators;
 
-import io.fabric8.kubernetes.api.model.ContainerPort;
-
+import io.fabric8.kubernetes.api.model.*;
 import org.apache.flink.kubernetes.kubeclient.FlinkPod;
 import org.apache.flink.kubernetes.kubeclient.parameters.KubernetesTaskManagerParameters;
 import org.apache.flink.kubernetes.kubeclient.resources.KubernetesToleration;
 import org.apache.flink.kubernetes.utils.Constants;
 import org.apache.flink.kubernetes.utils.KubernetesUtils;
 
-import io.fabric8.kubernetes.api.model.Container;
-import io.fabric8.kubernetes.api.model.ContainerBuilder;
-import io.fabric8.kubernetes.api.model.ContainerPortBuilder;
-import io.fabric8.kubernetes.api.model.EnvVar;
-import io.fabric8.kubernetes.api.model.EnvVarSourceBuilder;
-import io.fabric8.kubernetes.api.model.Pod;
-import io.fabric8.kubernetes.api.model.PodBuilder;
-import io.fabric8.kubernetes.api.model.ResourceRequirements;
-
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import static org.apache.flink.kubernetes.utils.Constants.*;
-import static org.apache.flink.kubernetes.utils.Constants.DNS_PLOICY_DEFAULT;
 import static org.apache.flink.util.Preconditions.checkNotNull;
 
 /**
