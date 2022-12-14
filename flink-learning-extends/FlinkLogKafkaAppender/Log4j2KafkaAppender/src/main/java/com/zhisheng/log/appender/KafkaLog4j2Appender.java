@@ -1,8 +1,8 @@
 package com.zhisheng.log.appender;
 
-import com.zhisheng.log.model.LogEvent;
-import com.zhisheng.log.util.ExceptionUtil;
-import com.zhisheng.log.util.JacksonUtil;
+import com.zhisheng.flink.model.LogEvent;
+import com.zhisheng.flink.util.ExceptionUtil;
+import com.zhisheng.flink.util.JacksonUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.flink.shaded.jackson2.com.fasterxml.jackson.core.JsonProcessingException;
 import org.apache.kafka.clients.producer.KafkaProducer;

@@ -15,6 +15,7 @@
     <modules>
         <module>Log4jKafkaAppender</module>
         <module>Log4j2KafkaAppender</module>
+        <module>KafkaAppenderCommon</module>
     </modules>
 
     <properties>
@@ -38,5 +39,4 @@
             <scope>provided</scope>
         </dependency>
     </dependencies>
-
 </project>

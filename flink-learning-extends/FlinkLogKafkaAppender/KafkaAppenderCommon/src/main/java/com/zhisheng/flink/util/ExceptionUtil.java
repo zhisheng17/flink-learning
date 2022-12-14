@@ -1,4 +1,4 @@
-package com.zhisheng.log.util;
+package com.zhisheng.flink.util;
 
 import java.io.ByteArrayOutputStream;
 import java.io.OutputStream;

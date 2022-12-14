@@ -1,4 +1,4 @@
-package com.zhisheng.log.model;
+package com.zhisheng.flink.model;
 
 import lombok.Data;
 

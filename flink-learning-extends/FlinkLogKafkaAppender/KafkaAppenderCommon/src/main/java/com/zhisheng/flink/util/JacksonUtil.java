@@ -1,4 +1,4 @@
-package com.zhisheng.log.util;
+package com.zhisheng.flink.util;
 
 
 import org.apache.flink.shaded.jackson2.com.fasterxml.jackson.core.JsonProcessingException;
