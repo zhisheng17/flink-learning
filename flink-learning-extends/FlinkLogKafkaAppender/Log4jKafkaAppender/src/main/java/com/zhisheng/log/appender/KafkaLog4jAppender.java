@@ -143,7 +143,7 @@ public class KafkaLog4jAppender extends AppenderSkeleton {
     @Override
     protected void append(LoggingEvent loggingEvent) {
         try {
-            if (level.contains(loggingEvent.getLevel().toString().toUpperCase()) && !loggingEvent.getLoggerName().contains("hello")) {
+            if (level.contains(loggingEvent.getLevel().toString().toUpperCase()) && !loggingEvent.getLoggerName().contains("xxx")) { //控制哪些类的日志不收集
                 producer.send(new ProducerRecord<>(topic, appId, subAppend(loggingEvent)));
             }
         } catch (Exception e) {
