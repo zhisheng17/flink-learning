@@ -15,6 +15,7 @@
         <module>flink-learning-datalake-hudi</module>
         <module>flink-learning-datalake-iceberg</module>
         <module>flink-learning-datalake-deltalake</module>
+        <module>flink-learning-table-store</module>
     </modules>
 
     <properties>
