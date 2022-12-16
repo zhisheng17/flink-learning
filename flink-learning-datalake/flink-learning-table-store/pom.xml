@@ -12,7 +12,11 @@
     <artifactId>flink-learning-table-store</artifactId>
 
     <dependencies>
-
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-table-store-dist</artifactId>
+            <version>0.2.1</version>
+        </dependency>
     </dependencies>
 
 </project>
