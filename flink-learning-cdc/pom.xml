@@ -16,6 +16,8 @@
         <module>flink-postgres-cdc</module>
         <module>flink-oracle-cdc</module>
         <module>flink-tidb-cdc</module>
+        <module>flink-sqlserver-cdc</module>
+        <module>flink-oceanbase-cdc</module>
     </modules>
 
 </project>
