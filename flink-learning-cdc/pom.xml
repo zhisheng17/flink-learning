@@ -18,6 +18,8 @@
         <module>flink-tidb-cdc</module>
         <module>flink-sqlserver-cdc</module>
         <module>flink-oceanbase-cdc</module>
+        <module>flink-mongodb-cdc</module>
+        <module>flink-db2-cdc</module>
     </modules>
 
 </project>
