@@ -12,10 +12,6 @@
 
     <name>flink-db2-cdc</name>
 
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
-
     <dependencies>
         <dependency>
             <groupId>com.ververica</groupId>
