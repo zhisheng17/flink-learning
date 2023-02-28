@@ -15,10 +15,9 @@ public class KafkaReporterOptions {
 
 	//https://blog.csdn.net/qq_28410283/article/details/88570141
 
-	//通过 hms 申请的 topic，该 topic 批到 logs-kafka 集群
 	public static final ConfigOption<String> BOOTSTRAP_SERVERS = ConfigOptions
 		.key("bootstrapServers")
-		.defaultValue("http://logs-kafka1.ttbike.com.cn:9092,http://logs-kafka2.ttbike.com.cn:9092,http://logs-kafka3.ttbike.com.cn:9092")
+		.defaultValue("http://localhost:9092")
 		.withDescription("the Kafka broker server host");
 
 	public static final ConfigOption<String> TOPIC = ConfigOptions
