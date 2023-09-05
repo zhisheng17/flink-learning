@@ -21,7 +21,7 @@
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
-        <kafka.version>2.4.1</kafka.version>
+        <kafka.version>2.6.3</kafka.version>
         <scope>provided</scope>
         <jackson.version>2.11.0</jackson.version>
     </properties>
