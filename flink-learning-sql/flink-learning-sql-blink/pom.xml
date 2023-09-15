@@ -61,7 +61,7 @@
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
-            <version>42.3.3</version>
+            <version>42.5.1</version>
         </dependency>
     </dependencies>
 
