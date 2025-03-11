@@ -1,0 +1,24 @@
+{
+  "name": "taskmanager_job_task_isBackPressured",
+  "timestamp": 1741677078908,
+  "fields": {
+    "value": "false"
+  },
+  "tags": {
+    "task_name": "Filter -> Map -> Filter -> Map -> Filter -> Map -> Filter -> Timestamps/Watermarks -> Sink: Unnamed",
+    "task_attempt_id": "77ce8a827e33ef8582b0788c40d7193f",
+    "node_ip": "10.xxx.xxx.13",
+    "task_id": "20ba6b65f97481d5570070de90e4e791",
+    "platform_task_name": "base_xxx-monitor",
+    "task_attempt_num": "0",
+    "job_name": "base_xxx_monitor_insert_to_es",
+    "job_id": "a65ef348e256a85ff386cdbd3e8ea09a",
+    "host": "10.xxx.xxx.251",
+    "flink_version": "1.12.0",
+    "container_type": "taskmanager",
+    "app_id": "flink-2180-1732606614446",
+    "platform_task_id": "2180",
+    "container_id": "flink-2180-1732606614446-taskmanager-1-8",
+    "subtask_index": "197"
+  }
+}

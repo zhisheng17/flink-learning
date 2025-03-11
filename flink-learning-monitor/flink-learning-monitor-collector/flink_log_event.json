@@ -1,0 +1,23 @@
+{
+  "source": "flink-1.16.1-sql",
+  "id": "d47d6b2d-c727-448d-b58b-4d2607df771f",
+  "timestamp": 1741677244482,
+  "content": "Request commitFiles return SUCCESS for 1741677153039-6421af218b4c8ce71454da9428a22759-0",
+  "tags": {
+    "task_name": "613750_1729863898342",
+    "host_ip": "10.xxx.xxx.140",
+    "node_ip": "10.xxx.xxx.22",
+    "level": "INFO",
+    "file_name": "Logging.scala",
+    "task_id": "359158",
+    "method_name": "logInfo",
+    "line_number": "51",
+    "thread_name": "celeborn-dispatcher-3",
+    "container_type": "jobmanager",
+    "logger_name": "org.apache.celeborn.client.commit.MapPartitionCommitHandler",
+    "class_name": "org.apache.celeborn.common.internal.Logging",
+    "app_id": "batch-flink-359158-1741677126342",
+    "host_name": "batch-flink-359158-1741677126342-7d549799d4-q78jt",
+    "container_id": "batch-flink-359158-1741677126342-7d549799d4-q78jt"
+  }
+}
