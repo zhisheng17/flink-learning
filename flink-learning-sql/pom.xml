@@ -14,6 +14,7 @@
     <modules>
         <module>flink-learning-sql-blink</module>
         <module>flink-learning-sql-common</module>
+        <module>flink-learning-sql-client</module>
     </modules>
 
 </project>
