@@ -7,10 +7,9 @@ CREATE TABLE metrics_yarn_flink_jobs (
      tags Row<app_id STRING, dataman_task_id STRING, dataman_task_name STRING>
 ) WITH (
       'connector' = 'kafka',
-      'topic' = 'metrics-yarn-flink-jobs',
+      'topic' = 'metrics-flink-jobs',
       'properties.bootstrap.servers' = 'logs-kafka1.xxx:9092,logs-kafka2.xxx:9092,logs-kafka3.xxx:9092',
       'properties.group.id' = 'test',
-      'source.parallelism' = '1',
       'format' = 'json'
       );
 

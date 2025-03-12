@@ -82,7 +82,7 @@ where
         )
   and
     (
-        REGEXP(content, 'metrics-yarn-flink-jobs') is false
+        REGEXP(content, 'metrics-flink-jobs') is false
         )
   and
     (

@@ -22,7 +22,7 @@ public class KafkaReporterOptions {
 
 	public static final ConfigOption<String> TOPIC = ConfigOptions
 		.key("topic")
-		.defaultValue("metrics-yarn-flink-jobs")
+		.defaultValue("metrics-flink-jobs")
 		.withDescription("the Kafka topic to store metrics");
 
 	public static final ConfigOption<String> ACKS = ConfigOptions

@@ -35,10 +35,10 @@ public class SQLExampleData2PG {
                 ") WITH (\n" +
                 "    'connector.type' = 'jdbc',\n" +
                 "    'connector.driver' = 'org.postgresql.Driver',\n" +
-                "    'connector.url' = 'jdbc:postgresql://localhost:3600/hello_hitch_user',\n" +
+                "    'connector.url' = 'jdbc:postgresql://localhost:3600/user',\n" +
                 "    'connector.table' = 't_hitch_user_ltv_aggregate', \n" +
-                "    'connector.username' = 'hello_hitch_user', \n" +
-                "    'connector.password' = 'hello_hitch_user',\n" +
+                "    'connector.username' = 'user', \n" +
+                "    'connector.password' = 'user',\n" +
                 "    'connector.write.flush.max-rows' = '1' \n" +
                 ")";
 
