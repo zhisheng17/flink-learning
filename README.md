@@ -12,6 +12,8 @@
 
 ![](http://zhisheng-blog.oss-cn-hangzhou.aliyuncs.com/2020-01-11-064410.png)
 
+[![Maintainability](https://cloud.quality-gate.com/dashboard/api/badge?projectName=zhisheng17_flink-learning&branchName=master)](https://cloud.quality-gate.com/dashboard/branches/266624#overview)
+
 
 ## How to build
 
