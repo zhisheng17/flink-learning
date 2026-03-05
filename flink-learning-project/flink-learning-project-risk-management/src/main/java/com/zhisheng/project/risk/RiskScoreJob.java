@@ -130,10 +130,12 @@ public class RiskScoreJob {
             double newTotalAmount = (totalAmount == null ? 0.0 : totalAmount) + txn.getAmount();
             totalAmountState.update(newTotalAmount);
 
-            // 更新城市交易频次
+            // 读取城市交易频次（更新前），用于后续风险评分
             String city = txn.getCity() != null ? txn.getCity() : "unknown";
             Long cityCount = cityFrequencyState.get(city);
-            cityFrequencyState.put(city, (cityCount == null ? 0 : cityCount) + 1);
+            long previousCityCount = cityCount == null ? 0 : cityCount;
+            // 更新城市交易频次
+            cityFrequencyState.put(city, previousCityCount + 1);
 
             // ========== 2. 计算风险评分（0-100 分，分越高越危险） ==========
             double riskScore = 0.0;
@@ -161,9 +163,8 @@ public class RiskScoreJob {
             lastTransactionTimeState.update(txn.getTimestamp());
 
             // 因素 3：城市变更（权重 30%）
-            // 如果用户从未在此城市交易过，加分
-            Long currentCityCount = cityFrequencyState.get(city);
-            if (currentCityCount != null && currentCityCount <= 1 && newCount > 3) {
+            // 如果用户从未在此城市交易过（更新前计数为 0），加分
+            if (previousCityCount == 0 && newCount > 3) {
                 riskScore += 30.0;
             }
 
