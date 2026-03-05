@@ -18,5 +18,11 @@
             <artifactId>flink-sql-connector-mongodb-cdc</artifactId>
             <version>${flink-cdc.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-table-planner_${scala.binary.version}</artifactId>
+            <version>${flink.version}</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 </project>
