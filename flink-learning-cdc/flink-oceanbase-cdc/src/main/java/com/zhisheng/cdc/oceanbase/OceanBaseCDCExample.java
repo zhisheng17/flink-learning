@@ -43,9 +43,9 @@ public class OceanBaseCDCExample {
                 ") WITH (\n" +
                 "    'connector' = 'oceanbase-cdc',\n" +
                 "    'scan.startup.mode' = 'initial',\n" +
-                "    'username' = 'user@obtenant',\n" +
+                "    'username' = 'user@my_tenant',\n" +
                 "    'password' = 'pswd',\n" +
-                "    'tenant-name' = 'obtenant',\n" +
+                "    'tenant-name' = 'my_tenant',\n" +
                 "    'database-name' = 'mydb',\n" +
                 "    'table-name' = 'products',\n" +
                 "    'hostname' = 'localhost',\n" +
