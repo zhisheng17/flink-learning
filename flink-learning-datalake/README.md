@@ -2,13 +2,7 @@
 
 Flink Data Lake 项目里面包含了数据湖四大组件的基础、原理、实战、应用、源码相关内容
 
-+ [Hudi](https://github.com/apache/hudi)
 
-+ [Iceberg](https://github.com/apache/iceberg)
-
-+ [Delta lake](https://github.com/delta-io/delta)
-
-+ [Apache Paimon](https://paimon.apache.org/)（原 Flink Table Store）
 
 
 
