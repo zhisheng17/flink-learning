@@ -14,8 +14,9 @@
     <dependencies>
         <dependency>
             <groupId>org.apache.flink</groupId>
-            <artifactId>flink-connector-nifi_${scala.binary.version}</artifactId>
-            <version>${flink.version}</version>
+            <!-- NiFi connector last available version is 1.15.4 (no longer maintained for newer Flink) -->
+            <artifactId>flink-connector-nifi</artifactId>
+            <version>1.15.4</version>
         </dependency>
     </dependencies>
 

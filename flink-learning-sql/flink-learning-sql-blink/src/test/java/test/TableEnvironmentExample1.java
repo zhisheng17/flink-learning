@@ -16,8 +16,8 @@ public class TableEnvironmentExample1 {
         //流作业
         StreamTableEnvironment.create(StreamExecutionEnvironment.getExecutionEnvironment());
         //use EnvironmentSettings
-        StreamTableEnvironment.create(StreamExecutionEnvironment.getExecutionEnvironment(), EnvironmentSettings.newInstance().useBlinkPlanner().inStreamingMode().build());
-        StreamTableEnvironment.create(StreamExecutionEnvironment.getExecutionEnvironment(), EnvironmentSettings.newInstance().useBlinkPlanner().inStreamingMode().build());
+        StreamTableEnvironment.create(StreamExecutionEnvironment.getExecutionEnvironment(), EnvironmentSettings.newInstance().build());
+        StreamTableEnvironment.create(StreamExecutionEnvironment.getExecutionEnvironment(), EnvironmentSettings.newInstance().build());
         //use table config
         StreamTableEnvironment.create(StreamExecutionEnvironment.getExecutionEnvironment(), TableConfig.getDefault());
     }

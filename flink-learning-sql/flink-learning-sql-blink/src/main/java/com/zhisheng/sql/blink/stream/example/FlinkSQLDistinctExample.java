@@ -17,8 +17,6 @@ public class FlinkSQLDistinctExample {
         StreamExecutionEnvironment blinkStreamEnv = StreamExecutionEnvironment.getExecutionEnvironment();
         blinkStreamEnv.setParallelism(1);
         EnvironmentSettings blinkStreamSettings = EnvironmentSettings.newInstance()
-                .useBlinkPlanner()
-                .inStreamingMode()
                 .build();
         StreamTableEnvironment blinkStreamTableEnv = StreamTableEnvironment.create(blinkStreamEnv, blinkStreamSettings);
 
@@ -40,7 +38,7 @@ public class FlinkSQLDistinctExample {
 
         String countSql = "select user_id, count(user_id) from user_behavior group by user_id";
 
-        blinkStreamTableEnv.sqlUpdate(ddlSource);
+        blinkStreamTableEnv.executeSql(ddlSource);
         Table countTable = blinkStreamTableEnv.sqlQuery(countSql);
         blinkStreamTableEnv.toRetractStream(countTable, Row.class).print();
 
@@ -48,6 +46,6 @@ public class FlinkSQLDistinctExample {
         Table distinctTable = blinkStreamTableEnv.sqlQuery(distinctSql);
         blinkStreamTableEnv.toRetractStream(distinctTable, Row.class).print("==");
 
-        blinkStreamTableEnv.execute("Blink Stream SQL count/distinct demo");
+        blinkStreamEnv.execute("Blink Stream SQL count/distinct demo");
     }
 }

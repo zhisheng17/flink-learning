@@ -12,10 +12,11 @@
     <artifactId>flink-learning-table-store</artifactId>
 
     <dependencies>
+        <!-- flink-table-store was renamed to Apache Paimon -->
         <dependency>
-            <groupId>org.apache.flink</groupId>
-            <artifactId>flink-table-store-dist</artifactId>
-            <version>0.2.1</version>
+            <groupId>org.apache.paimon</groupId>
+            <artifactId>paimon-flink-1.20</artifactId>
+            <version>1.0.0</version>
         </dependency>
     </dependencies>
 

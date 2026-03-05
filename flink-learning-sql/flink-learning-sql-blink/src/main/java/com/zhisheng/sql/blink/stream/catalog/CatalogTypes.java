@@ -16,8 +16,6 @@ public class CatalogTypes {
         StreamExecutionEnvironment blinkStreamEnv = StreamExecutionEnvironment.getExecutionEnvironment();
         blinkStreamEnv.setParallelism(1);
         EnvironmentSettings blinkStreamSettings = EnvironmentSettings.newInstance()
-                .useBlinkPlanner()
-                .inStreamingMode()
                 .build();
         StreamTableEnvironment blinkStreamTableEnv = StreamTableEnvironment.create(blinkStreamEnv, blinkStreamSettings);
 

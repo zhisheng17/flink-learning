@@ -2,7 +2,7 @@ package com.zhisheng.connectors.kafka;
 
 import com.zhisheng.common.utils.ExecutionEnvUtil;
 import org.apache.flink.api.java.utils.ParameterTool;
-import org.apache.flink.shaded.jackson2.com.fasterxml.jackson.databind.node.ObjectNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer;
 import org.apache.flink.streaming.util.serialization.JSONKeyValueDeserializationSchema;

@@ -14,8 +14,9 @@
 	<dependencies>
 		<dependency>
 			<groupId>org.apache.flink</groupId>
-			<artifactId>flink-connector-elasticsearch5_${scala.binary.version}</artifactId>
-			<version>${flink.version}</version>
+			<!-- ES5 connector was removed after Flink 1.14. Using ES6 connector as replacement. -->
+			<artifactId>flink-connector-elasticsearch6</artifactId>
+			<version>${flink-connector-elasticsearch6.version}</version>
 		</dependency>
 	</dependencies>
 

@@ -26,8 +26,8 @@
 
         <dependency>
             <groupId>org.apache.flink</groupId>
-            <artifactId>flink-connector-elasticsearch6_${scala.binary.version}</artifactId>
-            <version>${flink.version}</version>
+            <artifactId>flink-connector-elasticsearch6</artifactId>
+            <version>${flink-connector-elasticsearch6.version}</version>
         </dependency>
     </dependencies>
 

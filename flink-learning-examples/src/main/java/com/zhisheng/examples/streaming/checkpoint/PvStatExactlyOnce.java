@@ -17,7 +17,7 @@ import org.apache.flink.streaming.api.environment.CheckpointConfig;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
-import scala.Tuple2;
+import org.apache.flink.api.java.tuple.Tuple2;
 
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;

@@ -8,7 +8,7 @@ import org.apache.flink.metrics.MetricConfig;
 /**
  * Config options for the {@link KafkaReporter}.
  */
-@Documentation.SuffixOption
+@Documentation.SuffixOption(value = "metrics.reporter.<reporter_name>.")
 public class KafkaReporterOptions {
 
 	//https://gjtmaster.com/2018/09/03/kafka%E7%94%9F%E4%BA%A7%E8%80%85Producer%E5%8F%82%E6%95%B0%E8%AE%BE%E7%BD%AE%E5%8F%8A%E8%B0%83%E4%BC%98/

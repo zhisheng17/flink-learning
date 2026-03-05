@@ -28,7 +28,7 @@ import org.apache.flink.configuration.description.TextElement;
 /**
  * Config options for the {@link PrometheusPushGatewayReporter}.
  */
-@Documentation.SuffixOption
+@Documentation.SuffixOption(value = "metrics.reporter.<reporter_name>.")
 public class PrometheusPushGatewayReporterOptions {
 
 	public static final ConfigOption<String> HOST = ConfigOptions

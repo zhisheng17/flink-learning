@@ -26,8 +26,6 @@ public class StreamWindowSQLExample {
         // set up execution environment
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
         EnvironmentSettings blinkStreamSettings = EnvironmentSettings.newInstance()
-                .useBlinkPlanner()
-                .inStreamingMode()
                 .build();
         StreamTableEnvironment tEnv = StreamTableEnvironment.create(env, blinkStreamSettings);
 
@@ -53,7 +51,7 @@ public class StreamWindowSQLExample {
                 "  'connector.path' = '" + path + "',\n" +
                 "  'format.type' = 'csv'\n" +
                 ")";
-        tEnv.sqlUpdate(ddl);
+        tEnv.executeSql(ddl);
 
         // run a SQL query on the table and retrieve the result as a new Table
         String query = "SELECT\n" +
