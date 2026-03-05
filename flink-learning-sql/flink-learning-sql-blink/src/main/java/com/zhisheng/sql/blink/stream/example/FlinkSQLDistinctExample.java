@@ -46,5 +46,6 @@ public class FlinkSQLDistinctExample {
         Table distinctTable = blinkStreamTableEnv.sqlQuery(distinctSql);
         blinkStreamTableEnv.toRetractStream(distinctTable, Row.class).print("==");
 
+        blinkStreamEnv.execute("Blink Stream SQL count/distinct demo");
     }
 }

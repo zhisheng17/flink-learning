@@ -56,7 +56,7 @@ public class SQLExampleKafkaData2ES {
         System.out.println(ddlSink);
         blinkStreamTableEnv.executeSql(ddlSource);
         blinkStreamTableEnv.executeSql(ddlSink);
-        blinkStreamTableEnv.executeSql(sql);
+        blinkStreamTableEnv.executeSql(sql).await();
 
     }
 }

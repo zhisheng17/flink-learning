@@ -44,7 +44,7 @@ public class SQLExampleData2PG {
 
         blinkStreamTableEnv.executeSql(ddlSource);
         blinkStreamTableEnv.executeSql(ddlSink);
-        blinkStreamTableEnv.executeSql(sql);
+        blinkStreamTableEnv.executeSql(sql).await();
 
     }
 }
