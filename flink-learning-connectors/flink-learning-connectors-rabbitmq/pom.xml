@@ -14,8 +14,8 @@
     <dependencies>
         <dependency>
             <groupId>org.apache.flink</groupId>
-            <artifactId>flink-connector-rabbitmq_${scala.binary.version}</artifactId>
-            <version>${flink.version}</version>
+            <artifactId>flink-connector-rabbitmq</artifactId>
+            <version>${flink-connector-rabbitmq.version}</version>
         </dependency>
     </dependencies>
 

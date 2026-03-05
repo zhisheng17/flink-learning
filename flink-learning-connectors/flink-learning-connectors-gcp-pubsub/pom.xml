@@ -14,8 +14,8 @@
     <dependencies>
         <dependency>
             <groupId>org.apache.flink</groupId>
-            <artifactId>flink-connector-gcp-pubsub_${scala.binary.version}</artifactId>
-            <version>${flink.version}</version>
+            <artifactId>flink-connector-gcp-pubsub</artifactId>
+            <version>${flink-connector-gcp-pubsub.version}</version>
         </dependency>
     </dependencies>
 
