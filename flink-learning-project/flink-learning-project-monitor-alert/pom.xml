@@ -11,5 +11,12 @@
 
 	<artifactId>flink-learning-project-monitor-alert</artifactId>
 
+	<dependencies>
+		<dependency>
+			<groupId>com.zhisheng.flink</groupId>
+			<artifactId>flink-learning-project-common</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+	</dependencies>
 
 </project>
