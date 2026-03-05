@@ -12,7 +12,5 @@
     <artifactId>flink-learning-paimon</artifactId>
 
 
-        </dependency>
-    </dependencies>
 
 </project>
