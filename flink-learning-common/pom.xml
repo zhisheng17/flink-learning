@@ -31,7 +31,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.4</version>
+            <version>1.18.36</version>
         </dependency>
         <dependency>
             <groupId>com.jayway.jsonpath</groupId>

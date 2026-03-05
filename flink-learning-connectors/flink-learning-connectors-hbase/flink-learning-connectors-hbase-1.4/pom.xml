@@ -15,7 +15,8 @@
     <dependencies>
         <dependency>
             <groupId>org.apache.flink</groupId>
-            <artifactId>flink-connector-hbase-1.4</artifactId>
+            <!-- HBase 1.4 connector was discontinued. Using HBase 2.2 connector instead. -->
+            <artifactId>flink-connector-hbase-2.2</artifactId>
             <version>${flink-connector-hbase.version}</version>
         </dependency>
     </dependencies>

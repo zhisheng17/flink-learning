@@ -16,8 +16,6 @@ public class SQLExampleKafkaData2HBase {
         StreamExecutionEnvironment blinkStreamEnv = StreamExecutionEnvironment.getExecutionEnvironment();
         blinkStreamEnv.setParallelism(1);
         EnvironmentSettings blinkStreamSettings = EnvironmentSettings.newInstance()
-                .useBlinkPlanner()
-                .inStreamingMode()
                 .build();
         StreamTableEnvironment blinkStreamTableEnv = StreamTableEnvironment.create(blinkStreamEnv, blinkStreamSettings);
 
@@ -56,10 +54,9 @@ public class SQLExampleKafkaData2HBase {
 
         System.out.println(ddlSource);
         System.out.println(ddlSink);
-        blinkStreamTableEnv.sqlUpdate(ddlSource);
-        blinkStreamTableEnv.sqlUpdate(ddlSink);
-        blinkStreamTableEnv.sqlUpdate(sql);
+        blinkStreamTableEnv.executeSql(ddlSource);
+        blinkStreamTableEnv.executeSql(ddlSink);
+        blinkStreamTableEnv.executeSql(sql);
 
-        blinkStreamTableEnv.execute("Blink Stream SQL Job5 —— read data from kafka，sink to HBase");
     }
 }

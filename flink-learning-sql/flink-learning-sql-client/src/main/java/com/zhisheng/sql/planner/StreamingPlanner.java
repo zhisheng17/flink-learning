@@ -30,7 +30,7 @@ public class StreamingPlanner extends Planner {
     @Override
     public void run() throws IOException, ExecutionException, InterruptedException {
         StreamExecutionEnvironment bsEnv = StreamExecutionEnvironment.getExecutionEnvironment();
-        EnvironmentSettings settings = EnvironmentSettings.newInstance().inStreamingMode().build();
+        EnvironmentSettings settings = EnvironmentSettings.newInstance().build();
         this.tEnv = StreamTableEnvironment.create(bsEnv, settings);
         this.statementSet = tEnv.createStatementSet();
         List<String> sql = Files.readAllLines(Paths.get(workSpace + "/" + sqlFilePath));
