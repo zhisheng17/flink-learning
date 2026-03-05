@@ -15,7 +15,7 @@
         <module>flink-learning-datalake-hudi</module>
         <module>flink-learning-datalake-iceberg</module>
         <module>flink-learning-datalake-deltalake</module>
-        <module>flink-learning-table-store</module>
+        <module>flink-learning-paimon</module>
     </modules>
 
     <properties>
@@ -24,7 +24,7 @@
         <hudi.version>1.0.1</hudi.version>
         <iceberg.version>1.7.1</iceberg.version>
         <delta.version>3.2.1</delta.version>
-        <paimon.version>1.0.0</paimon.version>
+        <paimon.version>1.3.1</paimon.version>
     </properties>
 
 </project>

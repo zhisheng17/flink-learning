@@ -1,8 +1,10 @@
-### Flink-learning-table-store
+### Flink-learning-paimon
 
-+ [Flink Table Store](https://nightlies.apache.org/flink/flink-table-store-docs-release-0.2/docs/try-table-store/quick-start/)
+> Flink Table Store 已更名为 [Apache Paimon](https://paimon.apache.org/)
 
-+ [GitHub](https://github.com/apache/flink-table-store)
++ [Apache Paimon](https://paimon.apache.org/)
+
++ [GitHub](https://github.com/apache/paimon)
 
 + [Flink Table Store 是什么？](https://www.yuque.com/lijinsongzhixin/qxwonh/iktr4c)
 
