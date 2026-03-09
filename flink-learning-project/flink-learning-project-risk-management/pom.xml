@@ -11,5 +11,18 @@
 
 	<artifactId>flink-learning-project-risk-management</artifactId>
 
+	<dependencies>
+		<dependency>
+			<groupId>com.zhisheng.flink</groupId>
+			<artifactId>flink-learning-project-common</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<!-- Flink CEP 依赖，用于复杂事件处理 -->
+		<dependency>
+			<groupId>org.apache.flink</groupId>
+			<artifactId>flink-cep</artifactId>
+			<version>${flink.version}</version>
+		</dependency>
+	</dependencies>
 
 </project>
