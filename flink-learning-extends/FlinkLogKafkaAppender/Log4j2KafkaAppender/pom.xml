@@ -12,7 +12,7 @@
     <artifactId>Log4j2KafkaAppender</artifactId>
 
     <properties>
-        <log4j.version>2.25.3</log4j.version>
+        <log4j.version>2.25.4</log4j.version>
         <flink.shaded.version>19.0</flink.shaded.version>
         <jackson.version>2.15.3</jackson.version>
     </properties>
