@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>flink-learning-project-common</artifactId>
-
+    <!-- git使用2：主分支被修改 -->
     <dependencies>
         <dependency>
             <groupId>com.zhisheng.flink</groupId>
